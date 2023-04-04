@@ -188,6 +188,7 @@ footer ul li a {
 
 /* Contact section */
 .contact {
+    background-image: url("Images/header_banner-6.jpg");
     max-width: 800px;
     margin: 0 auto;
     padding: 40px;
