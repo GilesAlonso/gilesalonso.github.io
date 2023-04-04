@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect} from "react";
 import Preloader from "../src/components/Pre";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home/Home";
@@ -24,28 +24,6 @@ function App() {
   
   
   
-    const tawkMessengerRef = useRef();
-
-    const handleMinimize () => {
-        tawkMessengerRef.current.minimize();
-    };
-  
-      return (
-        <div className="App">
-            <button onClick={handleMinimize}> Minimize the Chat </button>
-
-            <TawkMessengerReact
-                propertyId="property_id"
-                widgetId="default"
-                useRef={tawkMessengerRef}/>
-        </div>
-    );
-  
-  
-
-
-  
-  
   
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -69,30 +47,7 @@ function App() {
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
         <Footer />
-            
-            
-            
-         
-                const onLoad = () => {
-        console.log('onLoad works!');
-    };
-            
-                return (
-        <div className="App">
-            <TawkMessengerReact
-                propertyId="property_id"
-                widgetId="default"
-                onLoad={onLoad}/>
-        </div>
-    );
-            
-            
-            
-
-
-            
-            
-      </div>
+       </div>
     </Router>
   );
 }
