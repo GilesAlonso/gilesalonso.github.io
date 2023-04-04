@@ -72,12 +72,12 @@ function Home2() {
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
                 >
-                  <AiFillGithub />
+                  <AiFillMessage />
                 </a>
               </li>
               <li className="social-icons">
                 <a
-                  href="https://twitter.com/Soumyajit4419"
+                  href="https://tawk.to/chat/640884f031ebfa0fe7f16040/1gr0keive"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
