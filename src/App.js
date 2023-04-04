@@ -16,7 +16,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
+
 
 function App() {
   const [load, upadateLoad] = useState(true);
