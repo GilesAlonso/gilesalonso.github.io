@@ -72,7 +72,7 @@ function Home2() {
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
                 >
-                  <AiFillMessage />
+                  <aiFillGithub />
                 </a>
               </li>
               <li className="social-icons">
