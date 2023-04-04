@@ -16,7 +16,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
+
 
 function App() {
   const [load, upadateLoad] = useState(true);
@@ -42,14 +42,6 @@ function App() {
           <Route path="/resume" element={<Resume />} />
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
-
-
-            <TawkMessengerReact
-                propertyId="640884f031ebfa0fe7f16040"
-                widgetId="default"/>
-
-
-
         <Footer />
       </div>
     </Router>
