@@ -2,13 +2,13 @@ html {
   --section-background-color: linear-gradient(
     to bottom left,
     rgba(17, 16, 16, 0.582),
-    rgba(12, 8, 24, 0.904)
+    rgba(8, 8, 24, 0.904)
   );
 
   --image-gradient: linear-gradient(
     to bottom left,
     rgba(17, 16, 16, 0.678),
-    rgba(12, 10, 22, 0.863)
+    rgba(8, 8, 24, 0.904)
   );
 
   --imp-text-color: #009c3b;
@@ -281,17 +281,17 @@ button:focus {
 }
 
 .main-name {
-  color: #cd5ff8;
+  color: #63f85d;
 }
 
 .Typewriter__wrapper {
   font-size: 2.2em !important;
-  color: #be6adf !important;
+  color: #77e06c !important;
   font-weight: 600 !important;
 }
 .Typewriter__cursor {
   font-size: 2.4em !important;
-  color: #b562d6 !important;
+  color: #61d667 !important;
 }
 
 @media (max-width: 767px) {
@@ -383,7 +383,7 @@ button:focus {
 }
 
 .home-social-icons:hover {
-  color: #87209e;
+  color: #209d20;
   box-shadow: 0 0 5px #209d22;
   text-shadow: 0 0 2px #209d22;
 }
@@ -402,7 +402,7 @@ button:focus {
 /* Footer */
 /* --------- */
 .footer {
-  background-color: rgb(10, 4, 22);
+  background-color: rgb(8, 8, 22);
   bottom: 0 !important;
   padding-top: 10px !important;
   padding-bottom: 8px !important ;
