@@ -3,10 +3,10 @@ import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
 import landing from "../../Assets/Projects/landing.png";
-import emotion from "../../Assets/Projects/emotion.png";
+import editor from "../../Assets/Projects/codeEditor.png";
 import beesDashboard from "../../Assets/Projects/beesDashboard.png";
 import edgeFinderEURUSD from "../../Assets/Projects/edgeFinderEURUSD.png";
-import suicide from "../../Assets/Projects/suicide.png";
+import leaf from "../../Assets/Projects/leaf.png";
 import ledwellAuctions from "../../Assets/Projects/ledwellAuctions.png";
 
 function Projects() {
@@ -67,7 +67,7 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={suicide}
+              imgPath={leaf}
               isBlog={false}
               title=""
               description=""
@@ -78,7 +78,7 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={emotion}
+              imgPath={editor}
               isBlog={false}
               title=""
               description=""
