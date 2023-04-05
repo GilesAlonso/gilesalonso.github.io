@@ -58,7 +58,7 @@ function Projects() {
             <ProjectCard
               imgPath={leaf}
               isBlog={false}
-              title="Plant AI"
+              title="Landing Page Sample"
               description="GamaAcademy course project, landing page with email registration in LocalStorage, Original template obtained from https://www.digitaldesignjournal.com/, modified to meet the requirements. Random images fetched from the internet to complete the template."
               ghLink="https://github.com/GilesAlonso/PaginaSegunda"
               demoLink="https://random-aleatory-black-friday-site.netlify.app/"
