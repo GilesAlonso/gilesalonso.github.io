@@ -2,13 +2,8 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/avatar.svg";
 import Tilt from "react-parallax-tilt";
-import {
-  AiFillGithub,
-  AiOutlineTwitter,
-  AiFillInstagram,
-  AiFillMessage,
-} from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
+import { AiFillGithub, AiFillInstagram, AiFillMessage } from "react-icons/ai";
+import { FaLinkedinIn, FaDiscord } from "react-icons/fa";
 
 function Home2() {
   return (
@@ -20,37 +15,57 @@ function Home2() {
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
-              I fell in love with programming and I have at least learnt
-              something, I think… 🤷‍♂️
+              I'm a professional with a diverse background in dentistry,
+              orthodontics, and public health management.
               <br />
-              <br />I am fluent in classics like
+              <br />
+              Throughout my career, I've developed a{" "}
               <i>
-                <b className="purple"> Google Scripts, Javascript and Python. </b>
+                <b className="purple">strong </b>
               </i>
-              <br />
-              <br />
-              My field of Interest's are building new &nbsp;
+              interest in
               <i>
-                <b className="purple">Web Technologies and Products </b> and
-                also in areas related to{" "}
-                <b className="purple">
-                  Deep Learning and Natural Launguage Processing.
-                </b>
-              </i>
+                <b className="purple"> data analysis</b> and{" "}
+                <b className="purple">management, </b>
+              </i>{" "}
+              <br />
+              which has led me to explore different tools and technologies to
+              <b className="purple"> capture, comprehend,</b> and{" "}
+              <b className="purple">transform </b>information effectively.
               <br />
               <br />
-              Whenever possible, I also apply my passion for developing solutions
-              with <b className="purple">Google Scripts</b> and
+              I'm proficient in a variety of{" "}
               <i>
-                <b className="purple">
-                  {" "}
-                  NoCode platforms
-                </b>
+                <b className="purple">data-related tools and languages,</b>{" "}
               </i>
-              &nbsp; like
+              including &nbsp;Google Sheets, Google Data Studio, JavaScript,
+              Appsheet, HTML, CSS, Python, Excel, and PowerBI.
+              <br />
+              These skills have allowed me to gain{" "}
               <i>
-                <b className="purple"> AppSheet and Google Data Studio</b>
-              </i>
+                <b className="purple">valuable insights</b>
+              </i>{" "}
+              into complex data sets, streamline processes, and{" "}
+              <b className="purple">make informed decisions</b> that benefit
+              both <b className="purple">individuals and organizations.</b>{" "}
+              <br />
+              <br />
+              Overall, I'm passionate about leveraging data to{" "}
+              <b className="purple">solve real-world problems</b>, and I'm
+              constantly seeking new ways to expand my knowledge and skills in
+              this area.
+              <br />
+              <br />
+              I'm excited to see where this{" "}
+              <i>
+                <b className="purple">journey</b>
+              </i>{" "}
+              takes me and how I can use my expertise to make a{" "}
+              <b className="purple">positive impact</b> on the{" "}
+              <i>
+                <b className="purple">world</b>
+              </i>{" "}
+              around me.
             </p>
           </Col>
           <Col md={4} className="myAvtar">
@@ -104,6 +119,16 @@ function Home2() {
                   className="icon-colour home-social-icons"
                 >
                   <AiFillInstagram />
+                </a>
+              </li>
+              <li className="social-icons">
+                <a
+                  href="https://discord.com/users/882432288925814865"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="icon-colour home-social-icons"
+                >
+                  <FaDiscord />
                 </a>
               </li>
             </ul>
