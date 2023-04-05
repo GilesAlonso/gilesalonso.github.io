@@ -84,9 +84,9 @@ function NavBar() {
 
             <Nav.Item>
               <Nav.Link
-                as={Link}
-                to="https://resume.io/r/gwekWX6T3"
-                onClick={() => updateExpanded(false)}
+                href="https://resume.io/r/gwekWX6T3"
+                target="_blank"
+                rel="noreferrer"
               >
                 <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
               </Nav.Link>
