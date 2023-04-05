@@ -2,12 +2,12 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
-import leaf from "../../Assets/Projects/leaf.png";
+import landing from "../../Assets/Projects/landing.png";
 import emotion from "../../Assets/Projects/emotion.png";
-import editor from "../../Assets/Projects/codeEditor.png";
-import chatify from "../../Assets/Projects/chatify.png";
+import beesDashboard from "../../Assets/Projects/beesDashboard.png";
+import edgeFinderEURUSD from "../../Assets/Projects/edgeFinderEURUSD.png";
 import suicide from "../../Assets/Projects/suicide.png";
-import bitsOfCode from "../../Assets/Projects/blog.png";
+import ledwellAuctions from "../../Assets/Projects/ledwellAuctions.png";
 
 function Projects() {
   return (
@@ -23,7 +23,7 @@ function Projects() {
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={chatify}
+              imgPath={edgeFinderEURUSD}
               isBlog={true}
               title="THE EDGEFINDER"
               description="Revolutionary Product by Nick Syiek and Frank Cabibi: Discover the incredible solution that has taken the market by storm! Combining the innovative ideas and goals of two brilliant minds, this solid product has become one of the flagship offerings of Nick's company, A1Trading.com. Don't miss out on the cutting-edge technology that is changing the game. Check it out now!"
@@ -34,7 +34,7 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={bitsOfCode}
+              imgPath={ledwellAuctions}
               isBlog={true}
               title="Auction schedule & planner"
               description="Revamped Auction Management: Simplify your Auction schedule and location management with an Appsheet built on Google sheets! This nifty app features advanced functions like residence mapping and categorization, plus a .kml file showcasing how the 2014 flood impacted the area's house pricing. Say goodbye to manual organization and hello to seamless auction coordination!"
@@ -45,7 +45,7 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={editor}
+              imgPath={beesDashboard}
               isBlog={false}
               title="BEES VIDEO DASHBOARD"
               description="Elevate Your Studio Production with a Consolidated Dashboard: No more juggling spreadsheets and struggling to keep track of data! Paulo's company has found the ultimate solution to monitor production and release across all their global studios. Thanks to advanced data organization and easy-to-use Google Sheets integration, this dashboard presents all the information in a single place. Plus, the sleek appearance has been expertly adjusted by Paulo and his team for maximum visual impact. Say goodbye to clutter and hello to streamlined productivity!"
@@ -56,7 +56,7 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={leaf}
+              imgPath={landing}
               isBlog={false}
               title="Landing Page Sample"
               description="GamaAcademy course project, landing page with email registration in LocalStorage, Original template obtained from https://www.digitaldesignjournal.com/, modified to meet the requirements. Random images fetched from the internet to complete the template."
