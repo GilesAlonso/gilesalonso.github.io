@@ -7,11 +7,15 @@
 }
 
 .google-translate {
-    background:black;
-    float: right;
-    color: #FDB44B;
+  position: absolute;
+  top: 0px;
+  right: 0;
     
 }
+
+.goog-te-banner-frame{
+ display:none !important;
+ }
 
 .resume-contents {
     min-height: 100vh;
