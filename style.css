@@ -8,14 +8,13 @@
 
 .google-translate {
   position: absolute;
-  top: 0px;
+  top: -30px;
   right: 0;
-    
 }
 
 .goog-te-banner-frame{
  display:none !important;
- }
+}
 
 .resume-contents {
     min-height: 100vh;
