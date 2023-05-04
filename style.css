@@ -6,6 +6,13 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.google-translate {
+    background:black;
+    float:right;
+    color: #FDB44B;
+    
+}
+
 .resume-contents {
     min-height: 100vh;
     width: 80%;
