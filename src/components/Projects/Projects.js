@@ -46,10 +46,10 @@ function Projects() {
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={beesDashboard}
-              isBlog={false}
+              isBlog={true}
               title="BEES VIDEO DASHBOARD"
               description="Elevate Your Studio Production with a Consolidated Dashboard: No more juggling spreadsheets and struggling to keep track of data! Paulo's company has found the ultimate solution to monitor production and release across all their global studios. Thanks to advanced data organization and easy-to-use Google Sheets integration, this dashboard presents all the information in a single place. Plus, the sleek appearance has been expertly adjusted by Paulo and his team for maximum visual impact. Say goodbye to clutter and hello to streamlined productivity!"
-             // ghLink="https://github.com/soumyajit4419/Editor.io"
+              ghLink=""
              // demoLink="https://editor.soumya-jit.tech/"              
             />
           </Col>
