@@ -4,7 +4,6 @@ import {
   DiJavascript1,
   DiReact,
   DiNodejs,
-  DiMongodb,
   DiPython,
   DiGit,
 } from "react-icons/di";
@@ -13,6 +12,7 @@ import {
   SiNextdotjs,
   SiGooglesheets,
   SiLooker,
+  SiGoogleappsscript,
 } from "react-icons/si";
 
 function Techstack() {
@@ -31,7 +31,7 @@ function Techstack() {
         <DiReact />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <DiMongodb />
+        <SiGoogleappsscript />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
         <SiNextdotjs />
