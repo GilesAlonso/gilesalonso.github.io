@@ -6,13 +6,13 @@ import {
   DiNodejs,
   DiPython,
   DiGit,
+  DiMongodb,
 } from "react-icons/di";
 import {
   SiFirebase,
   SiNextdotjs,
   SiGooglesheets,
   SiLooker,
-  SiGoogleappsscript,
 } from "react-icons/si";
 
 function Techstack() {
@@ -31,7 +31,7 @@ function Techstack() {
         <DiReact />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <SiGoogleappsscript />
+        <DiMongodb />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
         <SiNextdotjs />
