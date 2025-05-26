@@ -1,32 +1,10 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giles Alonso CV</title>
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5788763487082575"
-     crossorigin="anonymous"></script>
-
-    
-    <!-- Google font  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&display=swap"
-        rel="stylesheet">
-
-    <!-- font-awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
-
-
-
-
-
+    <title>SolveThis - Automation, AI, and Scripts</title>
+    <script src="https://cdn.tailwindcss.com"></script> <!-- TAILWIND CDN -->
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
         var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
@@ -40,237 +18,770 @@
         })();
     </script>
     <!--End of Tawk.to Script-->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        html {
+            scroll-behavior: smooth;
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
 
+        /* Header */
+        .header {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
 
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
 
-</head>
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2d5a27;
+        }
 
-<body style="background-color:black;">
-    
-    
-    
-    
-    <div class="google-translate" id="google_translate_element"></div>
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links a.active {
+            color: #28a745;
+            font-weight: 600;
+        }
+
+        .lang-toggle {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #218838;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2d5a27 0%, #28a745 100%);
+            color: white;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden; 
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: #fd7e14;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #e8681a;
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 350px; 
+        }
+
+        .circle-graphic {
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            position: relative; 
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .animated-icon-box {
+            position: absolute;
+            background: white;
+            border-radius: 8px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12); 
+            animation: float 6s ease-in-out infinite;
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            width: 55px; 
+            height: 55px; 
+        }
+        
+        .hero-svg-icon {
+            stroke: #2d5a27; 
+        }
+
+        .icon-box-1 {
+            top: 15%;    
+            left: -5%;   
+            animation-delay: -1s; 
+        }
+
+        .icon-box-2 {
+            bottom: 15%; 
+            right: -5%;  
+            animation-delay: -3s; 
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); } 
+        }
+        
+        /* General Section Styling */
+        section[id] {
+           /* scroll-margin-top can be used as an alternative for scroll offset */
+        }
+
+        .problem-section {
+            background: white;
+            padding: 4rem 2rem;
+        }
+        /* ... (Rest of your existing CSS for .problem-section, .services, etc. remains the same) ... */
+        .problem-container {
+            max-width: 800px;
+            margin: 0 auto;
+            border-left: 4px solid #28a745;
+            padding-left: 2rem;
+        }
+        .problem-section h2 { font-size: 2rem; margin-bottom: 1rem; color: #333; }
+        .problem-section p { font-size: 1.1rem; margin-bottom: 1rem; color: #666; }
+        .solution-text { color: #28a745; font-weight: bold; font-size: 1.2rem; }
+        .services { padding: 4rem 2rem; background: #f8f9fa; }
+        .services-container { max-width: 1200px; margin: 0 auto; }
+        .services h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #333; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .service-card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+        .service-icon { width: 60px; height: 60px; margin: 0 auto 1rem; background: #28a745; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; }
+        .service-card h3 { font-size: 1.3rem; margin-bottom: 1rem; color: #333; }
+        .service-card p { color: #666; font-size: 0.95rem; }
+        .hire-me { padding: 4rem 2rem; background: white; }
+        .hire-container { max-width: 1200px; margin: 0 auto; text-align: center; }
+        .hire-me h2 { font-size: 2.5rem; margin-bottom: 3rem; color: #333; }
+        .profile-links { display: flex; justify-content: center; gap: 3rem; margin-bottom: 2rem; }
+        .profile-card { display: flex; align-items: center; gap: 1rem; padding: 1rem 2rem; background: #f8f9fa; border-radius: 10px; transition: background 0.3s; text-decoration: none; color: #333; }
+        .profile-card:hover { background: #e9ecef; }
+        .profile-icon { width: 40px; height: 40px; background: #28a745; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
+        .contact-direct { background: #28a745; color: white; border: none; padding: 1rem 2rem; border-radius: 8px; font-size: 1.1rem; cursor: pointer; transition: background 0.3s; text-decoration: none; display: inline-block; }
+        .contact-direct:hover { background: #218838; }
+        .contact-section { padding: 4rem 2rem; background: #f8f9fa; }
+        .contact-container { max-width: 600px; margin: 0 auto; }
+        .contact-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #333; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: #333; font-weight: 500; }
+        .form-group input, .form-group textarea { width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #28a745; }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .submit-btn { background: #28a745; color: white; border: none; padding: 1rem 2rem; border-radius: 8px; font-size: 1.1rem; cursor: pointer; transition: background 0.3s; width: 100%; }
+        .submit-btn:hover { background: #218838; }
+        .email-note { text-align: center; margin-top: 2rem; color: #666; }
+        .email-link { color: #28a745; text-decoration: none; }
+        .email-link:hover { text-decoration: underline; }
+        .footer { background: #2d5a27; color: white; padding: 2rem 0; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+        .footer-links { display: flex; gap: 2rem; }
+        .footer-links a { color: white; text-decoration: none; transition: opacity 0.3s; }
+        .footer-links a:hover { opacity: 0.8; }
+        .copyright { font-size: 0.9rem; opacity: 0.8; }
+        @media (max-width: 768px) {
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .hero-visual { margin-top: 2rem; grid-row: 1; }
+            .hero-content { grid-row: 2; }
+            .hero-content h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .profile-links { flex-direction: column; align-items: center; }
+            .footer-container { flex-direction: column; gap: 1rem; }
+        }
+        .message { padding: 1rem; border-radius: 8px; margin-bottom: 1rem; display: none; }
+        .message.success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .message.error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+
+        /* === STYLES FOR THE ABOUT MODAL (NEW) === */
+.about-modal {
+    display: none; 
+    position: fixed;
+    z-index: 2000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6); 
+    overflow: hidden; /* Prevent scrollbars on the modal backdrop */
+    justify-content: center; /* Ensure flexbox centering */
+    align-items: center; /* Ensure flexbox centering */
 }
-</script>
 
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    
-    
-    
-    
-    
-    <main class="resume-contents">
-        <section class="left-section">
+.about-modal-content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 100%;
+    height: 100vh; /* Use viewport height for centering */
+    padding: 20px;
+    box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+    overflow-y: auto; /* Allow scrolling inside the wrapper if content overflows */
+}
 
+.about-modal-inner-content {
+    background-color: transparent;
+    border-radius: 10px; 
+    position: relative;
+    max-width: 1000px;
+    width: 90%;
+}
 
-            <section class="left-section-contents">
-                <div class="profile">
-                    <img class="profile-image" src="Images/Avatar.png" alt="Profile image">
-                    <p class="name">Giles Alonso</p>
-                    <p class="profession">Health planner, Data scientist and Orthodontist</p>
+#aboutModal section {
+    /* Tailwind classes like 'bg-white', 'rounded-lg', 'shadow-lg' apply from HTML */
+}
 
+.about-modal-close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 1;
+    z-index: 2010;
+}
+
+.about-modal-close:hover,
+.about-modal-close:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">SolveThis</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home" data-translate="nav-home">Home</a></li>
+                    <li><a href="#services" data-translate="nav-services">Services</a></li>
+                    <li><a href="#portfolio" data-translate="nav-portfolio">Portfolio</a></li>
+                    <li><a href="#about" data-translate="nav-about">About</a></li>
+                    <li><a href="#contact" data-translate="nav-contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="lang-toggle" onclick="toggleLanguage()">EN</button>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 data-translate="hero-title">Automation, AI, and scripts—solved.</h1>
+                <p data-translate="hero-subtitle">I'm a freelance developer who turns ideas, inefficiencies, and "how do I even...?" into streamlined, scalable solutions.</p>
+                <button class="cta-button" onclick="scrollToContact(event)" data-translate="hero-cta">Discuss your project</button>
+            </div>
+            <div class="hero-visual">
+                <div class="circle-graphic">
+                    <div class="animated-icon-box icon-box-1">
+                        <svg class="hero-svg-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="animated-icon-box icon-box-2">
+                        <svg class="hero-svg-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                    </div>
                 </div>
-                <div class="contact-info">
-                    <p class="left-title">Contact</p>
-                    <ul>
-                        <li><i class="fa fa-phone"></i><a
-                                href="https://api.whatsapp.com/send?phone=+5527999265750&text=Olá">+55 27 99926-5750<a>
-                        </li>
-                        <li><i class="fa fa-envelope"></i><a
-                                href="mailto:giles.g.alonso@gmail.com">giles.g.alonso@gmail.com</a></li>
-                        <li><i class="fa fa-globe"></i><a href="https://giles.vercel.app/">Portifolio</a></li>
-                        <li><i class="fa fa-github"></i><a href="https://github.com/gilesalonso">Github</a></li>
-                    </ul>
-                </div>
-                <div class="skills">
-                    <p class="left-title">Skills</p>
-                    <ul>
-                        <li>
-                            <p>HTML, CSS, Git e GitHub</p>
-                        </li>
-                        <li>
-                            <p>Javascript & Python</p>
-                        </li>
-                        <li>
-                            <p>Google Sheets & Looker studio</p>
-                        </li>
+            </div>
+        </div>
+    </section>
 
+    <section class="problem-section">
+        <!-- ... problem section content ... -->
+         <div class="problem-container">
+            <h2 data-translate="problem-title">Have a process that wastes your time?</h2>
+            <p data-translate="problem-desc1">A spreadsheet that needs automation?</p>
+            <p data-translate="problem-desc2">A workflow begging for AI?</p>
+            <p class="solution-text" data-translate="solution-text">You bring the problem. I'll Solve It.</p>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <!-- ... services section content ... -->
+         <div class="services-container">
+            <h2 data-translate="services-title">Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M13,2.05V5.08C16.39,5.57 19,8.47 19,12C19,12.9 18.82,13.75 18.5,14.54L21.12,16.07C21.68,14.83 22,13.45 22,12C22,6.82 18.05,2.55 13,2.05M12,19A7,7 0 0,1 5,12C5,8.47 7.61,5.57 11,5.08V2.05C5.94,2.55 2,6.81 2,12A10,10 0 0,0 12,22C15.3,22 18.23,20.39 20.07,17.93L17.45,16.4C15.17,18.39 13.15,19 12,19Z"/></svg></div>
+                    <h3 data-translate="service1-title">Process Automation</h3>
+                    <p data-translate="service1-desc">Transform manual tasks into efficient automated workflows</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M2,2H4V20H2V2M22,2V4H4V2H22M4,6H16V8H4V6M4,10H12V12H4V10M4,14H16V16H4V14M18,14V20H20V14H18M18,10V12H22V10H18Z"/></svg></div>
+                    <h3 data-translate="service2-title">Data Visualization</h3>
+                    <p data-translate="service2-desc">Convert complex data into clear, actionable insights</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/></svg></div>
+                    <h3 data-translate="service3-title">Custom App Development</h3>
+                    <p data-translate="service3-desc">Build tailored applications that solve your specific challenges</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17,12C17,14.42 15.28,16.44 13,16.9V21H11V16.9C8.72,16.44 7,14.42 7,12C7,9.58 8.72,7.56 11,7.1V2H13V7.1C15.28,7.56 17,9.58 17,12M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/></svg></div>
+                    <h3 data-translate="service4-title">System Integration</h3>
+                    <p data-translate="service4-desc">Connect disparate systems for seamless data flow</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="hire-me">
+        <!-- ... portfolio section content ... -->
+         <div class="hire-container">
+            <h2 data-translate="hire-title">Hire Me</h2>
+            <div class="profile-links">
+                <a href="https://www.fiverr.com/gilesgrollaalon?public_mode=true" target="_blank" class="profile-card">
+                    <div class="profile-icon">F</div>
+                    <span data-translate="fiverr-profile">View my Fiverr profile</span>
+                </a>
+                <a href="https://www.upwork.com/freelancers/~013c8c29302f14f74b" target="_blank" class="profile-card">
+                    <div class="profile-icon">U</div>
+                    <span data-translate="upwork-profile">View my Upwork profile</span>
+                </a>
+            </div>
+            <a href="#contact" class="contact-direct" data-translate="contact-directly">Contact me directly</a>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <!-- ... contact section content ... -->
+         <div class="contact-container">
+            <h2 data-translate="contact-title">Let's Work Together</h2>
+            <div id="form-message" class="message"></div>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name" data-translate="form-name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" data-translate="form-email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message" data-translate="form-message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn" data-translate="form-submit">Send Message</button>
+            </form>
+            <div class="email-note">
+                <p data-translate="email-note">You can also contact me directly via email:</p>
+                <a href="mailto:giles.g.alonso@gmail.com" class="email-link">giles.g.alonso@gmail.com</a>
+            </div>
+        </div>
+    </section>
+
+<!-- === ABOUT ME MODAL (NEW) === -->
+<div id="aboutModal" class="about-modal">
+    <div class="about-modal-content-wrapper">
+        <div class="about-modal-inner-content">
+            <span class="about-modal-close" onclick="closeAboutModal()">×</span>
+            <section class="py-10 px-4 md:px-8 bg-white rounded-lg shadow-xl">
+                <div class="max-w-5xl mx-auto text-center">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6" data-translate="about-title">About Me</h2>
+                    <p class="text-lg text-gray-700 mb-8" data-translate="about-subtitle">Turning complexity into clarity with automation, AI, and scripts.</p>
+                    <div class="flex flex-col md:flex-row items-start md:items-stretch justify-center gap-8 text-left">
+                        <div class="bg-green-700 text-white rounded-lg p-8 shadow-lg md:flex-1">
+                            <h3 class="text-2xl font-semibold mb-4" data-translate="about-card1-title">Hey, I’m Giles!</h3>
+                            <p class="text-base" data-translate="about-card1-desc">
+                                I’m a freelance developer with a passion for solving problems through technology. With years of experience on platforms like Fiverr and Upwork, I specialize in process automation, data visualization, custom app development, and system integration. My mission? To streamline workflows, eliminate inefficiencies, and make your life easier—whether it’s automating a tedious task or building a tailored app that fits your needs perfectly.
+                            </p>
+                        </div>
+                        <div class="bg-gray-50 border border-gray-200 rounded-lg p-8 shadow-lg md:flex-1">
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-4" data-translate="about-card2-title">Why Work With Me?</h3>
+                            <p class="text-base text-gray-700" data-translate="about-card2-desc">
+                                I believe in the power of technology to transform how we work. From creating seamless workflows to visualizing data in meaningful ways, I bring creativity and precision to every project. My clients on Fiverr and Upwork trust me to deliver scalable, efficient solutions—and I’d love to do the same for you. Let’s solve your challenges together!
+                            </p>
+                            <a href="#contact" class="inline-block mt-6 bg-orange-500 text-white font-semibold py-2 px-6 rounded-full hover:bg-orange-600 transition" data-translate="about-cta" onclick="closeAboutModalAndScrollToContact(event)">Let’s Collaborate</a>
+                        </div>
+                    </div>
                 </div>
             </section>
-        </section>
-
-        <section class="right-section">
-            <div class="right-section-contents">
-                <section class="about gap">
-                    <div class="right-title">About me</div>
-                    <p class="about-me-contents">
-                        Hi there, I'm Giles.<br>
-                        <br> I am a dentist specializing in orthodontics, with a remarkable involvement in
-                         public health management since 2013. My career is driven by a deep passion for
-                         integrating technology into my work and continuously staying abreast of cutting-edge
-                         advancements in the field.<br>
-                        
-                        <br> Presently, I am actively leading an impactful initiative that has the potential
-                         to revolutionize the allocation and management of federal health resources in the
-                         State of Espirito Santo. Spearheading the development of an innovative app, my goal 
-                         is to create a seamless, transparent, and expedited process for the distribution and 
-                         oversight of these vital resources. By leveraging state-of-the-art technology, this app 
-                         will significantly simplify and enhance the entire pactuation and management system.<br>
-
-                        <br> With my extensive experience in public health management and unwavering enthusiasm
-                         for technological advancements, I am committed to driving positive change in the
-                         healthcare sector. Through this project, I aim to make a tangible and lasting impact
-                         on the accessibility and efficiency of healthcare services in Espirito Santo.
-                         <br>
-
-                    </p>
-
-                </section>
-
-                <section class="experience gap">
-                    <div class="right-title">EXPERIENCE</div>
-                    <div class="experience-contents">
-                        <div class="exp-left">
-                            <p class="exp-company-name">SESA-ES</p>
-                            <p class="exp-time-period">2013-Present</p>
-                        </div>
-                        <div class="exp-right">
-                            <p class="exp-position">Specialist in Management, Regulation and Health Surveillance</p>
-                            <p class="exp-desc">
-                                As a manager in state administration, I have successfully improved the compatibility
-                                 between health programming and access regulation in the Central Health Region,
-                                  leading to a more streamlined agreement between managers of the Central and North
-                                   health regions of Espírito Santo. Additionally, I spearheaded the implementation
-                                    of the "Portal de Filas" project, which ultimately became the "Portal SUS" in 2018.
-                                    <br>
-                            </p>
-                        </div>
+        </div>
+    </div>
+</div>
+<!-- === END OF ABOUT ME MODAL === -->
 
 
-                        <div class="exp-left">
-                            <p class="exp-company-name"></p>
-                            <p class="exp-time-period">2006-2015</p>
-                        </div>
-                        <div class="exp-right">
-                            <p class="exp-position">Dental Surgeon - Orthodontist</p>
-                            <p class="exp-desc">
-                                Experienced orthodontist with a passion for providing excellent patient care: With over 9 years of clinical experience as a general dentist and orthodontist in both public service and private practice, I have a proven track record of delivering outstanding results to my patients.
-                            </p>
-                        </div>
-
-
-
-
-
-
-
-
-
-                    </div>
-
-
-
-
-                </section>
-
-
-
-
-                <!-- fim experiencia -->
-                <!-- formação academica-->
-                <section class="education gap">
-                    <div class="right-title">ACADEMIC EDUCATION</div>
-                    
-                    <div class="education-contents">
-                        <div class="education-left">
-                            <p class="education-school-name">FIOCRUZ</p>
-                            <p class="educationp-time-period">2014-2015</p>
-                        </div>
-                        <div class="education-right">
-                            <p class="education-subject">Health Care Network Management</p>
-                            <p class="education-desc">
-                                Specialization in Health Care Network Management at Fundação Oswaldo Cruz, FIOCRUZ, Brazil
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="education-contents">
-                        <div class="education-left">
-                            <p class="education-school-name">UNICSUL</p>
-                            <p class="educationp-time-period">2006-2009</p>
-                        </div>
-                        <div class="education-right">
-                            <p class="education-subject">Ortodontics</p>
-                            <p class="education-desc">
-                                Postgraduate Degree in Orthodontics
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="education-contents">
-                        <div class="education-left">
-                            <p class="education-school-name">UFES</p>
-                            <p class="educationp-time-period">2001-2006</p>
-                        </div>
-                        <div class="education-right">
-                            <p class="education-subject">Dentistry</p>
-                            <p class="education-desc">
-                                Bachelor's Degree in Dentistry
-                            </p>
-                        </div>
-                    </div>
-                </section>
-                <!-- fim formação academica-->
-
-
-                <!-- cursos -->
-                <section class="awards gap">
-                    <div class="right-title"><a href="https://app.mindmapmaker.org/#m:mm5f03ab0b0d164a72a681abce6ab78f3e">COURSES</a></div>
-                    <div class="awards-contents">
-                        <div class="awards-left">
-                            <p class="awards-company-name">ESESP</p>
-                            <p class="awards-time-period">December of 2020</p>
-                        </div>
-                        <div class="awards-right">
-                            <p class="awards-name">------</p>
-                            <p class="awards-desc">
-                                PROCESS ANALYSIS AND IMPROVEMENT COURSE
-                            </p>
-                        </div>
-                    </div>
-                    <div class="awards-contents">
-                        <div class="awards-left">
-                            <p class="awards-company-name">PRÓ-MEMORIA</p>
-                            <p class="awards-time-period">June of 2019</p>
-                        </div>
-                        <div class="awards-right">
-                            <p class="awards-name">-----</p>
-                            <p class="awards-desc">
-                                Training in process management for structuring a process office
-                            </p>
-                        </div>
-                    </div>
-                </section>
-                <!-- fim cursos -->
-
+    <footer class="footer">
+        <!-- ... footer content ... -->
+         <div class="footer-container">
+            <div class="logo">SolveThis</div>
+            <div class="footer-links">
+                <a href="https://www.fiverr.com/gilesgrollaalon?public_mode=true" target="_blank">Fiverr</a>
+                <a href="https://www.upwork.com/freelancers/~013c8c29302f14f74b" target="_blank">Upwork</a>
             </div>
-        </section>
+            <div class="copyright" data-translate="copyright">© 2025 SolveThis. All rights reserved.</div>
+        </div>
+    </footer>
 
 
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init({ publicKey: "w1jAEwgZ0Bhz0eio_" }); 
+       })();
+    </script>
+
+    
+    <script>
+        const translations = {
+            en: {
+                'nav-home': 'Home', 'nav-services': 'Services', 'nav-portfolio': 'Portfolio', 'nav-about': 'About', 'nav-contact': 'Contact',
+                'hero-title': 'Automation, AI, and scripts—solved.', 'hero-subtitle': "I'm a freelance developer who turns ideas, inefficiencies, and \"how do I even...?\" into streamlined, scalable solutions.", 'hero-cta': 'Discuss your project',
+                'problem-title': 'Have a process that wastes your time?', 'problem-desc1': 'A spreadsheet that needs automation?', 'problem-desc2': 'A workflow begging for AI?', 'solution-text': "You bring the problem. I'll Solve It.",
+                'services-title': 'Services', 'service1-title': 'Process Automation', 'service1-desc': 'Transform manual tasks into efficient automated workflows', 'service2-title': 'Data Visualization', 'service2-desc': 'Convert complex data into clear, actionable insights', 'service3-title': 'Custom App Development', 'service3-desc': 'Build tailored applications that solve your specific challenges', 'service4-title': 'System Integration', 'service4-desc': 'Connect disparate systems for seamless data flow',
+                'hire-title': 'Hire Me', 'fiverr-profile': 'View my Fiverr profile', 'upwork-profile': 'View my Upwork profile', 'contact-directly': 'Contact me directly',
+                'contact-title': "Let's Work Together", 'form-name': 'Name', 'form-email': 'Email', 'form-message': 'Message', 'form-submit': 'Send Message',
+                'email-note': 'You can also contact me directly via email:', 'copyright': '© 2025 SolveThis. All rights reserved.',
+                // About Section Translations (EN)
+                'about-title': 'About Me',
+                'about-subtitle': 'Turning complexity into clarity with automation, AI, and scripts.',
+                'about-card1-title': 'Hey, I’m Giles!',
+                'about-card1-desc': 'I’m a freelance developer with a passion for solving problems through technology. With years of experience on platforms like Fiverr and Upwork, I specialize in process automation, data visualization, custom app development, and system integration. My mission? To streamline workflows, eliminate inefficiencies, and make your life easier—whether it’s automating a tedious task or building a tailored app that fits your needs perfectly.',
+                'about-card2-title': 'Why Work With Me?',
+                'about-card2-desc': 'I believe in the power of technology to transform how we work. From creating seamless workflows to visualizing data in meaningful ways, I bring creativity and precision to every project. My clients on Fiverr and Upwork trust me to deliver scalable, efficient solutions—and I’d love to do the same for you. Let’s solve your challenges together!',
+                'about-cta': 'Let’s Collaborate'
+            },
+            pt: {
+                'nav-home': 'Início', 'nav-services': 'Serviços', 'nav-portfolio': 'Portfólio', 'nav-about': 'Sobre', 'nav-contact': 'Contato',
+                'hero-title': 'Automação, IA e scripts—resolvidos.', 'hero-subtitle': 'Sou um desenvolvedor freelancer que transforma ideias, ineficiências e "como eu faço isso...?" em soluções simplificadas e escaláveis.', 'hero-cta': 'Discuta seu projeto',
+                'problem-title': 'Tem um processo que desperdiça seu tempo?', 'problem-desc1': 'Uma planilha que precisa de automação?', 'problem-desc2': 'Um fluxo de trabalho pedindo por IA?', 'solution-text': 'Você traz o problema. Eu resolvo isso.',
+                'services-title': 'Serviços', 'service1-title': 'Automação de Processos', 'service1-desc': 'Transforme tarefas manuais em fluxos de trabalho automatizados eficientes', 'service2-title': 'Visualização de Dados', 'service2-desc': 'Converta dados complexos em insights claros e acionáveis', 'service3-title': 'Desenvolvimento de Apps Personalizados', 'service3-desc': 'Construa aplicações sob medida que resolvem seus desafios específicos', 'service4-title': 'Integração de Sistemas', 'service4-desc': 'Conecte sistemas diferentes para fluxo de dados perfeito',
+                'hire-title': 'Me Contrate', 'fiverr-profile': 'Ver meu perfil no Fiverr', 'upwork-profile': 'Ver meu perfil no Upwork', 'contact-directly': 'Entre em contato diretamente',
+                'contact-title': 'Vamos Trabalhar Juntos', 'form-name': 'Nome', 'form-email': 'Email', 'form-message': 'Mensagem', 'form-submit': 'Enviar Mensagem',
+                'email-note': 'Você também pode entrar em contato diretamente via email:', 'copyright': '© 2025 SolveThis. Todos os direitos reservados.',
+                // About Section Translations (PT)
+                'about-title': 'Sobre Mim',
+                'about-subtitle': 'Transformando complexidade em clareza com automação, IA e scripts.',
+                'about-card1-title': 'Olá, sou o Giles!',
+                'about-card1-desc': 'Sou um desenvolvedor freelancer apaixonado por resolver problemas através da tecnologia. Com anos de experiência em plataformas como Fiverr e Upwork, especializo-me em automação de processos, visualização de dados, desenvolvimento de aplicativos personalizados e integração de sistemas. Minha missão? Otimizar fluxos de trabalho, eliminar ineficiências e facilitar sua vida—seja automatizando uma tarefa tediosa ou construindo um aplicativo sob medida que atenda perfeitamente às suas necessidades.',
+                'about-card2-title': 'Por Que Trabalhar Comigo?',
+                'about-card2-desc': 'Acredito no poder da tecnologia para transformar a forma como trabalhamos. Desde a criação de fluxos de trabalho contínuos até a visualização de dados de maneiras significativas, trago criatividade e precisão a cada projeto. Meus clientes no Fiverr e Upwork confiam em mim para entregar soluções escaláveis e eficientes—e adoraria fazer o mesmo por você. Vamos resolver seus desafios juntos!',
+                'about-cta': 'Vamos Colaborar'
+            }
+        };
+
+        let currentLang = 'en';
+        let headerHeight = 0;
+
+        // --- Modal Elements (NEW) ---
+        let aboutModal; // Will be assigned in DOMContentLoaded
+
+        // --- Global Functions ---
+        function applyTranslations() {
+            const langButton = document.querySelector('.lang-toggle');
+            if (langButton) langButton.textContent = currentLang.toUpperCase();
+            
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    el.textContent = translations[currentLang][key];
+                }
+            });
+            const form = document.getElementById('contact-form');
+            if (form) {
+                const submitBtn = form.querySelector('.submit-btn');
+                if (submitBtn && !submitBtn.disabled) {
+                     const originalTextKey = submitBtn.getAttribute('data-translate');
+                     submitBtn.textContent = translations[currentLang][originalTextKey] || "Send Message";
+                }
+            }
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'pt' : 'en';
+            applyTranslations();
+            // If modal is open, re-translate its content
+            if (aboutModal && aboutModal.style.display === 'block') {
+                document.querySelectorAll('#aboutModal [data-translate]').forEach(el => {
+                    const key = el.getAttribute('data-translate');
+                    if (translations[currentLang] && translations[currentLang][key]) {
+                        el.textContent = translations[currentLang][key];
+                    }
+                });
+            }
+        }
+
+        function scrollToSection(sectionId, event) {
+            if (event) event.preventDefault();
+            const cleanSectionId = sectionId.startsWith('#') ? sectionId.substring(1) : sectionId;
+            const section = document.getElementById(cleanSectionId);
+
+            if (section) {
+                const sectionTop = section.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+            } else {
+                console.warn(`Scroll target section "${sectionId}" not found.`);
+            }
+        }
+
+        function scrollToContact(event) {
+            scrollToSection('#contact', event);
+        }
+        
+        function showFormMessage(type, textKeyOrMessage) {
+            const messageDiv = document.getElementById('form-message');
+            const text = (translations[currentLang] && translations[currentLang][textKeyOrMessage]) || textKeyOrMessage;
+            if (messageDiv) {
+                messageDiv.className = `message ${type}`;
+                messageDiv.textContent = text;
+                messageDiv.style.display = 'block';
+                setTimeout(() => { messageDiv.style.display = 'none'; }, 7000);
+            }
+        }
+
+        function triggerMailtoFallback(data) {
+            const subject = encodeURIComponent('Contact from SolveThis Website');
+            const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`);
+            const mailtoLink = `mailto:giles.g.alonso@gmail.com?subject=${subject}&body=${body}`;
+            try {
+                window.location.href = mailtoLink;
+                showFormMessage('success', currentLang === 'en' ? 
+                    'Your email client should open now. If not, please send your message directly to giles.g.alonso@gmail.com' : 
+                    'Seu cliente de email deve abrir agora. Se não abrir, envie sua mensagem diretamente para giles.g.alonso@gmail.com');
+            } catch (e) {
+                console.error("Failed to open mailto link automatically:", e);
+                showFormMessage('error', currentLang === 'en' ? 
+                    'Could not open email client. Please send your message directly to giles.g.alonso@gmail.com' : 
+                    'Não foi possível abrir o cliente de email. Por favor, envie sua mensagem diretamente para giles.g.alonso@gmail.com');
+            }
+            const form = document.getElementById('contact-form');
+            if (form) form.reset();
+        }
+
+        // --- Modal Functions (NEW) ---
+        function openAboutModal() {
+            if (aboutModal) {
+                // Apply translations specifically to modal content before showing
+                document.querySelectorAll('#aboutModal [data-translate]').forEach(el => {
+                    const key = el.getAttribute('data-translate');
+                    if (translations[currentLang] && translations[currentLang][key]) {
+                        // For multiline content from <p> tags, ensure we handle HTML if needed,
+                        // but textContent is usually safer and what we've used.
+                        el.textContent = translations[currentLang][key];
+                    }
+                });
+                aboutModal.style.display = 'flex'; // Use flex to help center content wrapper
+                document.body.style.overflow = 'hidden'; 
+            }
+        }
+
+        function closeAboutModal() {
+            if (aboutModal) {
+                aboutModal.style.display = 'none';
+                document.body.style.overflow = 'auto'; 
+            }
+        }
+
+        function closeAboutModalAndScrollToContact(event) {
+            closeAboutModal();
+            // scrollToContact(event); // scrollToSection will be called by nav link default, or call directly if needed
+            // Let the link's default behavior handle scrolling after modal closes,
+            // or explicitly call scrollToSection if the href default is prevented.
+            // Since the link inside the modal might not be part of the main nav,
+            // it's better to explicitly scroll.
+            if (event) event.preventDefault(); // Prevent default if called from an event
+            scrollToSection('#contact');
+        }
 
 
+        document.addEventListener('DOMContentLoaded', function() {
+            aboutModal = document.getElementById('aboutModal'); // Assign modal element
 
-    </main>
+            const header = document.querySelector('.header');
+            if (header && getComputedStyle(header).position === 'fixed') {
+                headerHeight = header.offsetHeight;
+                document.body.style.paddingTop = headerHeight + 'px';
+            }
+
+            applyTranslations();
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        if (href === '#about') { 
+                            e.preventDefault();
+                            openAboutModal();
+                        } else {
+                            scrollToSection(href, e);
+                        }
+                    }
+                });
+            });
+            
+            const ctaButton = document.querySelector('.cta-button');
+            if (ctaButton) {
+                ctaButton.addEventListener('click', scrollToContact);
+            }
+
+            const contactDirectLink = document.querySelector('.contact-direct[href="#contact"]');
+            if (contactDirectLink) {
+                contactDirectLink.addEventListener('click', function(e) {
+                    scrollToSection('#contact', e);
+                });
+            }
+            
+            // Event listener for the "Let's Collaborate" button inside the modal
+            const aboutModalCta = document.querySelector('#aboutModal a[href="#contact"]');
+            if (aboutModalCta) {
+                aboutModalCta.addEventListener('click', closeAboutModalAndScrollToContact);
+            }
 
 
+            // Close modal if user clicks outside of the modal's actual content box
+            if (aboutModal) {
+                aboutModal.addEventListener('click', function(event) {
+                    // Check if the click is on the .about-modal (the backdrop) itself
+                    // and not on its children (.about-modal-content-wrapper or deeper)
+                    if (event.target === aboutModal) {
+                        closeAboutModal();
+                    }
+                });
+            }
+
+
+            // Close modal on "Escape" key press
+            window.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' || event.key === 'Esc') {
+                    if (aboutModal && aboutModal.style.display !== 'none') { // Check if it's not 'none'
+                        closeAboutModal();
+                    }
+                }
+            });
+
+
+            const form = document.getElementById('contact-form');
+            if (form) {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    const formData = new FormData(form);
+                    const data = { name: formData.get('name'), email: formData.get('email'), message: formData.get('message') };
+                    const submitBtn = form.querySelector('.submit-btn');
+                    const originalTextKey = submitBtn.getAttribute('data-translate');
+                    let originalText = translations[currentLang][originalTextKey] || (currentLang === 'en' ? "Send Message" : "Enviar Mensagem");
+                    submitBtn.textContent = currentLang === 'en' ? 'Sending...' : 'Enviando...';
+                    submitBtn.disabled = true;
+
+                    if (typeof emailjs !== 'undefined' && emailjs.init && typeof emailjs.send === 'function') {
+                        try {
+                            const templateParams = { name: data.name, email: data.email, message: data.message, title: "New Inquiry from SolveThis (" + data.name + ")" };
+                            const serviceID = "service_jdcrfxd";
+                            const templateID = "template_t9p1ssu";
+                            console.log('Attempting to send email via EmailJS with ServiceID:', serviceID, 'TemplateID:', templateID, 'Params:', templateParams);
+                            await emailjs.send(serviceID, templateID, templateParams);
+                            showFormMessage('success', currentLang === 'en' ? 'Message sent successfully! I\'ll get back to you soon.' : 'Mensagem enviada com sucesso! Entrarei em contato em breve.');
+                            form.reset();
+                        } catch (error) {
+                            console.error('EmailJS Send Failed:', error);
+                            let errorMessage = 'Failed to send message. Please try again or contact me directly.';
+                            if (error && error.status === 0) { errorMessage = 'Network error or EmailJS server unreachable. Check your internet connection and EmailJS status. Also, ensure your Public Key is correct and the SDK is loaded.';
+                            } else if (error && error.text) { errorMessage = `EmailJS Error (${error.status}): ${error.text}. Please check EmailJS configuration (Service ID, Template ID, CORS settings for your domain in EmailJS).`; }
+                            showFormMessage('error', errorMessage);
+                        }
+                    } else {
+                        console.warn('EmailJS SDK not loaded, not initialized, or emailjs.send is not a function. Falling back to mailto. Ensure you have uncommented the SDK script and replaced YOUR_PUBLIC_KEY.');
+                        triggerMailtoFallback(data);
+                    }
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                });
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            const header = document.querySelector('.header');
+            if (header && getComputedStyle(header).position === 'fixed') {
+                headerHeight = header.offsetHeight;
+                document.body.style.paddingTop = headerHeight + 'px';
+            }
+        });
+    </script>
 </body>
-
 </html>
