@@ -47,40 +47,11 @@
         @media (max-width: 768px) { .hero-content h1 { font-size: 2.2rem; } .nav-links { display: none; } .profile-links { flex-direction: column; align-items: center; } .footer-container { flex-direction: column; gap: 1rem; } .hero-visual { min-height: 340px; } }
 
         .message { padding: 1rem; border-radius: 8px; margin-bottom: 1rem; display: none; } .message.success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; } .message.error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; } .about-modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); overflow: hidden; justify-content: center; align-items: center; } .about-modal-content-wrapper { display: flex; justify-content: center; align-items: center; width: 100%; height: 100vh; padding: 20px; box-sizing: border-box; overflow-y: auto; } .about-modal-inner-content { background-color: transparent; border-radius: 10px; position: relative; max-width: 1000px; width: 90%; } #aboutModal section { } .about-modal-close { color: #aaa; position: absolute; top: 10px; right: 15px; font-size: 35px; font-weight: bold; line-height: 1; z-index: 2010; } .about-modal-close:hover, .about-modal-close:focus { color: #333; text-decoration: none; cursor: pointer; }
-
-        /* === Iframe Wrapper CSS to hide Google Footer === */
-        .g-script-iframe-container {
-            height: 100vh;
-            overflow: hidden;
-            position: relative;
-        }
-        .g-script-iframe-container iframe {
-            height: calc(100% + 40px);
-            width: 100%;
-            border: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="nav-container">
-            <div class="logo">SolveThis</div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#home" data-translate="nav-home">Home</a></li>
-                    <li><a href="#services" data-translate="nav-services">Services</a></li>
-                    <li><a href="#blog" data-translate="nav-blog">Blog</a></li>
-                    <li><a href="#portfolio" data-translate="nav-portfolio">Portfolio</a></li>
-                    <li><a href="https://github.com/GilesAlonso/IAdventures" target="_blank" rel="noopener noreferrer" data-translate="nav-iadventures">IAdventures</a></li>
-                    <li><a href="#about" data-translate="nav-about">About</a></li>
-                    <li><a href="#contact" data-translate="nav-contact">Contact</a></li>
-                </ul>
-            </nav>
-            <button class="lang-toggle" onclick="toggleLanguage()">EN</button>
-        </div>
+        <div class="nav-container"> <div class="logo">SolveThis</div> <nav> <ul class="nav-links"> <li><a href="#home" data-translate="nav-home">Home</a></li> <li><a href="#services" data-translate="nav-services">Services</a></li> <li><a href="blog.html" data-translate="nav-blog">Blog</a></li> <li><a href="#portfolio" data-translate="nav-portfolio">Portfolio</a></li> <li><a href="https://github.com/GilesAlonso/IAdventures" target="_blank" rel="noopener noreferrer" data-translate="nav-iadventures">IAdventures</a></li> <li><a href="#about" data-translate="nav-about">About</a></li> <li><a href="#contact" data-translate="nav-contact">Contact</a></li> </ul> </nav> <button class="lang-toggle" onclick="toggleLanguage()">EN</button> </div>
     </header>
 
     <section id="home" class="hero">
@@ -101,20 +72,7 @@
 
     <section class="problem-section"> <div class="problem-container"> <h2 data-translate="problem-title">Have a process that wastes your time?</h2> <p data-translate="problem-desc1">A spreadsheet that needs automation?</p> <p data-translate="problem-desc2">A workflow begging for AI?</p> <p class="solution-text" data-translate="solution-text">You bring the problem. I'll Solve It.</p> </div> </section>
     <section id="services" class="services"> <div class="services-container"> <h2 data-translate="services-title">Services</h2> <div class="services-grid"> <div class="service-card"> <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M13,2.05V5.08C16.39,5.57 19,8.47 19,12C19,12.9 18.82,13.75 18.5,14.54L21.12,16.07C21.68,14.83 22,13.45 22,12C22,6.82 18.05,2.55 13,2.05M12,19A7,7 0 0,1 5,12C5,8.47 7.61,5.57 11,5.08V2.05C5.94,2.55 2,6.81 2,12A10,10 0 0,0 12,22C15.3,22 18.23,20.39 20.07,17.93L17.45,16.4C15.17,18.39 13.15,19 12,19Z"/></svg></div> <h3 data-translate="service1-title">Process Automation</h3> <p data-translate="service1-desc">Transform manual tasks into efficient automated workflows</p> </div> <div class="service-card"> <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M2,2H4V20H2V2M22,2V4H4V2H22M4,6H16V8H4V6M4,10H12V12H4V10M4,14H16V16H4V14M18,14V20H20V14H18M18,10V12H22V10H18Z"/></svg></div> <h3 data-translate="service2-title">Data Visualization</h3> <p data-translate="service2-desc">Convert complex data into clear, actionable insights</p> </div> <div class="service-card"> <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/></svg></div> <h3 data-translate="service3-title">Custom App Development</h3> <p data-translate="service3-desc">Build tailored applications that solve your specific challenges</p> </div> <div class="service-card"> <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17,12C17,14.42 15.28,16.44 13,16.9V21H11V16.9C8.72,16.44 7,14.42 7,12C7,9.58 8.72,7.56 11,7.1V2H13V7.1C15.28,7.56 17,9.58 17,12M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/></svg></div> <h3 data-translate="service4-title">System Integration</h3> <p data-translate="service4-desc">Connect disparate systems for seamless data flow</p> </div> </div> </div> </section>
-
-    <!-- === NEW BLOG SECTION ADDED HERE === -->
-    <section id="blog" class="services" style="background-color: #2d5a27; padding: 4rem 2rem;">
-        <div class="services-container">
-            <h2 data-translate="blog-title" style="color: white;">Blog</h2>
-            <div class="g-script-iframe-container">
-              <iframe 
-                src="https://script.google.com/macros/s/AKfycby1eVvUHLcfZPk93LWY7oC8uiLzEDYdYJctEXokJ_G5wJ0TyyPy3j__Ni9ByzRju0s/exec" 
-                frameborder="0">
-              </iframe>
-            </div>
-        </div>
-    </section>
-
+    
     <section id="portfolio" class="hire-me"> <div class="hire-container"> <h2 data-translate="hire-title">Hire Me</h2> <div class="profile-links"> <a href="https://www.fiverr.com/gilesgrollaalon?public_mode=true" target="_blank" class="profile-card"> <div class="profile-icon">F</div> <span data-translate="fiverr-profile">View my Fiverr profile</span> </a> <a href="https://www.upwork.com/freelancers/~013c8c29302f14f74b" target="_blank" class="profile-card"> <div class="profile-icon">U</div> <span data-translate="upwork-profile">View my Upwork profile</span> </a> </div> <a href="#contact" class="contact-direct" data-translate="contact-directly">Contact me directly</a> </div> </section>
     <section id="contact" class="contact-section"> <div class="contact-container"> <h2 data-translate="contact-title">Let's Work Together</h2> <div id="form-message" class="message"></div> <form id="contact-form"> <div class="form-group"> <label for="name" data-translate="form-name">Name</label> <input type="text" id="name" name="name" required> </div> <div class="form-group"> <label for="email" data-translate="form-email">Email</label> <input type="email" id="email" name="email" required> </div> <div class="form-group"> <label for="message" data-translate="form-message">Message</label> <textarea id="message" name="message" required></textarea> </div> <button type="submit" class="submit-btn" data-translate="form-submit">Send Message</button> </form> <div class="email-note"> <p data-translate="email-note">You can also contact me directly via email:</p> <a href="mailto:giles.g.alonso@gmail.com" class="email-link">giles.g.alonso@gmail.com</a> </div> </div> </section>
     <div id="aboutModal" class="about-modal"> <div class="about-modal-content-wrapper"> <div class="about-modal-inner-content"> <span class="about-modal-close" onclick="closeAboutModal()">×</span> <section class="py-10 px-4 md:px-8 bg-white rounded-lg shadow-xl"> <div class="max-w-5xl mx-auto text-center"> <h2 class="text-4xl font-bold text-gray-900 mb-6" data-translate="about-title">About Me</h2> <p class="text-lg text-gray-700 mb-8" data-translate="about-subtitle">Turning complexity into clarity with automation, AI, and scripts.</p> <div class="flex flex-col md:flex-row items-start md:items-stretch justify-center gap-8 text-left"> <div class="bg-green-700 text-white rounded-lg p-8 shadow-lg md:flex-1"> <h3 class="text-2xl font-semibold mb-4" data-translate="about-card1-title">Hey, I’m Giles!</h3> <p class="text-base" data-translate="about-card1-desc"> I’m a freelance developer with a passion for solving problems through technology. With years of experience on platforms like Fiverr and Upwork, I specialize in process automation, data visualization, custom app development, and system integration. My mission? To streamline workflows, eliminate inefficiencies, and make your life easier—whether it’s automating a tedious task or building a tailored app that fits your needs perfectly. </p> </div> <div class="bg-gray-50 border border-gray-200 rounded-lg p-8 shadow-lg md:flex-1"> <h3 class="text-2xl font-semibold text-gray-900 mb-4" data-translate="about-card2-title">Why Work With Me?</h3> <p class="text-base text-gray-700" data-translate="about-card2-desc"> I believe in the power of technology to transform how we work. From creating seamless workflows to visualizing data in meaningful ways, I bring creativity and precision to every project. My clients on Fiverr and Upwork trust me to deliver scalable, efficient solutions—and I’d love to do the same for you. Let’s solve your challenges together! </p> <a href="#contact" class="inline-block mt-6 bg-orange-500 text-white font-semibold py-2 px-6 rounded-full hover:bg-orange-600 transition" data-translate="about-cta" onclick="closeAboutModalAndScrollToContact(event)">Let’s Collaborate</a> </div> </div> </div> </section> </div> </div> </div>
@@ -125,14 +83,7 @@
     
     <script>
         // === Existing Website Script (translations, modal, form, etc.) ===
-        const translations = { 
-            en: { 
-                "nav-home": "Home", "nav-services": "Services", "nav-blog": "Blog", "nav-portfolio": "Portfolio", "nav-iadventures": "IAdventures", "nav-about": "About", "nav-contact": "Contact", "blog-title": "Blog", /* YOUR EXISTING EN TRANSLATIONS */ 
-            }, 
-            pt: { 
-                "nav-home": "Início", "nav-services": "Serviços", "nav-blog": "Blog", "nav-portfolio": "Portfólio", "nav-iadventures": "IAdventures", "nav-about": "Sobre", "nav-contact": "Contato", "blog-title": "Blog", /* YOUR EXISTING PT TRANSLATIONS */ 
-            } 
-        };
+        const translations = { en: { /* YOUR EN TRANSLATIONS */ }, pt: { /* YOUR PT TRANSLATIONS */ } }; 
         let currentLang = 'en'; let headerHeight = 0; let aboutModal; 
         function applyTranslations() { const langButton = document.querySelector('.lang-toggle'); if (langButton) langButton.textContent = currentLang.toUpperCase(); document.querySelectorAll('[data-translate]').forEach(el => { const key = el.getAttribute('data-translate'); if (translations[currentLang] && translations[currentLang][key]) { el.textContent = translations[currentLang][key]; } }); }
         function toggleLanguage() { currentLang = currentLang === 'en' ? 'pt' : 'en'; applyTranslations(); if (aboutModal && aboutModal.style.display === 'flex') { document.querySelectorAll('#aboutModal [data-translate]').forEach(el => { const key = el.getAttribute('data-translate'); if (translations[currentLang] && translations[currentLang][key]) { el.textContent = translations[currentLang][key]; } }); } }
@@ -309,7 +260,6 @@ document.addEventListener('DOMContentLoaded', function() {
             activeMode = previousModeName; 
 
             if (transitionProgress >= 1) {
-                // --- Prepare for the new mode ---
                 currentModeIndex = (currentModeIndex + 1) % availableModes.length;
                 currentModeName = availableModes[currentModeIndex];
                 
@@ -347,7 +297,7 @@ document.addEventListener('DOMContentLoaded', function() {
             for (let j = 0; j < iterations; j++) {
                 let animatedI = i; let animatedJ = j; let timeOffset = 0;
                 
-                switch (activeMode) { /* ... (mode logic same as before) ... */ 
+                switch (activeMode) { 
                     case 'flow': timeOffset = params.time; break;
                     case 'spiral': timeOffset = Math.atan2(j - iterations/2, i - iterations/2) + params.time; particleSize = (Math.sin(params.time + (i+j)*0.1) + 1.5); break;
                     case 'pulse': let dist = Math.sqrt((i - iterations/2)**2 + (j - iterations/2)**2); timeOffset = Math.sin(params.time * 1.5 + dist * 0.05) * 0.5; particleSize = 1 + Math.abs(Math.sin(params.time * 2 + dist * 0.1)) * 2; break;
@@ -365,15 +315,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (px >= 0 && px < canvas.width && py >= 0 && py < canvas.height) {
                     let R, G, B; let iFactor = animatedI / iterations; let jFactor = animatedJ / iterations;
-                    if (activeMode === 'greenSpectrum') { /* ... color logic ... */ 
+                    if (activeMode === 'greenSpectrum') { 
                         let hue = 90 + ((iFactor * 50) + (jFactor * 20) + (params.time * 15)) % 100; 
                         let sat = 0.6 + Math.sin(params.time * 0.8 + animatedI * 0.05) * 0.4; sat = Math.max(0.5, Math.min(1, sat * params.colorIntensity));
                         let val = 0.5 + Math.cos(params.time * 0.6 + animatedJ * 0.08) * 0.5; val = Math.max(0.4, Math.min(1, val * params.colorIntensity));
                         let hsv = hsvToRgb(hue, sat, val); R = hsv.r; G = hsv.g; B = hsv.b;
-                    } else if (activeMode === 'pixelSwarm') { /* ... color logic ... */ 
+                    } else if (activeMode === 'pixelSwarm') { 
                         let intensity = (Math.sin(params.time * 0.5 + (i * 0.05 + j * 0.03)) + 1) / 2; intensity = 0.4 + intensity * 0.6; 
                         R = Math.floor(intensity * (180 + Math.random()*50) ); G = Math.floor(intensity * (230 + Math.random()*25) ); B = Math.floor(intensity * (200 + Math.random()*50) );
-                    } else { /* ... color logic ... */ 
+                    } else { 
                         let rRaw = (animatedI * 1.2 * params.colorIntensity + timeOffset * 15); let gRaw = (animatedJ * 2.0 * params.colorIntensity + timeOffset * 25 + iFactor * 60);
                         let bRaw = (220 - (animatedI + animatedJ) * 0.7 * params.colorIntensity + timeOffset * 20 + jFactor * 40);
                         R = Math.floor(rRaw % 80 + 30); G = Math.floor(gRaw % 135 + 120); B = Math.floor(bRaw % 100 + 60);
@@ -417,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     animationId = requestAnimationFrame(animatePattern);
 
-    document.addEventListener("visibilitychange", () => { /* ... (same as before) ... */ 
+    document.addEventListener("visibilitychange", () => { 
          if (document.hidden) { cancelAnimationFrame(animationId);
         } else {
             lastTimestamp = performance.now(); 
