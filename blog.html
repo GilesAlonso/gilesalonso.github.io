@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - SolveThis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            /* Set the background for the entire page */
+            background-color: #2d5a27; 
+        }
+
+        /* --- Header Styles (Copied from index.html for consistency) --- */
+        .header { background: white; padding: 1rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #2d5a27; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: #666; font-weight: 500; transition: color 0.3s; cursor: pointer; }
+        .lang-toggle { background: #28a745; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
+        
+        /* Main content area for the blog */
+        .main-content {
+            padding-top: 80px; /* Adjust based on your header's height */
+            padding-bottom: 4rem;
+        }
+
+        /* Iframe Wrapper to hide Google Footer */
+        .g-script-iframe-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: calc(100vh - 80px); /* Fill the viewport height minus the header */
+            overflow: hidden;
+            position: relative;
+        }
+        .g-script-iframe-container iframe {
+            height: calc(100% + 40px); /* Make iframe taller to hide footer */
+            width: 100%;
+            border: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        @media (max-width: 768px) { .nav-links { display: none; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <!-- Link back to the main page -->
+            <a href="index.html" class="logo">SolveThis</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html#home" data-translate="nav-home">Home</a></li>
+                    <li><a href="index.html#services" data-translate="nav-services">Services</a></li>
+                    <!-- Active page link can be styled differently if desired -->
+                    <li><a href="blog.html" data-translate="nav-blog" style="color: #28a745; font-weight: 600;">Blog</a></li>
+                    <li><a href="index.html#portfolio" data-translate="nav-portfolio">Portfolio</a></li>
+                    <li><a href="https://github.com/GilesAlonso/IAdventures" target="_blank" rel="noopener noreferrer" data-translate="nav-iadventures">IAdventures</a></li>
+                    <li><a href="index.html#about" data-translate="nav-about">About</a></li>
+                    <li><a href="index.html#contact" data-translate="nav-contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="lang-toggle" onclick="toggleLanguage()">EN</button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="g-script-iframe-container">
+          <iframe 
+            src="https://script.google.com/macros/s/AKfycby1eVvUHLcfZPk93LWY7oC8uiLzEDYdYJctEXokJ_G5wJ0TyyPy3j__Ni9ByzRju0s/exec" 
+            frameborder="0"
+            title="Blog Content">
+          </iframe>
+        </div>
+    </main>
+
+    <script>
+        // Simple translation script for the header
+        const translations = { 
+            en: { "nav-home": "Home", "nav-services": "Services", "nav-blog": "Blog", "nav-portfolio": "Portfolio", "nav-iadventures": "IAdventures", "nav-about": "About", "nav-contact": "Contact" }, 
+            pt: { "nav-home": "Início", "nav-services": "Serviços", "nav-blog": "Blog", "nav-portfolio": "Portfólio", "nav-iadventures": "IAdventures", "nav-about": "Sobre", "nav-contact": "Contato" } 
+        };
+        let currentLang = 'en';
+        function applyTranslations() { document.querySelector('.lang-toggle').textContent = currentLang.toUpperCase(); document.querySelectorAll('[data-translate]').forEach(el => { const key = el.getAttribute('data-translate'); if (translations[currentLang] && translations[currentLang][key]) { el.textContent = translations[currentLang][key]; } }); }
+        function toggleLanguage() { currentLang = currentLang === 'en' ? 'pt' : 'en'; applyTranslations(); }
+        document.addEventListener('DOMContentLoaded', applyTranslations);
+
+        // Handle anchor links for other pages
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && href.includes('#')) {
+                    // It's a link to an anchor on another page
+                    // The browser will handle the navigation
+                } else if (href && !href.startsWith('http')) {
+                    // It's a link to another page on the same site
+                    e.preventDefault();
+                    window.location.href = href;
+                }
+                // External links (IAdventures) will open naturally.
+            });
+        });
+    </script>
+</body>
+</html>
