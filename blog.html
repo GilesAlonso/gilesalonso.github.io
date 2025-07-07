@@ -12,28 +12,33 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; 
             line-height: 1.6; 
             color: #333; 
-            /* Set the background for the entire page */
-            background-color: #2d5a27; 
+            background-color: #2d5a27; /* Set the dark green background for the whole page */
         }
 
-        /* --- Header Styles (Copied from index.html for consistency) --- */
+        /* --- Header & Footer Styles (for consistency) --- */
         .header { background: white; padding: 1rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
-        .logo { font-size: 1.5rem; font-weight: bold; color: #2d5a27; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #2d5a27; text-decoration: none; }
         .nav-links { display: flex; list-style: none; gap: 2rem; }
         .nav-links a { text-decoration: none; color: #666; font-weight: 500; transition: color 0.3s; cursor: pointer; }
+        .nav-links a.active { color: #28a745; font-weight: 600; }
         .lang-toggle { background: #28a745; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
         
+        .footer { background: #2d5a27; color: white; padding: 2rem 0; border-top: 1px solid rgba(255,255,255,0.1); } 
+        .footer-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; } 
+        .footer-links { display: flex; gap: 2rem; } 
+        .footer-links a { color: white; text-decoration: none; transition: opacity 0.3s; } 
+        .footer-links a:hover { opacity: 0.8; } 
+        .copyright { font-size: 0.9rem; opacity: 0.8; }
+
         /* Main content area for the blog */
         .main-content {
+            min-height: calc(100vh - 80px); /* Ensure it takes up at least the viewport height minus header */
             padding-top: 80px; /* Adjust based on your header's height */
-            padding-bottom: 4rem;
         }
 
         /* Iframe Wrapper to hide Google Footer */
         .g-script-iframe-container {
-            max-width: 1200px;
-            margin: 0 auto;
             height: calc(100vh - 80px); /* Fill the viewport height minus the header */
             overflow: hidden;
             position: relative;
@@ -45,22 +50,22 @@
             position: absolute;
             top: 0;
             left: 0;
+            background-color: transparent;
         }
 
-        @media (max-width: 768px) { .nav-links { display: none; } }
+        @media (max-width: 768px) { .nav-links { display: none; } .footer-container { flex-direction: column; gap: 1rem; } }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
         <div class="nav-container">
-            <!-- Link back to the main page -->
             <a href="index.html" class="logo">SolveThis</a>
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html#home" data-translate="nav-home">Home</a></li>
                     <li><a href="index.html#services" data-translate="nav-services">Services</a></li>
-                    <!-- Active page link can be styled differently if desired -->
-                    <li><a href="blog.html" data-translate="nav-blog" style="color: #28a745; font-weight: 600;">Blog</a></li>
+                    <li><a href="blog.html" data-translate="nav-blog" class="active">Blog</a></li>
                     <li><a href="index.html#portfolio" data-translate="nav-portfolio">Portfolio</a></li>
                     <li><a href="https://github.com/GilesAlonso/IAdventures" target="_blank" rel="noopener noreferrer" data-translate="nav-iadventures">IAdventures</a></li>
                     <li><a href="index.html#about" data-translate="nav-about">About</a></li>
@@ -71,6 +76,7 @@
         </div>
     </header>
 
+    <!-- Main Content: The Blog Iframe -->
     <main class="main-content">
         <div class="g-script-iframe-container">
           <iframe 
@@ -80,33 +86,20 @@
           </iframe>
         </div>
     </main>
+    
+    <!-- Footer -->
+    <footer class="footer"> <div class="footer-container"> <a href="index.html" class="logo" style="color: white;">SolveThis</a> <div class="footer-links"> <a href="https://www.fiverr.com/gilesgrollaalon?public_mode=true" target="_blank">Fiverr</a> <a href="https://www.upwork.com/freelancers/~013c8c29302f14f74b" target="_blank">Upwork</a> </div> <div class="copyright" data-translate="copyright">© 2025 SolveThis. All rights reserved.</div> </div> </footer>
 
     <script>
-        // Simple translation script for the header
+        // Simple translation script for the header and footer
         const translations = { 
-            en: { "nav-home": "Home", "nav-services": "Services", "nav-blog": "Blog", "nav-portfolio": "Portfolio", "nav-iadventures": "IAdventures", "nav-about": "About", "nav-contact": "Contact" }, 
-            pt: { "nav-home": "Início", "nav-services": "Serviços", "nav-blog": "Blog", "nav-portfolio": "Portfólio", "nav-iadventures": "IAdventures", "nav-about": "Sobre", "nav-contact": "Contato" } 
+            en: { "nav-home": "Home", "nav-services": "Services", "nav-blog": "Blog", "nav-portfolio": "Portfolio", "nav-iadventures": "IAdventures", "nav-about": "About", "nav-contact": "Contact", "copyright": "© 2025 SolveThis. All rights reserved." }, 
+            pt: { "nav-home": "Início", "nav-services": "Serviços", "nav-blog": "Blog", "nav-portfolio": "Portfólio", "nav-iadventures": "IAdventures", "nav-about": "Sobre", "nav-contact": "Contato", "copyright": "© 2025 SolveThis. Todos os direitos reservados." } 
         };
         let currentLang = 'en';
         function applyTranslations() { document.querySelector('.lang-toggle').textContent = currentLang.toUpperCase(); document.querySelectorAll('[data-translate]').forEach(el => { const key = el.getAttribute('data-translate'); if (translations[currentLang] && translations[currentLang][key]) { el.textContent = translations[currentLang][key]; } }); }
         function toggleLanguage() { currentLang = currentLang === 'en' ? 'pt' : 'en'; applyTranslations(); }
         document.addEventListener('DOMContentLoaded', applyTranslations);
-
-        // Handle anchor links for other pages
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href && href.includes('#')) {
-                    // It's a link to an anchor on another page
-                    // The browser will handle the navigation
-                } else if (href && !href.startsWith('http')) {
-                    // It's a link to another page on the same site
-                    e.preventDefault();
-                    window.location.href = href;
-                }
-                // External links (IAdventures) will open naturally.
-            });
-        });
     </script>
 </body>
 </html>
