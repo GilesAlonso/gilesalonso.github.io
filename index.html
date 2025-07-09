@@ -29,6 +29,17 @@
         .lang-toggle { background: #28a745; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
         .lang-toggle:hover { background: #218838; }
 
+        /* --- New styles for hamburger menu --- */
+        .header-controls { display: flex; align-items: center; gap: 1rem; }
+        .hamburger-menu {
+            display: none; /* Hidden by default on desktop */
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.25rem;
+            color: #333;
+        }
+
         .hero { background: linear-gradient(135deg, #2d5a27 0%, #28a745 100%); color: white; padding: 7rem 2rem 5rem; position: relative; overflow: hidden; }
         .hero-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center; }
         .hero-content h1 { font-size: 3rem; font-weight: bold; margin-bottom: 1rem; line-height: 1.2; }
@@ -44,14 +55,76 @@
         section[id] { } .problem-section { background: white; padding: 4rem 2rem; } .problem-container { max-width: 800px; margin: 0 auto; border-left: 4px solid #28a745; padding-left: 2rem; } .problem-section h2 { font-size: 2rem; margin-bottom: 1rem; color: #333; } .problem-section p { font-size: 1.1rem; margin-bottom: 1rem; color: #666; } .solution-text { color: #28a745; font-weight: bold; font-size: 1.2rem; } .services { padding: 4rem 2rem; background: #f8f9fa; } .services-container { max-width: 1200px; margin: 0 auto; } .services h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #333; } .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; } .service-card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s, box-shadow 0.3s; } .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); } .service-icon { width: 60px; height: 60px; margin: 0 auto 1rem; background: #28a745; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; } .service-card h3 { font-size: 1.3rem; margin-bottom: 1rem; color: #333; } .service-card p { color: #666; font-size: 0.95rem; } .hire-me { padding: 4rem 2rem; background: white; } .hire-container { max-width: 1200px; margin: 0 auto; text-align: center; } .hire-me h2 { font-size: 2.5rem; margin-bottom: 3rem; color: #333; } .profile-links { display: flex; justify-content: center; gap: 3rem; margin-bottom: 2rem; } .profile-card { display: flex; align-items: center; gap: 1rem; padding: 1rem 2rem; background: #f8f9fa; border-radius: 10px; transition: background 0.3s; text-decoration: none; color: #333; } .profile-card:hover { background: #e9ecef; } .profile-icon { width: 40px; height: 40px; background: #28a745; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; } .contact-direct { background: #28a745; color: white; border: none; padding: 1rem 2rem; border-radius: 8px; font-size: 1.1rem; cursor: pointer; transition: background 0.3s; text-decoration: none; display: inline-block; } .contact-direct:hover { background: #218838; } .contact-section { padding: 4rem 2rem; background: #f8f9fa; } .contact-container { max-width: 600px; margin: 0 auto; } .contact-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #333; } .form-group { margin-bottom: 1.5rem; } .form-group label { display: block; margin-bottom: 0.5rem; color: #333; font-weight: 500; } .form-group input, .form-group textarea { width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s; } .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #28a745; } .form-group textarea { resize: vertical; min-height: 120px; } .submit-btn { background: #28a745; color: white; border: none; padding: 1rem 2rem; border-radius: 8px; font-size: 1.1rem; cursor: pointer; transition: background 0.3s; width: 100%; } .submit-btn:hover { background: #218838; } .email-note { text-align: center; margin-top: 2rem; color: #666; } .email-link { color: #28a745; text-decoration: none; } .email-link:hover { text-decoration: underline; } .footer { background: #2d5a27; color: white; padding: 2rem 0; } .footer-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; } .footer-links { display: flex; gap: 2rem; } .footer-links a { color: white; text-decoration: none; transition: opacity 0.3s; } .footer-links a:hover { opacity: 0.8; } .copyright { font-size: 0.9rem; opacity: 0.8; }
         
         @media (max-width: 992px) { .hero-container { grid-template-columns: 1fr; text-align: center; gap: 2rem; } .hero-visual { margin-top: 2rem; grid-row: 1; min-height: 380px; } .hero-content { grid-row: 2; } }
-        @media (max-width: 768px) { .hero-content h1 { font-size: 2.2rem; } .nav-links { display: none; } .profile-links { flex-direction: column; align-items: center; } .footer-container { flex-direction: column; gap: 1rem; } .hero-visual { min-height: 340px; } }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .profile-links { flex-direction: column; align-items: center; }
+            .footer-container { flex-direction: column; gap: 1rem; }
+            .hero-visual { min-height: 340px; }
+
+            /* --- Hamburger Menu Styles --- */
+            .hamburger-menu {
+                display: block; /* Show hamburger on mobile */
+            }
+            .nav-links {
+                /* Style nav links as a dropdown menu */
+                display: none; /* Hide by default */
+                position: absolute;
+                top: 100%; /* Position below the header */
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+                padding: 1rem 0;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            }
+            .nav-links li { width: 100%; }
+            .nav-links a {
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding: 0.75rem 1rem;
+            }
+            /* When menu is open, show the links */
+            .header.mobile-menu-open .nav-links {
+                display: flex;
+            }
+        }
 
         .message { padding: 1rem; border-radius: 8px; margin-bottom: 1rem; display: none; } .message.success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; } .message.error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; } .about-modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); overflow: hidden; justify-content: center; align-items: center; } .about-modal-content-wrapper { display: flex; justify-content: center; align-items: center; width: 100%; height: 100vh; padding: 20px; box-sizing: border-box; overflow-y: auto; } .about-modal-inner-content { background-color: transparent; border-radius: 10px; position: relative; max-width: 1000px; width: 90%; } #aboutModal section { } .about-modal-close { color: #aaa; position: absolute; top: 10px; right: 15px; font-size: 35px; font-weight: bold; line-height: 1; z-index: 2010; } .about-modal-close:hover, .about-modal-close:focus { color: #333; text-decoration: none; cursor: pointer; }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="nav-container"> <div class="logo">SolveThis</div> <nav> <ul class="nav-links"> <li><a href="#home" data-translate="nav-home">Home</a></li> <li><a href="#services" data-translate="nav-services">Services</a></li> <li><a href="blog.html" data-translate="nav-blog">Blog</a></li> <li><a href="#portfolio" data-translate="nav-portfolio">Portfolio</a></li> <li><a href="https://gilesalonso.github.io/IAdventures" target="_blank" rel="noopener noreferrer" data-translate="nav-iadventures">IAdventures</a></li> <li><a href="#about" data-translate="nav-about">About</a></li> <li><a href="#contact" data-translate="nav-contact">Contact</a></li> </ul> </nav> <button class="lang-toggle" onclick="toggleLanguage()">EN</button> </div>
+    <!-- MODIFICATION: Added id="header" to the header tag -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <div class="logo">SolveThis</div>
+            <nav>
+                <!-- MODIFICATION: Added id="nav-links" to the ul tag -->
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#home" data-translate="nav-home">Home</a></li>
+                    <li><a href="#services" data-translate="nav-services">Services</a></li>
+                    <li><a href="blog.html" data-translate="nav-blog">Blog</a></li>
+                    <li><a href="#portfolio" data-translate="nav-portfolio">Portfolio</a></li>
+                    <li><a href="https://gilesalonso.github.io/IAdventures" target="_blank" rel="noopener noreferrer" data-translate="nav-iadventures">IAdventures</a></li>
+                    <li><a href="#about" data-translate="nav-about">About</a></li>
+                    <li><a href="#contact" data-translate="nav-contact">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- MODIFICATION: Wrapped language toggle and new hamburger button in a div -->
+            <div class="header-controls">
+                <button class="lang-toggle" onclick="toggleLanguage()">EN</button>
+                <button id="hamburger-menu" class="hamburger-menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
     </header>
 
     <section id="home" class="hero">
@@ -150,9 +223,37 @@
         function openAboutModal() { if (aboutModal) { document.querySelectorAll('#aboutModal [data-translate]').forEach(el => { const key = el.getAttribute('data-translate'); if (translations[currentLang] && translations[currentLang][key]) { el.innerHTML = translations[currentLang][key]; } }); aboutModal.style.display = 'flex'; document.body.style.overflow = 'hidden'; } }
         function closeAboutModal() { if (aboutModal) { aboutModal.style.display = 'none'; document.body.style.overflow = 'auto'; } };
         function closeAboutModalAndScrollToContact(event) { closeAboutModal(); if (event) event.preventDefault(); scrollToSection('#contact'); };
+        
         document.addEventListener('DOMContentLoaded', function() {
-            aboutModal = document.getElementById('aboutModal'); const header = document.querySelector('.header'); if (header && getComputedStyle(header).position === 'fixed') { headerHeight = header.offsetHeight; document.body.style.paddingTop = headerHeight + 'px';}
+            aboutModal = document.getElementById('aboutModal'); 
+            const header = document.getElementById('header'); // Changed selector
+            if (header && getComputedStyle(header).position === 'fixed') { 
+                headerHeight = header.offsetHeight; 
+                document.body.style.paddingTop = headerHeight + 'px';
+            }
+            
+            // --- MODIFICATION: Hamburger menu logic ---
+            const hamburgerBtn = document.getElementById('hamburger-menu');
+            const navLinks = document.getElementById('nav-links');
+
+            if (hamburgerBtn && navLinks && header) {
+                hamburgerBtn.addEventListener('click', () => {
+                    header.classList.toggle('mobile-menu-open');
+                });
+
+                // Close menu when a link is clicked
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (header.classList.contains('mobile-menu-open')) {
+                            header.classList.remove('mobile-menu-open');
+                        }
+                    });
+                });
+            }
+            // --- End of modification ---
+
             applyTranslations();
+            
             document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', function(e) { const href = this.getAttribute('href'); if (href.startsWith('#')) { if (href === '#about') { e.preventDefault(); openAboutModal(); } else { scrollToSection(href, e); } } }); });
             const ctaButton = document.querySelector('.cta-button'); if (ctaButton) ctaButton.addEventListener('click', scrollToContact);
             const contactDirectLink = document.querySelector('.contact-direct[href="#contact"]'); if (contactDirectLink) contactDirectLink.addEventListener('click', function(e) { scrollToSection('#contact', e); });
@@ -161,9 +262,11 @@
             window.addEventListener('keydown', function (event) { if (event.key === 'Escape' || event.key === 'Esc') { if (aboutModal && aboutModal.style.display !== 'none') closeAboutModal(); } });
             const form = document.getElementById('contact-form'); if (form) { form.addEventListener('submit', async function(e) { e.preventDefault(); const serviceID = 'default_service'; const templateID = 'template_t9p1ssu'; try { await emailjs.sendForm(serviceID, templateID, this); showFormMessage('success', 'form-success'); this.reset(); } catch (err) { console.error('EmailJS Error:', err); showFormMessage('error', 'form-error'); triggerMailtoFallback({ name: this.name.value, email: this.email.value, message: this.message.value }); } });}
         });
+        
         window.addEventListener('resize', () => { const header = document.querySelector('.header'); if (header && getComputedStyle(header).position === 'fixed') { headerHeight = header.offsetHeight; document.body.style.paddingTop = headerHeight + 'px'; } });
     </script>
-
+    
+    <!-- Hero animation script (unchanged) -->
     <script>
 // === HERO ANIMATION SCRIPT ===
 document.addEventListener('DOMContentLoaded', function() {
