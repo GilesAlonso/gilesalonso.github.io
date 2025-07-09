@@ -24,6 +24,17 @@
         .nav-links a.active { color: #28a745; font-weight: 600; }
         .lang-toggle { background: #28a745; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
         
+        /* --- New styles for hamburger menu --- */
+        .header-controls { display: flex; align-items: center; gap: 1rem; }
+        .hamburger-menu {
+            display: none; /* Hidden on desktop */
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.25rem;
+            color: #333;
+        }
+
         .footer { background: #2d5a27; color: white; padding: 2rem 0; border-top: 1px solid rgba(255,255,255,0.1); } 
         .footer-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; } 
         .footer-links { display: flex; gap: 2rem; } 
@@ -33,13 +44,13 @@
 
         /* Main content area for the blog */
         .main-content {
-            min-height: calc(100vh - 80px); /* Ensure it takes up at least the viewport height minus header */
-            padding-top: 80px; /* Adjust based on your header's height */
+            min-height: calc(100vh - 80px); /* Adjust based on your header's final height */
+            padding-top: 72px; /* Set to header height */
         }
 
         /* Iframe Wrapper to hide Google Footer */
         .g-script-iframe-container {
-            height: calc(100vh - 80px); /* Fill the viewport height minus the header */
+            height: calc(100vh - 72px); /* Fill the viewport height minus the header */
             overflow: hidden;
             position: relative;
         }
@@ -53,16 +64,50 @@
             background-color: transparent;
         }
 
-        @media (max-width: 768px) { .nav-links { display: none; } .footer-container { flex-direction: column; gap: 1rem; } }
+        @media (max-width: 768px) {
+            .footer-container { flex-direction: column; gap: 1rem; }
+
+            /* --- Hamburger Menu Styles --- */
+            .hamburger-menu {
+                display: block; /* Show hamburger on mobile */
+            }
+            .nav-links {
+                /* Style nav links as a dropdown menu */
+                display: none; /* Hide by default */
+                position: absolute;
+                top: 100%; /* Position below the header */
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+                padding: 1rem 0;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            }
+            .nav-links li { width: 100%; }
+            .nav-links a {
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding: 0.75rem 1rem;
+            }
+            /* When menu is open, show the links */
+            .header.mobile-menu-open .nav-links {
+                display: flex;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
+    <!-- MODIFICATION: Added id="header" -->
+    <header class="header" id="header">
         <div class="nav-container">
             <a href="index.html" class="logo">SolveThis</a>
             <nav>
-                <ul class="nav-links">
+                <!-- MODIFICATION: Added id="nav-links" -->
+                <ul class="nav-links" id="nav-links">
                     <li><a href="index.html#home" data-translate="nav-home">Home</a></li>
                     <li><a href="index.html#services" data-translate="nav-services">Services</a></li>
                     <li><a href="blog.html" data-translate="nav-blog" class="active">Blog</a></li>
@@ -72,7 +117,17 @@
                     <li><a href="index.html#contact" data-translate="nav-contact">Contact</a></li>
                 </ul>
             </nav>
-            <button class="lang-toggle" onclick="toggleLanguage()">EN</button>
+            <!-- MODIFICATION: Wrapped controls and added hamburger button -->
+            <div class="header-controls">
+                <button class="lang-toggle" onclick="toggleLanguage()">EN</button>
+                <button id="hamburger-menu" class="hamburger-menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -100,6 +155,31 @@
         function applyTranslations() { document.querySelector('.lang-toggle').textContent = currentLang.toUpperCase(); document.querySelectorAll('[data-translate]').forEach(el => { const key = el.getAttribute('data-translate'); if (translations[currentLang] && translations[currentLang][key]) { el.textContent = translations[currentLang][key]; } }); }
         function toggleLanguage() { currentLang = currentLang === 'en' ? 'pt' : 'en'; applyTranslations(); }
         document.addEventListener('DOMContentLoaded', applyTranslations);
+    </script>
+    
+    <!-- MODIFICATION: Added script for hamburger menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.getElementById('header');
+            const hamburgerBtn = document.getElementById('hamburger-menu');
+            const navLinks = document.getElementById('nav-links');
+
+            if (hamburgerBtn && navLinks && header) {
+                // Toggle menu on hamburger click
+                hamburgerBtn.addEventListener('click', () => {
+                    header.classList.toggle('mobile-menu-open');
+                });
+
+                // Close menu when a link is clicked
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (header.classList.contains('mobile-menu-open')) {
+                            header.classList.remove('mobile-menu-open');
+                        }
+                    });
+                });
+            }
+        });
     </script>
 </body>
 </html>
