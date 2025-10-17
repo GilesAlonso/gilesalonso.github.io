@@ -576,6 +576,79 @@ button:focus {
   overflow: hidden !important;
   border: 2.2px solid rgba(132, 231, 116, 0.88) !important;
 }
+
+.skill-category-grid {
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
+}
+
+.skill-category-col {
+  display: flex;
+}
+
+.skill-card {
+  background: rgba(8, 18, 12, 0.55);
+  border: 1px solid rgba(120, 220, 120, 0.35);
+  border-radius: 18px;
+  padding: 28px;
+  height: 100%;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 40px rgba(32, 102, 38, 0.45);
+}
+
+.skill-card-title {
+  font-size: 1.4em;
+  font-weight: 600;
+  color: #c7f5c4;
+  margin-bottom: 12px;
+}
+
+.skill-card-summary {
+  font-size: 0.95em;
+  color: rgba(255, 255, 255, 0.76);
+  margin-bottom: 18px;
+  min-height: 48px;
+}
+
+.skill-card-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  row-gap: 12px;
+}
+
+.skill-card-list-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.skill-item-name {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.skill-item-note {
+  font-size: 0.9em;
+  color: rgba(182, 240, 174, 0.9);
+}
+
+.resume-skills-block {
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.resume-skills-heading {
+  margin-bottom: 22px !important;
+}
+
 .tech-icon-images {
   padding: 20px !important;
   line-height: 1.6 !important;

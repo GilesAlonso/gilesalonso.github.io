@@ -14,7 +14,7 @@ function ProjectCards(props) {
           {props.description}
         </Card.Text>
         <Button variant="primary" href={props.ghLink} target="_blank">
-          <CgWebsite /> &nbsp;
+          <BsGithub /> &nbsp;
           {props.isBlog ? "Link" : "GitHub"}
         </Button>
         {"\n"}
