@@ -3,7 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SolveThis - Automation, AI, and Scripts</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SolveThis | Automation, AI & Custom Scripts for Modern Operations</title>
+    <meta name="description" content="SolveThis delivers automation, AI, and custom scripting services to streamline manual processes, integrate systems, and unlock data-driven insights.">
+    <meta name="keywords" content="automation developer, ai consultant, process automation, custom scripts, data integration, freelance developer">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="SolveThis">
+    <link rel="canonical" href="https://solvethis.qzz.io/">
+    <link rel="alternate" hreflang="en" href="https://solvethis.qzz.io/?lang=en">
+    <link rel="alternate" hreflang="pt-BR" href="https://solvethis.qzz.io/?lang=pt">
+    <link rel="alternate" hreflang="x-default" href="https://solvethis.qzz.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SolveThis | Automation, AI & Custom Scripts">
+    <meta property="og:description" content="Partner with SolveThis to automate workflows, build AI-powered tools, and deliver custom scripts that streamline your business.">
+    <meta property="og:url" content="https://solvethis.qzz.io/">
+    <meta property="og:site_name" content="SolveThis">
+    <meta property="og:image" content="https://solvethis.qzz.io/Images/solvethis-hero.webp">
+    <meta property="og:image:type" content="image/webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Dynamic visualization representing SolveThis automation and AI services">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SolveThis | Automation, AI & Custom Scripts">
+    <meta name="twitter:description" content="Automation, AI, and scripting services that eliminate inefficiencies and unlock growth.">
+    <meta name="twitter:image" content="https://solvethis.qzz.io/Images/solvethis-hero.webp">
+    <meta name="twitter:image:alt" content="Dynamic visualization representing SolveThis automation and AI services">
+    <meta name="theme-color" content="#2d5a27">
+    <link rel="icon" href="https://solvethis.qzz.io/Images/solvethis-logo.png" type="image/png">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="text/javascript">
         var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
@@ -22,7 +51,13 @@
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; line-height: 1.6; color: #333; background-color: #f8f9fa; }
         .header { background: white; padding: 1rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
-        .logo { font-size: 1.5rem; font-weight: bold; color: #2d5a27; }
+        .brand { display: flex; align-items: center; }
+        .brand-link { display: inline-flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit; }
+        .brand-mark { display: block; }
+        .brand-mark img { width: 48px; height: 48px; border-radius: 12px; object-fit: cover; }
+        .brand-copy { display: flex; flex-direction: column; line-height: 1.15; }
+        .brand-name { font-size: 1.5rem; font-weight: 700; color: #2d5a27; }
+        .brand-tagline { font-size: 0.85rem; font-weight: 500; color: #4d7a45; }
         .nav-links { display: flex; list-style: none; gap: 2rem; }
         .nav-links a { text-decoration: none; color: #666; font-weight: 500; transition: color 0.3s; cursor: pointer; }
         .nav-links a.active { color: #28a745; font-weight: 600; }
@@ -48,18 +83,30 @@
         .cta-button:hover { background: #e8681a; transform: translateY(-2px); }
 
         .hero-visual { position: relative; display: flex; justify-content: center; align-items: center; min-height: 400px; height: 100%; }
-        #heroAnimationWrapper { position: relative; display: flex; justify-content: center; align-items: center; border-radius: 50%; background-color: rgba(30, 70, 35, 0.6); box-shadow: 0 0 15px rgba(100, 220, 180, 0.15), inset 0 0 10px rgba(0,0,0,0.25); }
-        #heroAnimationCanvas { display: block; }
+        #heroAnimationWrapper { position: relative; display: flex; justify-content: center; align-items: center; border-radius: 50%; background-color: rgba(30, 70, 35, 0.6); box-shadow: 0 0 15px rgba(100, 220, 180, 0.15), inset 0 0 10px rgba(0,0,0,0.25); min-width: 280px; min-height: 280px; transition: box-shadow 0.3s ease; }
+        #heroAnimationCanvas { display: block; width: 100%; height: 100%; }
         .orbiting-tag { position: absolute; background-color: rgba(255, 255, 255, 0.12); color: #e8ffe8; padding: 4px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 500; border: 1px solid rgba(127, 255, 212, 0.35); backdrop-filter: blur(2px); box-shadow: 0 1px 4px rgba(0,0,0,0.2); will-change: transform; text-align: center; transform-origin: center center; }
         
-        section[id] { } .problem-section { background: white; padding: 4rem 2rem; } .problem-container { max-width: 800px; margin: 0 auto; border-left: 4px solid #28a745; padding-left: 2rem; } .problem-section h2 { font-size: 2rem; margin-bottom: 1rem; color: #333; } .problem-section p { font-size: 1.1rem; margin-bottom: 1rem; color: #666; } .solution-text { color: #28a745; font-weight: bold; font-size: 1.2rem; } .services { padding: 4rem 2rem; background: #f8f9fa; } .services-container { max-width: 1200px; margin: 0 auto; } .services h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #333; } .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; } .service-card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s, box-shadow 0.3s; } .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); } .service-icon { width: 60px; height: 60px; margin: 0 auto 1rem; background: #28a745; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; } .service-card h3 { font-size: 1.3rem; margin-bottom: 1rem; color: #333; } .service-card p { color: #666; font-size: 0.95rem; } .hire-me { padding: 4rem 2rem; background: white; } .hire-container { max-width: 1200px; margin: 0 auto; text-align: center; } .hire-me h2 { font-size: 2.5rem; margin-bottom: 3rem; color: #333; } .profile-links { display: flex; justify-content: center; gap: 3rem; margin-bottom: 2rem; } .profile-card { display: flex; align-items: center; gap: 1rem; padding: 1rem 2rem; background: #f8f9fa; border-radius: 10px; transition: background 0.3s; text-decoration: none; color: #333; } .profile-card:hover { background: #e9ecef; } .profile-icon { width: 40px; height: 40px; background: #28a745; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; } .contact-direct { background: #28a745; color: white; border: none; padding: 1rem 2rem; border-radius: 8px; font-size: 1.1rem; cursor: pointer; transition: background 0.3s; text-decoration: none; display: inline-block; } .contact-direct:hover { background: #218838; } .contact-section { padding: 4rem 2rem; background: #f8f9fa; } .contact-container { max-width: 600px; margin: 0 auto; } .contact-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #333; } .form-group { margin-bottom: 1.5rem; } .form-group label { display: block; margin-bottom: 0.5rem; color: #333; font-weight: 500; } .form-group input, .form-group textarea { width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s; } .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #28a745; } .form-group textarea { resize: vertical; min-height: 120px; } .submit-btn { background: #28a745; color: white; border: none; padding: 1rem 2rem; border-radius: 8px; font-size: 1.1rem; cursor: pointer; transition: background 0.3s; width: 100%; } .submit-btn:hover { background: #218838; } .email-note { text-align: center; margin-top: 2rem; color: #666; } .email-link { color: #28a745; text-decoration: none; } .email-link:hover { text-decoration: underline; } .footer { background: #2d5a27; color: white; padding: 2rem 0; } .footer-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; } .footer-links { display: flex; gap: 2rem; } .footer-links a { color: white; text-decoration: none; transition: opacity 0.3s; } .footer-links a:hover { opacity: 0.8; } .copyright { font-size: 0.9rem; opacity: 0.8; }
+        section[id] { } .problem-section { background: white; padding: 4rem 2rem; } .problem-container { max-width: 800px; margin: 0 auto; border-left: 4px solid #28a745; padding-left: 2rem; } .problem-section h2 { font-size: 2rem; margin-bottom: 1rem; color: #333; } .problem-section p { font-size: 1.1rem; margin-bottom: 1rem; color: #666; } .solution-text { color: #28a745; font-weight: bold; font-size: 1.2rem; } .services { padding: 4rem 2rem; background: #f8f9fa; } .services-container { max-width: 1200px; margin: 0 auto; } .services h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #333; } .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; } .service-card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s, box-shadow 0.3s; } .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); } .service-icon { width: 60px; height: 60px; margin: 0 auto 1rem; background: #28a745; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; } .service-card h3 { font-size: 1.3rem; margin-bottom: 1rem; color: #333; } .service-card p { color: #666; font-size: 0.95rem; } .hire-me { padding: 4rem 2rem; background: white; } .hire-container { max-width: 1200px; margin: 0 auto; text-align: center; } .hire-me h2 { font-size: 2.5rem; margin-bottom: 3rem; color: #333; } .profile-links { display: flex; justify-content: center; gap: 3rem; margin-bottom: 2rem; } .profile-card { display: flex; align-items: center; gap: 1rem; padding: 1rem 2rem; background: #f8f9fa; border-radius: 10px; transition: background 0.3s; text-decoration: none; color: #333; } .profile-card:hover { background: #e9ecef; } .profile-icon { width: 40px; height: 40px; background: #28a745; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; } .contact-direct { background: #28a745; color: white; border: none; padding: 1rem 2rem; border-radius: 8px; font-size: 1.1rem; cursor: pointer; transition: background 0.3s; text-decoration: none; display: inline-block; } .contact-direct:hover { background: #218838; } .contact-section { padding: 4rem 2rem; background: #f8f9fa; } .contact-container { max-width: 600px; margin: 0 auto; } .contact-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #333; } .form-group { margin-bottom: 1.5rem; } .form-group label { display: block; margin-bottom: 0.5rem; color: #333; font-weight: 500; } .form-group input, .form-group textarea { width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s; } .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #28a745; } .form-group textarea { resize: vertical; min-height: 120px; } .submit-btn { background: #28a745; color: white; border: none; padding: 1rem 2rem; border-radius: 8px; font-size: 1.1rem; cursor: pointer; transition: background 0.3s; width: 100%; } .submit-btn:hover { background: #218838; } .email-note { text-align: center; margin-top: 2rem; color: #666; } .email-link { color: #28a745; text-decoration: none; } .email-link:hover { text-decoration: underline; } .footer { background: #2d5a27; color: white; padding: 2rem 0; } .footer-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 2rem; padding: 0 2rem; } .footer-nav { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; } .footer-nav a { color: white; text-decoration: none; font-size: 0.95rem; transition: opacity 0.3s; } .footer-nav a:hover { opacity: 0.8; } .footer-links { display: flex; gap: 2rem; } .footer-links a { color: white; text-decoration: none; transition: opacity 0.3s; } .footer-links a:hover { opacity: 0.8; } .copyright { font-size: 0.9rem; opacity: 0.8; }
+        
+        .contact-note { margin-top: 1.5rem; font-size: 0.95rem; color: #4a4a4a; text-align: center; }
+        .contact-note a { color: #28a745; font-weight: 600; text-decoration: none; }
+        .contact-note a:hover { text-decoration: underline; }
+        .hero-fallback-image { width: 100%; max-width: 420px; border-radius: 50%; display: block; margin: 2rem auto 0; border: 6px solid rgba(255,255,255,0.15); }
+        .hero-fallback-static { display: none; }
         
         @media (max-width: 992px) { .hero-container { grid-template-columns: 1fr; text-align: center; gap: 2rem; } .hero-visual { margin-top: 2rem; grid-row: 1; min-height: 380px; } .hero-content { grid-row: 2; } }
         
         @media (max-width: 768px) {
             .hero-content h1 { font-size: 2.2rem; }
+            .brand-link { gap: 0.5rem; }
+            .brand-name { font-size: 1.3rem; }
+            .brand-tagline { display: none; }
             .profile-links { flex-direction: column; align-items: center; }
-            .footer-container { flex-direction: column; gap: 1rem; }
+            .footer-container { flex-direction: column; gap: 1rem; text-align: center; }
+            .footer-nav { justify-content: center; }
+            .footer-links { justify-content: center; }
+            .copyright { text-align: center; }
             .hero-visual { min-height: 340px; }
 
             /* --- Hamburger Menu Styles --- */
@@ -93,29 +140,96 @@
             }
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            #heroAnimationCanvas { display: none; }
+            #heroAnimationWrapper { box-shadow: none; }
+            .hero-fallback-static { display: block; }
+        }
+
         .message { padding: 1rem; border-radius: 8px; margin-bottom: 1rem; display: none; } .message.success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; } .message.error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; } .about-modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); overflow-y: auto; overflow-x: hidden; justify-content: center; align-items: flex-start; padding: 3rem 1.5rem; } .about-modal-content-wrapper { width: 100%; max-width: 1000px; margin: 0 auto; box-sizing: border-box; } .about-modal-inner-content { background-color: transparent; border-radius: 10px; position: relative; max-width: 1000px; width: 100%; } #skillsList { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); } @media (max-width: 640px) { .about-modal { padding: 2rem 1rem; } } #aboutModal section { } .about-modal-close { color: #aaa; position: absolute; top: 10px; right: 15px; font-size: 35px; font-weight: bold; line-height: 1; z-index: 2010; } .about-modal-close:hover, .about-modal-close:focus { color: #333; text-decoration: none; cursor: pointer; }
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "ProfessionalService",
+                "@id": "https://solvethis.qzz.io/#organization",
+                "name": "SolveThis",
+                "url": "https://solvethis.qzz.io/",
+                "logo": "https://solvethis.qzz.io/Images/solvethis-logo.png",
+                "image": "https://solvethis.qzz.io/Images/solvethis-hero.webp",
+                "description": "SolveThis delivers automation, AI, and custom scripting services built to eliminate inefficiencies and scale operations.",
+                "email": "mailto:giles.g.alonso@gmail.com",
+                "sameAs": [
+                    "https://www.fiverr.com/gilesgrollaalon?public_mode=true",
+                    "https://www.upwork.com/freelancers/~013c8c29302f14f74b"
+                ],
+                "availableLanguage": [
+                    "en",
+                    "pt-BR"
+                ],
+                "areaServed": {
+                    "@type": "Place",
+                    "name": "Worldwide"
+                }
+            },
+            {
+                "@type": "Service",
+                "@id": "https://solvethis.qzz.io/#automation-service",
+                "name": "Automation, AI, and Custom Script Development",
+                "serviceType": [
+                    "Process Automation",
+                    "Data Visualization",
+                    "Custom Application Development",
+                    "System Integration"
+                ],
+                "provider": {
+                    "@id": "https://solvethis.qzz.io/#organization"
+                },
+                "availableLanguage": [
+                    "en",
+                    "pt-BR"
+                ],
+                "areaServed": {
+                    "@type": "Place",
+                    "name": "Worldwide"
+                },
+                "url": "https://solvethis.qzz.io/#services"
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
-    <!-- MODIFICATION: Added id="header" to the header tag -->
     <header class="header" id="header">
         <div class="nav-container">
-            <div class="logo">SolveThis</div>
-            <nav>
-                <!-- MODIFICATION: Added id="nav-links" to the ul tag -->
+            <div class="brand">
+                <a href="/" class="brand-link" aria-label="SolveThis home">
+                    <picture class="brand-mark">
+                        <source srcset="Images/solvethis-logo.webp" type="image/webp">
+                        <img src="Images/solvethis-logo.png" width="48" height="48" alt="SolveThis automation and AI services logo" loading="lazy">
+                    </picture>
+                    <span class="brand-copy">
+                        <span class="brand-name">SolveThis</span>
+                        <span class="brand-tagline" data-translate="brand-tagline">Automation &amp; AI studio</span>
+                    </span>
+                </a>
+            </div>
+            <nav aria-label="Primary">
                 <ul class="nav-links" id="nav-links">
                     <li><a href="#home" data-translate="nav-home">Home</a></li>
                     <li><a href="#services" data-translate="nav-services">Services</a></li>
                     <li><a href="#portfolio" data-translate="nav-portfolio">Portfolio</a></li>
+                    <li><a href="/pay.html" data-translate="nav-pay">Payments</a></li>
                     <li><a href="https://gilesalonso.github.io/IAdventures" target="_blank" rel="noopener noreferrer" data-translate="nav-iadventures">IAdventures</a></li>
                     <li><a href="#about" data-translate="nav-about">About</a></li>
                     <li><a href="#contact" data-translate="nav-contact">Contact</a></li>
                 </ul>
             </nav>
-            <!-- MODIFICATION: Wrapped language toggle and new hamburger button in a div -->
             <div class="header-controls">
-                <button class="lang-toggle" onclick="toggleLanguage()">EN</button>
-                <button id="hamburger-menu" class="hamburger-menu">
+                <button class="lang-toggle" type="button" onclick="toggleLanguage()">EN</button>
+                <button id="hamburger-menu" class="hamburger-menu" type="button" aria-label="Toggle navigation menu">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="3" y1="6" x2="21" y2="6"></line>
                         <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -126,6 +240,7 @@
         </div>
     </header>
 
+    <main id="main-content">
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
@@ -138,6 +253,10 @@
                     <canvas id="heroAnimationCanvas"></canvas>
                     <!-- Orbiting tags will be dynamically added here by JS -->
                 </div>
+                <img src="Images/solvethis-hero.webp" class="hero-fallback-image hero-fallback-static" alt="Abstract automation visualization for SolveThis services" loading="lazy">
+                <noscript>
+                    <img src="Images/solvethis-hero.webp" class="hero-fallback-image" alt="Abstract automation visualization for SolveThis services">
+                </noscript>
             </div>
         </div>
     </section>
@@ -145,7 +264,32 @@
     <section class="problem-section"> <div class="problem-container"> <h2 data-translate="problem-title">Have a process that wastes your time?</h2> <p data-translate="problem-desc1">A spreadsheet that needs automation?</p> <p data-translate="problem-desc2">A workflow begging for AI?</p> <p class="solution-text" data-translate="solution-text">You bring the problem. I'll Solve It.</p> </div> </section>
     <section id="services" class="services"> <div class="services-container"> <h2 data-translate="services-title">Services</h2> <div class="services-grid"> <div class="service-card"> <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M13,2.05V5.08C16.39,5.57 19,8.47 19,12C19,12.9 18.82,13.75 18.5,14.54L21.12,16.07C21.68,14.83 22,13.45 22,12C22,6.82 18.05,2.55 13,2.05M12,19A7,7 0 0,1 5,12C5,8.47 7.61,5.57 11,5.08V2.05C5.94,2.55 2,6.81 2,12A10,10 0 0,0 12,22C15.3,22 18.23,20.39 20.07,17.93L17.45,16.4C15.17,18.39 13.15,19 12,19Z"/></svg></div> <h3 data-translate="service1-title">Process Automation</h3> <p data-translate="service1-desc">Transform manual tasks into efficient automated workflows</p> </div> <div class="service-card"> <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M2,2H4V20H2V2M22,2V4H4V2H22M4,6H16V8H4V6M4,10H12V12H4V10M4,14H16V16H4V14M18,14V20H20V14H18M18,10V12H22V10H18Z"/></svg></div> <h3 data-translate="service2-title">Data Visualization</h3> <p data-translate="service2-desc">Convert complex data into clear, actionable insights</p> </div> <div class="service-card"> <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/></svg></div> <h3 data-translate="service3-title">Custom App Development</h3> <p data-translate="service3-desc">Build tailored applications that solve your specific challenges</p> </div> <div class="service-card"> <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17,12C17,14.42 15.28,16.44 13,16.9V21H11V16.9C8.72,16.44 7,14.42 7,12C7,9.58 8.72,7.56 11,7.1V2H13V7.1C15.28,7.56 17,9.58 17,12M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/></svg></div> <h3 data-translate="service4-title">System Integration</h3> <p data-translate="service4-desc">Connect disparate systems for seamless data flow</p> </div> </div> </div> </section>
     <section id="portfolio" class="hire-me"> <div class="hire-container"> <h2 data-translate="hire-title">Hire Me</h2> <div class="profile-links"> <a href="https://www.fiverr.com/gilesgrollaalon?public_mode=true" target="_blank" class="profile-card"> <div class="profile-icon">F</div> <span data-translate="fiverr-profile">View my Fiverr profile</span> </a> <a href="https://www.upwork.com/freelancers/~013c8c29302f14f74b" target="_blank" class="profile-card"> <div class="profile-icon">U</div> <span data-translate="upwork-profile">View my Upwork profile</span> </a> </div> <a href="#contact" class="contact-direct" data-translate="contact-directly">Contact me directly</a> </div> </section>
-    <section id="contact" class="contact-section"> <div class="contact-container"> <h2 data-translate="contact-title">Let's Work Together</h2> <div id="form-message" class="message"></div> <form id="contact-form"> <div class="form-group"> <label for="name" data-translate="form-name">Name</label> <input type="text" id="name" name="name" required> </div> <div class="form-group"> <label for="email" data-translate="form-email">Email</label> <input type="email" id="email" name="email" required> </div> <div class="form-group"> <label for="message" data-translate="form-message">Message</label> <textarea id="message" name="message" required></textarea> </div> <button type="submit" class="submit-btn" data-translate="form-submit">Send Message</button> </form> <div class="email-note"> <p data-translate="email-note">You can also contact me directly via email:</p> <a href="mailto:giles.g.alonso@gmail.com" class="email-link">giles.g.alonso@gmail.com</a> </div> </div> </section>
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <h2 data-translate="contact-title">Let's Work Together</h2>
+            <div id="form-message" class="message"></div>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name" data-translate="form-name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" data-translate="form-email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message" data-translate="form-message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn" data-translate="form-submit">Send Message</button>
+            </form>
+            <div class="email-note">
+                <p data-translate="email-note">You can also contact me directly via email:</p>
+                <a href="mailto:giles.g.alonso@gmail.com" class="email-link">giles.g.alonso@gmail.com</a>
+            </div>
+            <p class="contact-note" data-translate="contact-payment-note"></p>
+        </div>
+    </section>
     <div id="aboutModal" class="about-modal"> <div class="about-modal-content-wrapper"> <div class="about-modal-inner-content"> <span class="about-modal-close" onclick="closeAboutModal()">×</span> <section class="py-10 px-4 md:px-8 bg-white rounded-lg shadow-xl"> <div class="max-w-5xl mx-auto text-center">
               <h2 class="text-4xl font-bold text-gray-900 mb-6" data-translate="about-title">About Me</h2>
               <p class="text-lg text-gray-700 mb-8" data-translate="about-subtitle">Turning complexity into clarity with automation, AI, and scripts.</p>
@@ -179,7 +323,23 @@
               </div>
             </div>
           </section> </div> </div> </div>
-    <footer class="footer"> <div class="footer-container"> <div class="logo">SolveThis</div> <div class="footer-links"> <a href="https://www.fiverr.com/gilesgrollaalon?public_mode=true" target="_blank">Fiverr</a> <a href="https://www.upwork.com/freelancers/~013c8c29302f14f74b" target="_blank">Upwork</a> </div> <div class="copyright" data-translate="copyright">© 2025 SolveThis. All rights reserved.</div> </div> </footer>
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <nav class="footer-nav" aria-label="Secondary">
+                <a href="#home" data-translate="footer-home">Home</a>
+                <a href="#services" data-translate="footer-services">Services</a>
+                <a href="#portfolio" data-translate="footer-portfolio">Portfolio</a>
+                <a href="/pay.html" data-translate="footer-payments">Payments</a>
+                <a href="#contact" data-translate="footer-contact">Contact</a>
+            </nav>
+            <div class="footer-links">
+                <a href="https://www.fiverr.com/gilesgrollaalon?public_mode=true" target="_blank" rel="noopener noreferrer">Fiverr</a>
+                <a href="https://www.upwork.com/freelancers/~013c8c29302f14f74b" target="_blank" rel="noopener noreferrer">Upwork</a>
+            </div>
+            <div class="copyright" data-translate="copyright">© 2025 SolveThis. All rights reserved.</div>
+        </div>
+    </footer>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript"> (function(){ emailjs.init({ publicKey: "w1jAEwgZ0Bhz0eio_" }); })(); </script>
@@ -189,7 +349,8 @@
         // THE TRANSLATIONS OBJECT IS NOW FULLY POPULATED
         const translations = {
             en: {
-                "nav-home": "Home", "nav-services": "Services", "nav-portfolio": "Portfolio", "nav-iadventures": "IAdventures", "nav-about": "About", "nav-contact": "Contact",
+                "nav-home": "Home", "nav-services": "Services", "nav-portfolio": "Portfolio", "nav-pay": "Payments", "nav-iadventures": "IAdventures", "nav-about": "About", "nav-contact": "Contact",
+                "brand-tagline": "Automation & AI studio",
                 "hero-title": "Automation, AI, and scripts—solved.",
                 "hero-subtitle": "I'm a freelance developer who turns ideas, inefficiencies, and \"how do I even...?\" into streamlined, scalable solutions.",
                 "hero-cta": "Discuss your project",
@@ -207,18 +368,21 @@
                 "upwork-profile": "View my Upwork profile",
                 "contact-directly": "Contact me directly",
                 "contact-title": "Let's Work Together",
-                "form-name": "Name", "form-email": "Email", "form-message": "Message", "form-submit": "Send Message",
+                "form-name": "Name", "form-email": "Email", "form-message": "Message", "form-submit": "Send Message", "form-success": "Thank you! Your message has been sent.", "form-error": "Sorry, something went wrong. Please email me directly.",
                 "email-note": "You can also contact me directly via email:",
+                "contact-payment-note": "Already working with SolveThis? <a href=\"/pay.html\">Complete your secure payment.</a>",
                 "about-title": "About Me", "about-subtitle": "Turning complexity into clarity with automation, AI, and scripts.",
                 "about-card1-title": "Hey, I’m Giles!", "about-card1-desc": "I’m a freelance developer with a passion for solving problems through technology. With years of experience on platforms like Fiverr and Upwork, I specialize in process automation, data visualization, custom app development, and system integration. My mission? To streamline workflows, eliminate inefficiencies, and make your life easier—whether it’s automating a tedious task or building a tailored app that fits your needs perfectly.",
                 "about-card2-title": "Why Work With Me?", "about-card2-desc": "I believe in the power of technology to transform how we work. From creating seamless workflows to visualizing data in meaningful ways, I bring creativity and precision to every project. My clients on Fiverr and Upwork trust me to deliver scalable, efficient solutions—and I’d love to do the same for you. Let’s solve your challenges together!",
                 "about-cta": "Let’s Collaborate",
                 "skills-title": "Skills & Capabilities",
                 "skills-subtitle": "An overview of the platforms, languages, and frameworks I use to deliver results.",
+                "footer-home": "Home", "footer-services": "Services", "footer-portfolio": "Portfolio", "footer-payments": "Payments", "footer-contact": "Contact",
                 "copyright": "© 2025 SolveThis. All rights reserved."
             },
             pt: {
-                "nav-home": "Início", "nav-services": "Serviços", "nav-portfolio": "Portfólio", "nav-iadventures": "IAdventures", "nav-about": "Sobre", "nav-contact": "Contato",
+                "nav-home": "Início", "nav-services": "Serviços", "nav-portfolio": "Portfólio", "nav-pay": "Pagamentos", "nav-iadventures": "IAdventures", "nav-about": "Sobre", "nav-contact": "Contato",
+                "brand-tagline": "Estúdio de automação e IA",
                 "hero-title": "Automação, IA e scripts—resolvidos.",
                 "hero-subtitle": "Sou um desenvolvedor freelancer que transforma ideias, ineficiências e \"como é que eu faço...?\" em soluções otimizadas e escaláveis.",
                 "hero-cta": "Discuta seu projeto",
@@ -236,14 +400,16 @@
                 "upwork-profile": "Veja meu perfil no Upwork",
                 "contact-directly": "Contate-me diretamente",
                 "contact-title": "Vamos Trabalhar Juntos",
-                "form-name": "Nome", "form-email": "Email", "form-message": "Mensagem", "form-submit": "Enviar Mensagem",
+                "form-name": "Nome", "form-email": "Email", "form-message": "Mensagem", "form-submit": "Enviar Mensagem", "form-success": "Obrigado! Sua mensagem foi enviada.", "form-error": "Desculpe, algo deu errado. Envie um e-mail diretamente para mim.",
                 "email-note": "Você também pode me contatar diretamente por e-mail:",
+                "contact-payment-note": "Já trabalha com a SolveThis? <a href=\"/pay.html?lang=pt\">Finalize seu pagamento seguro.</a>",
                 "about-title": "Sobre Mim", "about-subtitle": "Transformando complexidade em clareza com automação, IA e scripts.",
                 "about-card1-title": "Olá, eu sou o Giles!", "about-card1-desc": "Sou um desenvolvedor freelancer apaixonado por resolver problemas com tecnologia. Com anos de experiência em plataformas como Fiverr e Upwork, sou especialista em automação de processos, visualização de dados, desenvolvimento de aplicativos e integração de sistemas. Minha missão? Otimizar fluxos de trabalho, eliminar ineficiências e facilitar sua vida - seja automatizando uma tarefa tediosa ou construindo um aplicativo sob medida que se encaixa perfeitamente em suas necessidades.",
                 "about-card2-title": "Por Que Trabalhar Comigo?", "about-card2-desc": "Acredito no poder da tecnologia para transformar a forma como trabalhamos. Desde a criação de fluxos de trabalho contínuos até a visualização de dados de maneiras significativas, trago criatividade e precisão a cada projeto. Meus clientes no Fiverr e Upwork confiam em mim para entregar soluções escaláveis e eficientes - e eu adoraria fazer o mesmo por você. Vamos resolver seus desafios juntos!",
                 "about-cta": "Vamos Colaborar",
                 "skills-title": "Habilidades e Capacidades",
                 "skills-subtitle": "Uma visão geral das plataformas, linguagens e frameworks que utilizo para gerar resultados.",
+                "footer-home": "Início", "footer-services": "Serviços", "footer-portfolio": "Portfólio", "footer-payments": "Pagamentos", "footer-contact": "Contato",
                 "copyright": "© 2025 SolveThis. Todos os direitos reservados."
             }
         };
@@ -511,12 +677,59 @@
             });
         }
 
-        let currentLang = 'en'; let headerHeight = 0; let aboutModal; let aboutModalContentWrapper; let aboutModalInnerContent; 
+        const LANGUAGE_STORAGE_KEY = 'solvethis-lang';
+        const LANGUAGE_PARAM = 'lang';
+        let currentLang = 'en';
+        let headerHeight = 0;
+        let aboutModal;
+        let aboutModalContentWrapper;
+        let aboutModalInnerContent;
+
+        function setDocumentLanguageAttributes() {
+            document.documentElement.setAttribute('lang', currentLang === 'pt' ? 'pt-BR' : 'en');
+        }
+
+        function updateUrlLanguageParam() {
+            const url = new URL(window.location.href);
+            if (currentLang === 'en') {
+                url.searchParams.delete(LANGUAGE_PARAM);
+            } else {
+                url.searchParams.set(LANGUAGE_PARAM, currentLang);
+            }
+            const serializedSearch = url.searchParams.toString();
+            const newUrl = url.pathname + (serializedSearch ? `?${serializedSearch}` : '') + url.hash;
+            window.history.replaceState({}, '', newUrl);
+        }
+
+        function determineInitialLanguage() {
+            const searchParams = new URLSearchParams(window.location.search);
+            const urlLang = searchParams.get(LANGUAGE_PARAM);
+            if (urlLang && ['en', 'pt'].includes(urlLang.toLowerCase())) {
+                currentLang = urlLang.toLowerCase();
+                return;
+            }
+            try {
+                const storedLang = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+                if (storedLang && ['en', 'pt'].includes(storedLang)) {
+                    currentLang = storedLang;
+                    return;
+                }
+            } catch (error) {
+                console.warn('Language persistence unavailable', error);
+            }
+            const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            if (browserLang.startsWith('pt')) {
+                currentLang = 'pt';
+            }
+        }
+
         function applyTranslations() {
             const langButton = document.querySelector('.lang-toggle');
             if (langButton) {
                 langButton.textContent = currentLang.toUpperCase();
+                langButton.setAttribute('aria-label', currentLang === 'en' ? 'Switch language to Portuguese' : 'Mudar idioma para inglês');
             }
+            setDocumentLanguageAttributes();
             document.querySelectorAll('[data-translate]').forEach(el => {
                 const key = el.getAttribute('data-translate');
                 if (translations[currentLang] && translations[currentLang][key]) {
@@ -524,26 +737,152 @@
                 }
             });
             renderSkillsContent(currentLang);
+            try {
+                localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLang);
+            } catch (error) {
+                console.warn('Language persistence unavailable', error);
+            }
+            updateUrlLanguageParam();
         }
-        function toggleLanguage() { currentLang = currentLang === 'en' ? 'pt' : 'en'; applyTranslations(); if (aboutModal && aboutModal.style.display === 'flex') { document.querySelectorAll('#aboutModal [data-translate]').forEach(el => { const key = el.getAttribute('data-translate'); if (translations[currentLang] && translations[currentLang][key]) { el.innerHTML = translations[currentLang][key]; } }); } }
-        function scrollToSection(sectionId, event) { if (event) event.preventDefault(); const cleanSectionId = sectionId.startsWith('#') ? sectionId.substring(1) : sectionId; const section = document.getElementById(cleanSectionId); if (section) { const sectionTop = section.getBoundingClientRect().top + window.pageYOffset - headerHeight; window.scrollTo({ top: sectionTop, behavior: 'smooth' }); } }
-        function scrollToContact(event) { scrollToSection('#contact', event); };
-        function showFormMessage(type, textKeyOrMessage) { const messageDiv = document.getElementById('form-message'); const text = (translations[currentLang] && translations[currentLang][textKeyOrMessage]) || textKeyOrMessage; if (messageDiv) { messageDiv.className = `message ${type}`; messageDiv.textContent = text; messageDiv.style.display = 'block'; setTimeout(() => { messageDiv.style.display = 'none'; }, 7000); } }
-        function triggerMailtoFallback(data) { alert("EmailJS failed. Please send your message directly to giles.g.alonso@gmail.com"); };
-        function resetAboutModalScroll() { if (aboutModal) { aboutModal.scrollTop = 0; } if (aboutModalContentWrapper) { aboutModalContentWrapper.scrollTop = 0; } if (aboutModalInnerContent) { aboutModalInnerContent.scrollTop = 0; } }
-        function openAboutModal() { if (aboutModal) { renderSkillsContent(currentLang); document.querySelectorAll('#aboutModal [data-translate]').forEach(el => { const key = el.getAttribute('data-translate'); if (translations[currentLang] && translations[currentLang][key]) { el.innerHTML = translations[currentLang][key]; } }); resetAboutModalScroll(); aboutModal.style.display = 'flex'; resetAboutModalScroll(); document.body.style.overflow = 'hidden'; } }
-        function closeAboutModal() { if (aboutModal) { resetAboutModalScroll(); aboutModal.style.display = 'none'; document.body.style.overflow = 'auto'; } };
-        function closeAboutModalAndScrollToContact(event) { closeAboutModal(); if (event) event.preventDefault(); scrollToSection('#contact'); };
-        
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'pt' : 'en';
+            applyTranslations();
+            if (aboutModal && aboutModal.style.display === 'flex') {
+                document.querySelectorAll('#aboutModal [data-translate]').forEach(el => {
+                    const key = el.getAttribute('data-translate');
+                    if (translations[currentLang] && translations[currentLang][key]) {
+                        el.innerHTML = translations[currentLang][key];
+                    }
+                });
+            }
+        }
+
+        function scrollToSection(sectionId, event) {
+            if (event) event.preventDefault();
+            const cleanSectionId = sectionId.startsWith('#') ? sectionId.substring(1) : sectionId;
+            const section = document.getElementById(cleanSectionId);
+            if (section) {
+                const sectionTop = section.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+            }
+        }
+
+        function scrollToContact(event) {
+            scrollToSection('#contact', event);
+        }
+
+        function showFormMessage(type, textKeyOrMessage) {
+            const messageDiv = document.getElementById('form-message');
+            const text = (translations[currentLang] && translations[currentLang][textKeyOrMessage]) || textKeyOrMessage;
+            if (messageDiv) {
+                messageDiv.className = `message ${type}`;
+                messageDiv.textContent = text;
+                messageDiv.style.display = 'block';
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 7000);
+            }
+        }
+
+        function triggerMailtoFallback() {
+            alert("EmailJS failed. Please send your message directly to giles.g.alonso@gmail.com");
+        }
+
+        function resetAboutModalScroll() {
+            if (aboutModal) {
+                aboutModal.scrollTop = 0;
+            }
+            if (aboutModalContentWrapper) {
+                aboutModalContentWrapper.scrollTop = 0;
+            }
+            if (aboutModalInnerContent) {
+                aboutModalInnerContent.scrollTop = 0;
+            }
+        }
+
+        function openAboutModal() {
+            if (aboutModal) {
+                renderSkillsContent(currentLang);
+                document.querySelectorAll('#aboutModal [data-translate]').forEach(el => {
+                    const key = el.getAttribute('data-translate');
+                    if (translations[currentLang] && translations[currentLang][key]) {
+                        el.innerHTML = translations[currentLang][key];
+                    }
+                });
+                resetAboutModalScroll();
+                aboutModal.style.display = 'flex';
+                resetAboutModalScroll();
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeAboutModal() {
+            if (aboutModal) {
+                resetAboutModalScroll();
+                aboutModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function closeAboutModalAndScrollToContact(event) {
+            closeAboutModal();
+            if (event) event.preventDefault();
+            scrollToSection('#contact');
+        }
+
+        function shouldReduceMotion() {
+            return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        }
+
+        function scheduleHeroAnimation() {
+            if (typeof window.initializeHeroAnimation !== 'function' || shouldReduceMotion()) {
+                return;
+            }
+            const heroSection = document.getElementById('home');
+            if (!heroSection) {
+                return;
+            }
+
+            const startAnimation = () => {
+                if (typeof window.initializeHeroAnimation === 'function') {
+                    window.initializeHeroAnimation();
+                }
+            };
+
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            obs.disconnect();
+                            if ('requestIdleCallback' in window) {
+                                requestIdleCallback(startAnimation, { timeout: 500 });
+                            } else {
+                                setTimeout(startAnimation, 120);
+                            }
+                        }
+                    });
+                }, { rootMargin: '100px 0px', threshold: 0.25 });
+                observer.observe(heroSection);
+            } else {
+                window.addEventListener('load', () => {
+                    setTimeout(startAnimation, 150);
+                }, { once: true });
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
-            aboutModal = document.getElementById('aboutModal'); if (aboutModal) { aboutModalContentWrapper = aboutModal.querySelector('.about-modal-content-wrapper'); aboutModalInnerContent = aboutModal.querySelector('.about-modal-inner-content'); } 
-            const header = document.getElementById('header'); // Changed selector
-            if (header && getComputedStyle(header).position === 'fixed') { 
-                headerHeight = header.offsetHeight; 
+            aboutModal = document.getElementById('aboutModal');
+            if (aboutModal) {
+                aboutModalContentWrapper = aboutModal.querySelector('.about-modal-content-wrapper');
+                aboutModalInnerContent = aboutModal.querySelector('.about-modal-inner-content');
+            }
+            const header = document.getElementById('header');
+            if (header && getComputedStyle(header).position === 'fixed') {
+                headerHeight = header.offsetHeight;
                 document.body.style.paddingTop = headerHeight + 'px';
             }
-            
-            // --- MODIFICATION: Hamburger menu logic ---
+
             const hamburgerBtn = document.getElementById('hamburger-menu');
             const navLinks = document.getElementById('nav-links');
 
@@ -552,7 +891,6 @@
                     header.classList.toggle('mobile-menu-open');
                 });
 
-                // Close menu when a link is clicked
                 navLinks.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', () => {
                         if (header.classList.contains('mobile-menu-open')) {
@@ -561,306 +899,425 @@
                     });
                 });
             }
-            // --- End of modification ---
 
+            determineInitialLanguage();
             applyTranslations();
-            
-            document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', function(e) { const href = this.getAttribute('href'); if (href.startsWith('#')) { if (href === '#about') { e.preventDefault(); openAboutModal(); } else { scrollToSection(href, e); } } }); });
-            const ctaButton = document.querySelector('.cta-button'); if (ctaButton) ctaButton.addEventListener('click', scrollToContact);
-            const contactDirectLink = document.querySelector('.contact-direct[href="#contact"]'); if (contactDirectLink) contactDirectLink.addEventListener('click', function(e) { scrollToSection('#contact', e); });
-            const aboutModalCta = document.querySelector('#aboutModal a[href="#contact"]'); if (aboutModalCta) aboutModalCta.addEventListener('click', closeAboutModalAndScrollToContact);
-            if (aboutModal) { aboutModal.addEventListener('click', function(event) { if (event.target === aboutModal) closeAboutModal(); }); }
-            window.addEventListener('keydown', function (event) { if (event.key === 'Escape' || event.key === 'Esc') { if (aboutModal && aboutModal.style.display !== 'none') closeAboutModal(); } });
-            const form = document.getElementById('contact-form'); if (form) { form.addEventListener('submit', async function(e) { e.preventDefault(); const serviceID = 'default_service'; const templateID = 'template_t9p1ssu'; try { await emailjs.sendForm(serviceID, templateID, this); showFormMessage('success', 'form-success'); this.reset(); } catch (err) { console.error('EmailJS Error:', err); showFormMessage('error', 'form-error'); triggerMailtoFallback({ name: this.name.value, email: this.email.value, message: this.message.value }); } });}
+            scheduleHeroAnimation();
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#')) {
+                        if (href === '#about') {
+                            e.preventDefault();
+                            openAboutModal();
+                        } else {
+                            scrollToSection(href, e);
+                        }
+                    }
+                });
+            });
+            const ctaButton = document.querySelector('.cta-button');
+            if (ctaButton) ctaButton.addEventListener('click', scrollToContact);
+            const contactDirectLink = document.querySelector('.contact-direct[href="#contact"]');
+            if (contactDirectLink) contactDirectLink.addEventListener('click', function(e) {
+                scrollToSection('#contact', e);
+            });
+            const aboutModalCta = document.querySelector('#aboutModal a[href="#contact"]');
+            if (aboutModalCta) aboutModalCta.addEventListener('click', closeAboutModalAndScrollToContact);
+            if (aboutModal) {
+                aboutModal.addEventListener('click', function(event) {
+                    if (event.target === aboutModal) closeAboutModal();
+                });
+            }
+            window.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' || event.key === 'Esc') {
+                    if (aboutModal && aboutModal.style.display !== 'none') closeAboutModal();
+                }
+            });
+            const form = document.getElementById('contact-form');
+            if (form) {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    const serviceID = 'default_service';
+                    const templateID = 'template_t9p1ssu';
+                    try {
+                        await emailjs.sendForm(serviceID, templateID, this);
+                        showFormMessage('success', 'form-success');
+                        this.reset();
+                    } catch (err) {
+                        console.error('EmailJS Error:', err);
+                        showFormMessage('error', 'form-error');
+                        triggerMailtoFallback();
+                    }
+                });
+            }
         });
         
         window.addEventListener('resize', () => { const header = document.querySelector('.header'); if (header && getComputedStyle(header).position === 'fixed') { headerHeight = header.offsetHeight; document.body.style.paddingTop = headerHeight + 'px'; } });
     </script>
     
-    <!-- Hero animation script (unchanged) -->
+    <!-- Hero animation script -->
     <script>
-// === HERO ANIMATION SCRIPT ===
-document.addEventListener('DOMContentLoaded', function() {
-    const canvas = document.getElementById('heroAnimationCanvas');
-    const wrapper = document.getElementById('heroAnimationWrapper');
+    // === HERO ANIMATION SCRIPT ===
+    (function () {
+        let initialized = false;
 
-    if (!canvas || !wrapper ) {
-        console.error("Hero animation elements (canvas or wrapper) not found!");
-        return;
-    }
-    const ctx = canvas.getContext('2d');
-    
-    let animationId;
-    let lastTimestamp = 0;
-    
-    const availableModes = ['flow', 'spiral', 'pulse', 'morph', 'greenSpectrum', 'pixelSwarm'];
-    let currentModeIndex = 0;
-    let currentModeName = availableModes[currentModeIndex];
-    let previousModeName = currentModeName; 
-    
-    let modeSwitchTimestamp = 0;
-    const MODE_DURATION_MS = 12000; 
-    const TRANSITION_DURATION_MS_HALF = 750; 
-
-    let transitionState = 'none'; // 'none', 'fadingOut', 'preparingNewMode', 'fadingIn'
-    let transitionProgress = 0; 
-
-    let baseComplexity = 120; 
-    let params = {
-        speed: 0.5, 
-        complexity: baseComplexity, 
-        scale: 1, 
-        colorIntensity: 1.0,
-        time: 0,
-        phase: Math.random() * 2 * Math.PI // Initial phase
-    };
-
-    let pi = 4 * Math.atan(1);
-    let r_const = 2 * pi / 235; 
-    let t_math = 4 * Math.random(); // Initial t_math
-    
-    let x_val = 0, u_val = 0, v_val = 0; 
-
-    let orange_dot_x_state = Math.random() * 4; 
-    let orange_dot_u_state = 0;                 
-    let orange_dot_v_state = 0;                 
-    const ORANGE_DOT_SIZE = 2.5;                
-    const ORANGE_DOT_COLOR = '#fd7e14';
-    const ORANGE_DOT_PSEUDO_I_FACTOR = 0.42;    
-    const ORANGE_DOT_TIME_SCALE = 0.35;         
-    const ORANGE_DOT_T_MATH_INFLUENCE = 0.25;   
-
-    const FRAME_THICKNESS = 6; 
-
-    function setDimensions() {
-        const heroVisualContainer = wrapper.parentElement; 
-        const container = heroVisualContainer.parentElement; 
-        let idealAnimationSize = Math.min(container.clientWidth * 0.48, heroVisualContainer.clientHeight * 0.90, 460);
-        if (window.innerWidth < 992 && window.innerWidth >= 768) { idealAnimationSize = Math.min(container.clientWidth * 0.80, heroVisualContainer.clientHeight * 0.80, 380); }
-        else if (window.innerWidth < 768) { idealAnimationSize = Math.min(heroVisualContainer.clientWidth * 0.90, heroVisualContainer.clientHeight * 0.80, 320); }
-        idealAnimationSize = Math.max(280, idealAnimationSize);
-        const wrapperSize = Math.floor(idealAnimationSize + 2 * FRAME_THICKNESS);
-        wrapper.style.width = `${wrapperSize}px`;
-        wrapper.style.height = `${wrapperSize}px`;
-        canvas.width = Math.floor(idealAnimationSize);
-        canvas.height = Math.floor(idealAnimationSize);
-        params.scale = canvas.width / 4.2;
-    }
-    setDimensions();
-
-    const tagsData = [
-        { text: "AI", angle: Math.random() * 2 * pi, radiusFactor: 1.08, speed: 0.0008, el: null },
-        { text: "Automation", angle: Math.random() * 2 * pi, radiusFactor: 1.12, speed: -0.0007, el: null },
-        { text: "Scripts", angle: Math.random() * 2 * pi, radiusFactor: 1.06, speed: 0.0009, el: null },
-        { text: "Data", angle: Math.random() * 2 * pi, radiusFactor: 1.14, speed: -0.0006, el: null },
-        { text: "Solve", angle: Math.random() * 2 * pi, radiusFactor: 1.09, speed: 0.00075, el: null }
-    ];
-
-    function createTags() { 
-        tagsData.forEach(tag => {
-            const tagEl = document.createElement('div');
-            tagEl.className = 'orbiting-tag';
-            tagEl.textContent = tag.text;
-            wrapper.appendChild(tagEl); 
-            tag.el = tagEl;
-        });
-    }
-    createTags();
-
-    function updateTagsPosition(deltaTime) { 
-        const centerX = wrapper.offsetWidth / 2;
-        const centerY = wrapper.offsetHeight / 2;
-        const baseRadius = wrapper.offsetWidth / 2;
-        tagsData.forEach(tag => {
-            if (!tag.el) return; 
-            tag.angle += tag.speed * deltaTime;
-            const currentRadius = baseRadius * tag.radiusFactor;
-            const x = centerX + currentRadius * Math.cos(tag.angle) - tag.el.offsetWidth / 2;
-            const y = centerY + currentRadius * Math.sin(tag.angle) - tag.el.offsetHeight / 2;
-            tag.el.style.left = `${x}px`;
-            tag.el.style.top = `${y}px`;
-        });
-    }
-    
-    function hsvToRgb(h, s, v) { 
-        h /= 60; let c = v * s; let x_color = c * (1 - Math.abs((h % 2) - 1));
-        let m = v - c; let r_rgb, g_rgb, b_rgb;
-        if (h < 1) [r_rgb, g_rgb, b_rgb] = [c, x_color, 0]; else if (h < 2) [r_rgb, g_rgb, b_rgb] = [x_color, c, 0];
-        else if (h < 3) [r_rgb, g_rgb, b_rgb] = [0, c, x_color]; else if (h < 4) [r_rgb, g_rgb, b_rgb] = [0, x_color, c];
-        else if (h < 5) [r_rgb, g_rgb, b_rgb] = [x_color, 0, c]; else [r_rgb, g_rgb, b_rgb] = [c, 0, x_color];
-        return { r: Math.floor((r_rgb + m) * 255), g: Math.floor((g_rgb + m) * 255), b: Math.floor((b_rgb + m) * 255) };
-    }
-
-    function switchModeLogic(timestamp) {  
-        if (transitionState === 'none' && timestamp - modeSwitchTimestamp > MODE_DURATION_MS) {
-            previousModeName = currentModeName;
-            transitionState = 'fadingOut';
-            transitionProgress = 0;
-            modeSwitchTimestamp = timestamp; 
-        }
-    }
-
-    function updateOrangeDotState(iterationsCount) { 
-        let pseudo_i_orange = iterationsCount * ORANGE_DOT_PSEUDO_I_FACTOR;
-        orange_dot_u_state = Math.sin(params.time * ORANGE_DOT_TIME_SCALE + orange_dot_v_state + params.phase * 0.5) + 
-                             Math.sin(r_const * pseudo_i_orange + orange_dot_x_state);
-        orange_dot_v_state = Math.cos(params.time * ORANGE_DOT_TIME_SCALE + orange_dot_v_state + params.phase * 0.5) + 
-                             Math.cos(r_const * pseudo_i_orange + orange_dot_x_state);
-        orange_dot_x_state = orange_dot_u_state + t_math * ORANGE_DOT_T_MATH_INFLUENCE; 
-    }
-    
-    function animatePattern(timestamp) {
-        if (!lastTimestamp) lastTimestamp = timestamp;
-        const deltaTime = timestamp - lastTimestamp;
-        lastTimestamp = timestamp;
-
-        if (!modeSwitchTimestamp) modeSwitchTimestamp = timestamp;
-        switchModeLogic(timestamp);
-
-        params.time += (0.016 * params.speed) * (deltaTime / 16.66); 
-        
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        let activeMode = currentModeName;
-        let currentGlobalAlpha = 1;
-
-        if (transitionState === 'fadingOut') {
-            transitionProgress += deltaTime / TRANSITION_DURATION_MS_HALF;
-            currentGlobalAlpha = 1 - Math.min(1, transitionProgress);
-            activeMode = previousModeName; 
-
-            if (transitionProgress >= 1) {
-                currentModeIndex = (currentModeIndex + 1) % availableModes.length;
-                currentModeName = availableModes[currentModeIndex];
-                
-                t_math = 4 * Math.random(); 
-                params.phase = Math.random() * 2 * Math.PI; 
-                params.complexity = (currentModeName === 'pixelSwarm') ? 220 : baseComplexity;
-                
-                orange_dot_x_state = Math.random() * 4;
-                orange_dot_u_state = 0;
-                orange_dot_v_state = 0;
-
-                transitionState = 'fadingIn';
-                transitionProgress = 0;
+        window.initializeHeroAnimation = function initializeHeroAnimation() {
+            if (initialized) {
+                return;
             }
-        } else if (transitionState === 'fadingIn') {
-            activeMode = currentModeName;
-            transitionProgress += deltaTime / TRANSITION_DURATION_MS_HALF;
-            currentGlobalAlpha = Math.min(1, transitionProgress);
 
-            if (transitionProgress >= 1) {
-                transitionState = 'none';
-                currentGlobalAlpha = 1;
+            const canvas = document.getElementById('heroAnimationCanvas');
+            const wrapper = document.getElementById('heroAnimationWrapper');
+
+            if (!canvas || !wrapper) {
+                console.error("Hero animation elements (canvas or wrapper) not found!");
+                return;
             }
-        }
-        
-        let iterations = Math.floor(params.complexity / 5);
-        
-        x_val = t_math * (1 + Math.sin(params.time * 0.1) * 0.1); 
 
-        ctx.globalAlpha = currentGlobalAlpha; 
-        
-        let particleSize = (activeMode === 'pixelSwarm') ? 1.5 : 2;
-        
-        for (let i = 0; i < iterations; i++) {
-            for (let j = 0; j < iterations; j++) {
-                let animatedI = i; let animatedJ = j; let timeOffset = 0;
-                
-                switch (activeMode) {
-                    case 'flow': timeOffset = params.time; break;
-                    case 'spiral': timeOffset = Math.atan2(j - iterations/2, i - iterations/2) + params.time; particleSize = (Math.sin(params.time + (i+j)*0.1) + 1.5); break;
-                    case 'pulse': let dist = Math.sqrt((i - iterations/2)**2 + (j - iterations/2)**2); timeOffset = Math.sin(params.time * 1.5 + dist * 0.05) * 0.5; particleSize = 1 + Math.abs(Math.sin(params.time * 2 + dist * 0.1)) * 2; break;
-                    case 'morph': animatedI = i + Math.sin(params.time + j * 0.1) * 8; animatedJ = j + Math.cos(params.time + i * 0.1) * 8; break;
-                    case 'greenSpectrum': timeOffset = params.time * 1.5; break;
-                    case 'pixelSwarm': timeOffset = params.time * 0.3 + Math.sin(i*0.1 + params.time) * 0.2; particleSize = 1 + Math.random() * 1; break;
+            initialized = true;
+
+            const ctx = canvas.getContext('2d');
+            let animationId;
+            let lastTimestamp = 0;
+
+            const availableModes = ['flow', 'spiral', 'pulse', 'morph', 'greenSpectrum', 'pixelSwarm'];
+            let currentModeIndex = 0;
+            let currentModeName = availableModes[currentModeIndex];
+            let previousModeName = currentModeName;
+
+            let modeSwitchTimestamp = 0;
+            const MODE_DURATION_MS = 12000;
+            const TRANSITION_DURATION_MS_HALF = 750;
+
+            let transitionState = 'none';
+            let transitionProgress = 0;
+
+            let baseComplexity = 120;
+            let params = {
+                speed: 0.5,
+                complexity: baseComplexity,
+                scale: 1,
+                colorIntensity: 1.0,
+                time: 0,
+                phase: Math.random() * 2 * Math.PI
+            };
+
+            const pi = 4 * Math.atan(1);
+            const r_const = 2 * pi / 235;
+            let t_math = 4 * Math.random();
+
+            let x_val = 0;
+            let u_val = 0;
+            let v_val = 0;
+
+            let orange_dot_x_state = Math.random() * 4;
+            let orange_dot_u_state = 0;
+            let orange_dot_v_state = 0;
+            const ORANGE_DOT_SIZE = 2.5;
+            const ORANGE_DOT_COLOR = '#fd7e14';
+            const ORANGE_DOT_PSEUDO_I_FACTOR = 0.42;
+            const ORANGE_DOT_TIME_SCALE = 0.35;
+            const ORANGE_DOT_T_MATH_INFLUENCE = 0.25;
+
+            const FRAME_THICKNESS = 6;
+
+            function setDimensions() {
+                const heroVisualContainer = wrapper.parentElement;
+                const container = heroVisualContainer.parentElement;
+                let idealAnimationSize = Math.min(container.clientWidth * 0.48, heroVisualContainer.clientHeight * 0.90, 460);
+                if (window.innerWidth < 992 && window.innerWidth >= 768) {
+                    idealAnimationSize = Math.min(container.clientWidth * 0.80, heroVisualContainer.clientHeight * 0.80, 380);
+                } else if (window.innerWidth < 768) {
+                    idealAnimationSize = Math.min(heroVisualContainer.clientWidth * 0.90, heroVisualContainer.clientHeight * 0.80, 320);
                 }
-                
-                u_val = Math.sin(animatedI + v_val + timeOffset + params.phase) + Math.sin(r_const * animatedI + x_val);
-                v_val = Math.cos(animatedI + v_val + timeOffset + params.phase) + Math.cos(r_const * animatedI + x_val);
-                x_val = u_val + t_math; 
-                
-                let px = Math.floor(canvas.width/2 + params.scale * u_val);
-                let py = Math.floor(canvas.height/2 + params.scale * v_val);
-                
-                if (px >= 0 && px < canvas.width && py >= 0 && py < canvas.height) {
-                    let R, G, B; let iFactor = animatedI / iterations; let jFactor = animatedJ / iterations;
-                    if (activeMode === 'greenSpectrum') {
-                        let hue = 90 + ((iFactor * 50) + (jFactor * 20) + (params.time * 15)) % 100; 
-                        let sat = 0.6 + Math.sin(params.time * 0.8 + animatedI * 0.05) * 0.4; sat = Math.max(0.5, Math.min(1, sat * params.colorIntensity));
-                        let val = 0.5 + Math.cos(params.time * 0.6 + animatedJ * 0.08) * 0.5; val = Math.max(0.4, Math.min(1, val * params.colorIntensity));
-                        let hsv = hsvToRgb(hue, sat, val); R = hsv.r; G = hsv.g; B = hsv.b;
-                    } else if (activeMode === 'pixelSwarm') {
-                        let intensity = (Math.sin(params.time * 0.5 + (i * 0.05 + j * 0.03)) + 1) / 2; intensity = 0.4 + intensity * 0.6; 
-                        R = Math.floor(intensity * (180 + Math.random()*50) ); G = Math.floor(intensity * (230 + Math.random()*25) ); B = Math.floor(intensity * (200 + Math.random()*50) );
-                    } else {
-                        let rRaw = (animatedI * 1.2 * params.colorIntensity + timeOffset * 15); let gRaw = (animatedJ * 2.0 * params.colorIntensity + timeOffset * 25 + iFactor * 60);
-                        let bRaw = (220 - (animatedI + animatedJ) * 0.7 * params.colorIntensity + timeOffset * 20 + jFactor * 40);
-                        R = Math.floor(rRaw % 80 + 30); G = Math.floor(gRaw % 135 + 120); B = Math.floor(bRaw % 100 + 60);
-                        G = Math.max(G, (R + B) * 0.7); R = Math.min(R, G * 0.8, 150); B = Math.min(B, G * 0.9, 180);
-                    }
-                    
-                    ctx.shadowBlur = 0; 
-                    if (activeMode === 'pulse' || activeMode === 'spiral') {
-                        const boost = Math.max(0, Math.sin(params.time + (i+j) * 0.05)) * 30;
-                        R = Math.min(255, R + boost); G = Math.min(255, G + boost); B = Math.min(255, B + boost);
-                        ctx.shadowColor = `rgba(${R},${G},${B}, 0.7)`; ctx.shadowBlur = Math.random() * 3 + 1;
-                    }
-                    ctx.fillStyle = `rgb(${R}, ${G}, ${B})`;
-                    ctx.fillRect(px, py, particleSize, particleSize);
-                }
+                idealAnimationSize = Math.max(280, idealAnimationSize);
+                const wrapperSize = Math.floor(idealAnimationSize + 2 * FRAME_THICKNESS);
+                wrapper.style.width = `${wrapperSize}px`;
+                wrapper.style.height = `${wrapperSize}px`;
+                canvas.width = Math.floor(idealAnimationSize);
+                canvas.height = Math.floor(idealAnimationSize);
+                params.scale = canvas.width / 4.2;
             }
-        }
-
-        updateOrangeDotState(iterations); 
-
-        let od_px = Math.floor(canvas.width/2 + params.scale * orange_dot_u_state);
-        let od_py = Math.floor(canvas.height/2 + params.scale * orange_dot_v_state);
-
-        if (od_px >= 0 && od_px < canvas.width && od_py >= 0 && od_py < canvas.height) {
-            ctx.fillStyle = ORANGE_DOT_COLOR;
-            ctx.shadowColor = 'rgba(253, 126, 20, 0.7)'; 
-            ctx.shadowBlur = 6;
-            ctx.beginPath();
-            ctx.arc(od_px, od_py, ORANGE_DOT_SIZE, 0, 2 * Math.PI);
-            ctx.fill();
-            ctx.shadowBlur = 0;
-        }
-
-        ctx.globalAlpha = 1; 
-
-        if (wrapper.offsetWidth > 0) { 
-            updateTagsPosition(deltaTime); 
-        }
-        animationId = requestAnimationFrame(animatePattern);
-    }
-    
-    animationId = requestAnimationFrame(animatePattern);
-
-    document.addEventListener("visibilitychange", () => { 
-         if (document.hidden) { cancelAnimationFrame(animationId);
-        } else {
-            lastTimestamp = performance.now(); 
-            modeSwitchTimestamp = performance.now(); 
-            transitionState = 'none'; 
-            transitionProgress = 0;
-            params.time = 0; 
-            if(performance.now() - (modeSwitchTimestamp || 0) > MODE_DURATION_MS * 2) { 
-                t_math = 4 * Math.random(); params.phase = Math.random() * 2 * Math.PI;
-                orange_dot_x_state = Math.random() * 4; 
-            }
-            animationId = requestAnimationFrame(animatePattern);
-        }
-    });
-
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
             setDimensions();
-        }, 250); 
-    });
-});
-</script>
+
+            const tagsData = [
+                { text: "AI", angle: Math.random() * 2 * pi, radiusFactor: 1.08, speed: 0.0008, el: null },
+                { text: "Automation", angle: Math.random() * 2 * pi, radiusFactor: 1.12, speed: -0.0007, el: null },
+                { text: "Scripts", angle: Math.random() * 2 * pi, radiusFactor: 1.06, speed: 0.0009, el: null },
+                { text: "Data", angle: Math.random() * 2 * pi, radiusFactor: 1.14, speed: -0.0006, el: null },
+                { text: "Solve", angle: Math.random() * 2 * pi, radiusFactor: 1.09, speed: 0.00075, el: null }
+            ];
+
+            function createTags() {
+                tagsData.forEach(tag => {
+                    const tagEl = document.createElement('div');
+                    tagEl.className = 'orbiting-tag';
+                    tagEl.textContent = tag.text;
+                    wrapper.appendChild(tagEl);
+                    tag.el = tagEl;
+                });
+            }
+            createTags();
+
+            function updateTagsPosition(deltaTime) {
+                const centerX = wrapper.offsetWidth / 2;
+                const centerY = wrapper.offsetHeight / 2;
+                const baseRadius = wrapper.offsetWidth / 2;
+                tagsData.forEach(tag => {
+                    if (!tag.el) {
+                        return;
+                    }
+                    tag.angle += tag.speed * deltaTime;
+                    const currentRadius = baseRadius * tag.radiusFactor;
+                    const x = centerX + currentRadius * Math.cos(tag.angle) - tag.el.offsetWidth / 2;
+                    const y = centerY + currentRadius * Math.sin(tag.angle) - tag.el.offsetHeight / 2;
+                    tag.el.style.left = `${x}px`;
+                    tag.el.style.top = `${y}px`;
+                });
+            }
+
+            function hsvToRgb(h, s, v) {
+                h /= 60;
+                const c = v * s;
+                const x_color = c * (1 - Math.abs((h % 2) - 1));
+                const m = v - c;
+                let r_rgb;
+                let g_rgb;
+                let b_rgb;
+                if (h < 1) [r_rgb, g_rgb, b_rgb] = [c, x_color, 0];
+                else if (h < 2) [r_rgb, g_rgb, b_rgb] = [x_color, c, 0];
+                else if (h < 3) [r_rgb, g_rgb, b_rgb] = [0, c, x_color];
+                else if (h < 4) [r_rgb, g_rgb, b_rgb] = [0, x_color, c];
+                else if (h < 5) [r_rgb, g_rgb, b_rgb] = [x_color, 0, c];
+                else [r_rgb, g_rgb, b_rgb] = [c, 0, x_color];
+                return {
+                    r: Math.floor((r_rgb + m) * 255),
+                    g: Math.floor((g_rgb + m) * 255),
+                    b: Math.floor((b_rgb + m) * 255)
+                };
+            }
+
+            function switchModeLogic(timestamp) {
+                if (transitionState === 'none' && timestamp - modeSwitchTimestamp > MODE_DURATION_MS) {
+                    previousModeName = currentModeName;
+                    transitionState = 'fadingOut';
+                    transitionProgress = 0;
+                    modeSwitchTimestamp = timestamp;
+                }
+            }
+
+            function updateOrangeDotState(iterationsCount) {
+                const pseudo_i_orange = iterationsCount * ORANGE_DOT_PSEUDO_I_FACTOR;
+                orange_dot_u_state = Math.sin(params.time * ORANGE_DOT_TIME_SCALE + orange_dot_v_state + params.phase * 0.5) +
+                    Math.sin(r_const * pseudo_i_orange + orange_dot_x_state);
+                orange_dot_v_state = Math.cos(params.time * ORANGE_DOT_TIME_SCALE + orange_dot_v_state + params.phase * 0.5) +
+                    Math.cos(r_const * pseudo_i_orange + orange_dot_x_state);
+                orange_dot_x_state = orange_dot_u_state + t_math * ORANGE_DOT_T_MATH_INFLUENCE;
+            }
+
+            function animatePattern(timestamp) {
+                if (!lastTimestamp) {
+                    lastTimestamp = timestamp;
+                }
+                const deltaTime = timestamp - lastTimestamp;
+                lastTimestamp = timestamp;
+
+                if (!modeSwitchTimestamp) {
+                    modeSwitchTimestamp = timestamp;
+                }
+                switchModeLogic(timestamp);
+
+                params.time += (0.016 * params.speed) * (deltaTime / 16.66);
+
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                let activeMode = currentModeName;
+                let currentGlobalAlpha = 1;
+
+                if (transitionState === 'fadingOut') {
+                    transitionProgress += deltaTime / TRANSITION_DURATION_MS_HALF;
+                    currentGlobalAlpha = 1 - Math.min(1, transitionProgress);
+                    activeMode = previousModeName;
+
+                    if (transitionProgress >= 1) {
+                        currentModeIndex = (currentModeIndex + 1) % availableModes.length;
+                        currentModeName = availableModes[currentModeIndex];
+
+                        t_math = 4 * Math.random();
+                        params.phase = Math.random() * 2 * Math.PI;
+                        params.complexity = (currentModeName === 'pixelSwarm') ? 220 : baseComplexity;
+
+                        orange_dot_x_state = Math.random() * 4;
+                        orange_dot_u_state = 0;
+                        orange_dot_v_state = 0;
+
+                        transitionState = 'fadingIn';
+                        transitionProgress = 0;
+                    }
+                } else if (transitionState === 'fadingIn') {
+                    activeMode = currentModeName;
+                    transitionProgress += deltaTime / TRANSITION_DURATION_MS_HALF;
+                    currentGlobalAlpha = Math.min(1, transitionProgress);
+
+                    if (transitionProgress >= 1) {
+                        transitionState = 'none';
+                        currentGlobalAlpha = 1;
+                    }
+                }
+
+                const iterations = Math.floor(params.complexity / 5);
+
+                x_val = t_math * (1 + Math.sin(params.time * 0.1) * 0.1);
+
+                ctx.globalAlpha = currentGlobalAlpha;
+
+                let particleSize = (activeMode === 'pixelSwarm') ? 1.5 : 2;
+
+                for (let i = 0; i < iterations; i++) {
+                    for (let j = 0; j < iterations; j++) {
+                        let animatedI = i;
+                        let animatedJ = j;
+                        let timeOffset = 0;
+
+                        switch (activeMode) {
+                            case 'flow':
+                                timeOffset = params.time;
+                                break;
+                            case 'spiral':
+                                timeOffset = Math.atan2(j - iterations / 2, i - iterations / 2) + params.time;
+                                particleSize = (Math.sin(params.time + (i + j) * 0.1) + 1.5);
+                                break;
+                            case 'pulse': {
+                                const dist = Math.sqrt((i - iterations / 2) ** 2 + (j - iterations / 2) ** 2);
+                                timeOffset = Math.sin(params.time * 1.5 + dist * 0.05) * 0.5;
+                                particleSize = 1 + Math.abs(Math.sin(params.time * 2 + dist * 0.1)) * 2;
+                                break;
+                            }
+                            case 'morph':
+                                animatedI = i + Math.sin(params.time + j * 0.1) * 8;
+                                animatedJ = j + Math.cos(params.time + i * 0.1) * 8;
+                                break;
+                            case 'greenSpectrum':
+                                timeOffset = params.time * 1.5;
+                                break;
+                            case 'pixelSwarm':
+                                timeOffset = params.time * 0.3 + Math.sin(i * 0.1 + params.time) * 0.2;
+                                particleSize = 1 + Math.random() * 1;
+                                break;
+                        }
+
+                        u_val = Math.sin(animatedI + v_val + timeOffset + params.phase) + Math.sin(r_const * animatedI + x_val);
+                        v_val = Math.cos(animatedI + v_val + timeOffset + params.phase) + Math.cos(r_const * animatedI + x_val);
+                        x_val = u_val + t_math;
+
+                        const px = Math.floor(canvas.width / 2 + params.scale * u_val);
+                        const py = Math.floor(canvas.height / 2 + params.scale * v_val);
+
+                        if (px >= 0 && px < canvas.width && py >= 0 && py < canvas.height) {
+                            let R;
+                            let G;
+                            let B;
+                            const iFactor = animatedI / iterations;
+                            const jFactor = animatedJ / iterations;
+
+                            if (activeMode === 'greenSpectrum') {
+                                const hue = 90 + ((iFactor * 50) + (jFactor * 20) + (params.time * 15)) % 100;
+                                let sat = 0.6 + Math.sin(params.time * 0.8 + animatedI * 0.05) * 0.4;
+                                sat = Math.max(0.5, Math.min(1, sat * params.colorIntensity));
+                                let val = 0.5 + Math.cos(params.time * 0.6 + animatedJ * 0.08) * 0.5;
+                                val = Math.max(0.4, Math.min(1, val * params.colorIntensity));
+                                const hsv = hsvToRgb(hue, sat, val);
+                                R = hsv.r;
+                                G = hsv.g;
+                                B = hsv.b;
+                            } else if (activeMode === 'pixelSwarm') {
+                                let intensity = (Math.sin(params.time * 0.5 + (i * 0.05 + j * 0.03)) + 1) / 2;
+                                intensity = 0.4 + intensity * 0.6;
+                                R = Math.floor(intensity * (180 + Math.random() * 50));
+                                G = Math.floor(intensity * (230 + Math.random() * 25));
+                                B = Math.floor(intensity * (200 + Math.random() * 50));
+                            } else {
+                                const rRaw = (animatedI * 1.2 * params.colorIntensity + timeOffset * 15);
+                                const gRaw = (animatedJ * 2.0 * params.colorIntensity + timeOffset * 25 + iFactor * 60);
+                                const bRaw = (220 - (animatedI + animatedJ) * 0.7 * params.colorIntensity + timeOffset * 20 + jFactor * 40);
+                                R = Math.floor(rRaw % 80 + 30);
+                                G = Math.floor(gRaw % 135 + 120);
+                                B = Math.floor(bRaw % 100 + 60);
+                                G = Math.max(G, (R + B) * 0.7);
+                                R = Math.min(R, G * 0.8, 150);
+                                B = Math.min(B, G * 0.9, 180);
+                            }
+
+                            ctx.shadowBlur = 0;
+                            if (activeMode === 'pulse' || activeMode === 'spiral') {
+                                const boost = Math.max(0, Math.sin(params.time + (i + j) * 0.05)) * 30;
+                                R = Math.min(255, R + boost);
+                                G = Math.min(255, G + boost);
+                                B = Math.min(255, B + boost);
+                                ctx.shadowColor = `rgba(${R},${G},${B}, 0.7)`;
+                                ctx.shadowBlur = Math.random() * 3 + 1;
+                            }
+                            ctx.fillStyle = `rgb(${R}, ${G}, ${B})`;
+                            ctx.fillRect(px, py, particleSize, particleSize);
+                        }
+                    }
+                }
+
+                updateOrangeDotState(iterations);
+
+                const od_px = Math.floor(canvas.width / 2 + params.scale * orange_dot_u_state);
+                const od_py = Math.floor(canvas.height / 2 + params.scale * orange_dot_v_state);
+
+                if (od_px >= 0 && od_px < canvas.width && od_py >= 0 && od_py < canvas.height) {
+                    ctx.fillStyle = ORANGE_DOT_COLOR;
+                    ctx.shadowColor = 'rgba(253, 126, 20, 0.7)';
+                    ctx.shadowBlur = 6;
+                    ctx.beginPath();
+                    ctx.arc(od_px, od_py, ORANGE_DOT_SIZE, 0, 2 * Math.PI);
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                }
+
+                ctx.globalAlpha = 1;
+
+                if (wrapper.offsetWidth > 0) {
+                    updateTagsPosition(deltaTime);
+                }
+                animationId = requestAnimationFrame(animatePattern);
+            }
+
+            animationId = requestAnimationFrame(animatePattern);
+
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    cancelAnimationFrame(animationId);
+                } else {
+                    lastTimestamp = performance.now();
+                    modeSwitchTimestamp = performance.now();
+                    transitionState = 'none';
+                    transitionProgress = 0;
+                    params.time = 0;
+                    if (performance.now() - (modeSwitchTimestamp || 0) > MODE_DURATION_MS * 2) {
+                        t_math = 4 * Math.random();
+                        params.phase = Math.random() * 2 * Math.PI;
+                        orange_dot_x_state = Math.random() * 4;
+                    }
+                    animationId = requestAnimationFrame(animatePattern);
+                }
+            });
+
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    setDimensions();
+                }, 250);
+            });
+        };
+    })();
+    </script>
+
 </body>
 </html>

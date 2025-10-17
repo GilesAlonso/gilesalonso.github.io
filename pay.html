@@ -1,50 +1,321 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Send me Crypto</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SolveThis | Secure Client Payments</title>
+  <meta name="description" content="Submit secure cryptocurrency payments for SolveThis automation, AI, and custom scripting services.">
+  <meta name="keywords" content="SolveThis payment, automation invoice, crypto payment, freelance developer payment, secure client payments, AI developer">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="SolveThis">
+  <link rel="canonical" href="https://solvethis.qzz.io/pay.html">
+  <link rel="alternate" hreflang="en" href="https://solvethis.qzz.io/pay.html?lang=en">
+  <link rel="alternate" hreflang="pt-BR" href="https://solvethis.qzz.io/pay.html?lang=pt">
+  <link rel="alternate" hreflang="x-default" href="https://solvethis.qzz.io/pay.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SolveThis | Secure Client Payments">
+  <meta property="og:description" content="Complete your SolveThis automation or AI engagement with secure cryptocurrency payments.">
+  <meta property="og:url" content="https://solvethis.qzz.io/pay.html">
+  <meta property="og:site_name" content="SolveThis">
+  <meta property="og:image" content="https://solvethis.qzz.io/Images/solvethis-hero.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="SolveThis brand illustration representing automation services">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SolveThis | Secure Client Payments">
+  <meta name="twitter:description" content="Pay for SolveThis automation, AI, and scripting services using secure cryptocurrency transactions.">
+  <meta name="twitter:image" content="https://solvethis.qzz.io/Images/solvethis-hero.webp">
+  <meta name="twitter:image:alt" content="SolveThis brand illustration representing automation services">
+  <meta name="theme-color" content="#2d5a27">
+  <link rel="icon" href="https://solvethis.qzz.io/Images/solvethis-logo.png" type="image/png">
   <style>
-    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#f5f7fa;color:#111;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:1rem}
-    .card{background:#fff;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.12);padding:2rem;max-width:420px;width:100%}
-    h1{margin:.4rem 0 1.2rem;font-size:1.4rem}
-    .item{margin:1.2rem 0}
-    .label{font-weight:600;margin-bottom:.4rem}
-    .addr{word-break:break-all;background:#f0f2f5;padding:.8rem;border-radius:8px;font-size:.9rem;color:#333}
-    button{margin-top:.5rem;padding:.75rem 1.2rem;border:none;border-radius:8px;background:#ff6b35;color:#fff;font-size:.9rem;cursor:pointer}
-    button:active{background:#e95d2a}
-    .done{margin-top:.4rem;font-size:.85rem;color:#28a745;display:none}
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #f6f7fb; color: #1f2933; min-height: 100vh; display: flex; flex-direction: column; }
+    a { color: inherit; }
+    .page-header { background: #ffffff; border-bottom: 1px solid rgba(15, 32, 54, 0.08); padding: 1.25rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 10; }
+    .brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .brand-link { display: inline-flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit; }
+    .brand-mark { display: block; }
+    .brand-mark img { width: 48px; height: 48px; border-radius: 12px; object-fit: cover; }
+    .brand-copy { line-height: 1.1; display: flex; flex-direction: column; }
+    .brand-name { font-size: 1.4rem; font-weight: 700; color: #2d5a27; }
+    .brand-tagline { font-size: 0.85rem; font-weight: 500; color: #4c8050; }
+    .header-actions { display: flex; gap: 1rem; align-items: center; }
+    .home-link { text-decoration: none; font-weight: 600; color: #1f5f5b; }
+    .lang-toggle { background: #2d5a27; color: #ffffff; border: none; padding: 0.5rem 0.9rem; border-radius: 6px; font-weight: 600; cursor: pointer; transition: background 0.3s ease; }
+    .lang-toggle:hover { background: #24491f; }
+    main { width: min(680px, 90vw); margin: 2.5rem auto; flex: 1; }
+    .intro { text-align: center; margin-bottom: 2.5rem; }
+    .intro h1 { font-size: 2.2rem; margin-bottom: 0.75rem; color: #0f213a; }
+    .intro p { margin: 0; color: #425466; line-height: 1.6; }
+    .payment-options { display: grid; gap: 1.5rem; }
+    .payment-card { background: #ffffff; border-radius: 16px; box-shadow: 0 12px 35px rgba(15,32,54,0.08); padding: 1.75rem; border: 1px solid rgba(15,32,54,0.05); }
+    .payment-card h2 { margin: 0 0 0.75rem; font-size: 1.1rem; color: #12324a; letter-spacing: 0.01em; }
+    .address { background: #f1f4f8; border-radius: 10px; padding: 1rem; font-family: "Fira Code", Menlo, Monaco, Consolas, "Courier New", monospace; word-break: break-all; font-size: 0.95rem; margin-bottom: 0.75rem; }
+    .copy-btn { background: #fd7e14; color: #ffffff; border: none; border-radius: 8px; padding: 0.65rem 1.15rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; transition: transform 0.2s ease, background 0.3s ease; }
+    .copy-btn:hover { background: #e06e0f; transform: translateY(-1px); }
+    .copy-confirmation { display: inline-block; margin-left: 0.75rem; font-size: 0.85rem; color: #2d5a27; opacity: 0; transition: opacity 0.2s ease; }
+    .copy-confirmation.visible { opacity: 1; }
+    .support { margin-top: 2.5rem; background: rgba(45, 90, 39, 0.08); border-radius: 14px; padding: 1.5rem 1.75rem; color: #1f3a2e; line-height: 1.6; }
+    .support a { color: #0f766e; font-weight: 600; text-decoration: none; }
+    .support a:hover { text-decoration: underline; }
+    .page-footer { margin-top: auto; background: #ffffff; border-top: 1px solid rgba(15,32,54,0.08); padding: 1.5rem 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; align-items: center; }
+    .page-footer nav { display: flex; gap: 1.25rem; }
+    .page-footer nav a { text-decoration: none; color: #2d5a27; font-weight: 600; }
+    .page-footer small { color: #4c5a67; font-size: 0.85rem; }
+    @media (max-width: 720px) {
+      .page-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .header-actions { width: 100%; justify-content: space-between; }
+      main { width: min(720px, 92vw); margin: 2rem auto; }
+      .payment-card { padding: 1.5rem; }
+    }
+    @media (max-width: 480px) {
+      .brand-tagline { display: none; }
+      .intro h1 { font-size: 1.9rem; }
+      .address { font-size: 0.9rem; }
+      .page-footer { flex-direction: column; align-items: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .copy-btn, .copy-confirmation { transition: none; }
+    }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://solvethis.qzz.io/pay.html",
+    "url": "https://solvethis.qzz.io/pay.html",
+    "name": "SolveThis Secure Client Payments",
+    "description": "Submit secure cryptocurrency payments for SolveThis automation, AI, and custom scripting services.",
+    "inLanguage": ["en", "pt-BR"],
+    "isPartOf": {
+      "@id": "https://solvethis.qzz.io/#organization"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://solvethis.qzz.io/"},
+        {"@type": "ListItem", "position": 2, "name": "Secure Payments"}
+      ]
+    }
+  }
+  </script>
 </head>
 <body>
-  <div class="card">
-    <h1>Send me Crypto</h1>
-
-    <!-- Ethereum / Base / Linea -->
-    <div class="item">
-      <div class="label">Ethereum / Base / Linea (EVM)</div>
-      <div class="addr">0x0c053d20c03c3dc5b1926dae4afa26badc319ae0</div>
-      <button onclick="copy('0x0c053d20c03c3dc5b1926dae4afa26badc319ae0','evm')">Copy</button>
-      <div class="done" id="evm">Copied ✔</div>
+  <header class="page-header">
+    <a href="/" class="brand-link" aria-label="SolveThis home">
+      <picture class="brand-mark">
+        <source srcset="Images/solvethis-logo.webp" type="image/webp">
+        <img src="Images/solvethis-logo.png" width="48" height="48" alt="SolveThis automation and AI services logo" loading="lazy">
+      </picture>
+      <span class="brand-copy">
+        <span class="brand-name">SolveThis</span>
+        <span class="brand-tagline" data-translate="brand-tagline">Automation &amp; AI studio</span>
+      </span>
+    </a>
+    <div class="header-actions">
+      <a href="/" class="home-link" data-base-href="/" data-translate="back-link">&larr; Back to SolveThis</a>
+      <button class="lang-toggle" type="button" onclick="toggleLanguage()">EN</button>
     </div>
+  </header>
 
-    <!-- Monero -->
-    <div class="item">
-      <div class="label">Monero (XMR)</div>
-      <div class="addr">443PWegxJc4RX4feWanZ59gX2WZE8n9augF1ZTi3yF6NKDDqCd8QAJuBeEwpLrpELg9QPCjibTX6n9iS6eHQQgmfMLFurA5</div>
-      <button onclick="copy('443PWegxJc4RX4feWanZ59gX2WZE8n9augF1ZTi3yF6NKDDqCd8QAJuBeEwpLrpELg9QPCjibTX6n9iS6eHQQgmfMLFurA5','xmr')">Copy</button>
-      <div class="done" id="xmr">Copied ✔</div>
-    </div>
-  </div>
+  <main>
+    <section class="intro">
+      <h1 data-translate="page-title">Secure Client Payments</h1>
+      <p data-translate="page-subtitle">Complete your engagement by sending cryptocurrency using the addresses below.</p>
+    </section>
+
+    <section class="payment-options">
+      <article class="payment-card">
+        <h2 data-translate="evm-title">Ethereum / Base / Linea (EVM)</h2>
+        <p class="address" id="address-evm">0x0c053d20c03c3dc5b1926dae4afa26badc319ae0</p>
+        <button type="button" class="copy-btn" data-target="evm" data-translate="copy-label">Copy address</button>
+        <span class="copy-confirmation" id="copy-evm" role="status" aria-live="polite"></span>
+      </article>
+      <article class="payment-card">
+        <h2 data-translate="monero-title">Monero (XMR)</h2>
+        <p class="address" id="address-xmr">443PWegxJc4RX4feWanZ59gX2WZE8n9augF1ZTi3yF6NKDDqCd8QAJuBeEwpLrpELg9QPCjibTX6n9iS6eHQQgmfMLFurA5</p>
+        <button type="button" class="copy-btn" data-target="xmr" data-translate="copy-label">Copy address</button>
+        <span class="copy-confirmation" id="copy-xmr" role="status" aria-live="polite"></span>
+      </article>
+    </section>
+
+    <section class="support">
+      <p data-translate="support-text">Need a different network or an invoice? <a href="/#contact">Contact me directly.</a></p>
+      <p data-translate="convert-note">For fiat conversions, please confirm the agreed rate before sending.</p>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <nav aria-label="Footer navigation">
+      <a href="/" data-base-href="/" data-translate="footer-home">Home</a>
+      <a href="/#services" data-base-href="/#services" data-translate="footer-services">Services</a>
+      <a href="/#contact" data-base-href="/#contact" data-translate="footer-contact">Contact</a>
+    </nav>
+    <small data-translate="footer-note">© 2025 SolveThis. All rights reserved.</small>
+  </footer>
 
   <script>
-    function copy(text, id){
-      navigator.clipboard.writeText(text).then(()=>{
-        const done = document.getElementById(id);
-        done.style.display='block';
-        setTimeout(()=>done.style.display='none', 2500);
+    const LANGUAGE_STORAGE_KEY = 'solvethis-lang';
+    const LANGUAGE_PARAM = 'lang';
+    let currentLang = 'en';
+
+    const payTranslations = {
+      en: {
+        "brand-tagline": "Automation & AI studio",
+        "back-link": "← Back to SolveThis",
+        "page-title": "Secure Client Payments",
+        "page-subtitle": "Complete your engagement by sending cryptocurrency using the addresses below.",
+        "evm-title": "Ethereum / Base / Linea (EVM)",
+        "monero-title": "Monero (XMR)",
+        "copy-label": "Copy address",
+        "support-text": "Need a different network or an invoice? <a href=\"/#contact\">Contact me directly.</a>",
+        "convert-note": "For fiat conversions, please confirm the agreed rate before sending.",
+        "footer-home": "Home",
+        "footer-services": "Services",
+        "footer-contact": "Contact",
+        "footer-note": "© 2025 SolveThis. All rights reserved.",
+        "copied-label": "Copied ✔"
+      },
+      pt: {
+        "brand-tagline": "Estúdio de automação e IA",
+        "back-link": "← Voltar para a SolveThis",
+        "page-title": "Pagamentos Seguros",
+        "page-subtitle": "Conclua seu projeto enviando a criptomoeda nos endereços abaixo.",
+        "evm-title": "Ethereum / Base / Linea (EVM)",
+        "monero-title": "Monero (XMR)",
+        "copy-label": "Copiar endereço",
+        "support-text": "Precisa de outra rede ou de uma fatura? <a href=\"/#contact\">Fale comigo diretamente.</a>",
+        "convert-note": "Para conversões em moeda fiduciária, confirme a taxa combinada antes de enviar.",
+        "footer-home": "Início",
+        "footer-services": "Serviços",
+        "footer-contact": "Contato",
+        "footer-note": "© 2025 SolveThis. Todos os direitos reservados.",
+        "copied-label": "Copiado ✔"
+      }
+    };
+
+    function setDocumentLang() {
+      document.documentElement.setAttribute('lang', currentLang === 'pt' ? 'pt-BR' : 'en');
+    }
+
+    function updateUrlLanguageParam() {
+      const url = new URL(window.location.href);
+      if (currentLang === 'en') {
+        url.searchParams.delete(LANGUAGE_PARAM);
+      } else {
+        url.searchParams.set(LANGUAGE_PARAM, currentLang);
+      }
+      const search = url.searchParams.toString();
+      const newUrl = url.pathname + (search ? `?${search}` : '') + url.hash;
+      window.history.replaceState({}, '', newUrl);
+    }
+
+    function determineInitialLanguage() {
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = params.get(LANGUAGE_PARAM);
+      if (urlLang && ['en', 'pt'].includes(urlLang.toLowerCase())) {
+        currentLang = urlLang.toLowerCase();
+        return;
+      }
+      try {
+        const storedLang = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+        if (storedLang && ['en', 'pt'].includes(storedLang)) {
+          currentLang = storedLang;
+          return;
+        }
+      } catch (error) {
+        console.warn('Language persistence unavailable', error);
+      }
+      const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+      if (browserLang.startsWith('pt')) {
+        currentLang = 'pt';
+      }
+    }
+
+    function applyTranslations() {
+      const langButton = document.querySelector('.lang-toggle');
+      if (langButton) {
+        langButton.textContent = currentLang.toUpperCase();
+        langButton.setAttribute('aria-label', currentLang === 'en' ? 'Switch language to Portuguese' : 'Mudar idioma para inglês');
+      }
+      setDocumentLang();
+      document.querySelectorAll('[data-translate]').forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if (payTranslations[currentLang] && payTranslations[currentLang][key]) {
+          el.innerHTML = payTranslations[currentLang][key];
+        }
+      });
+      document.querySelectorAll('.copy-confirmation').forEach(span => {
+        span.textContent = '';
+        span.classList.remove('visible');
+      });
+      const homeLink = document.querySelector('.home-link');
+      if (homeLink) {
+        const baseHref = homeLink.dataset.baseHref || '/';
+        homeLink.href = currentLang === 'pt' ? '/?lang=pt' : baseHref;
+      }
+      document.querySelectorAll('.page-footer nav a').forEach(link => {
+        const base = link.dataset.baseHref || link.getAttribute('href');
+        if (!base) return;
+        if (currentLang === 'pt') {
+          if (base === '/') {
+            link.href = '/?lang=pt';
+          } else if (base.startsWith('/#')) {
+            link.href = `/?lang=pt${base.slice(1)}`;
+          } else {
+            link.href = base;
+          }
+        } else {
+          link.href = base;
+        }
+      });
+      try {
+        localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLang);
+      } catch (error) {
+        console.warn('Language persistence unavailable', error);
+      }
+      updateUrlLanguageParam();
+    }
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'pt' : 'en';
+      applyTranslations();
+    }
+
+    function setupCopyButtons() {
+      document.querySelectorAll('.copy-btn').forEach(button => {
+        button.addEventListener('click', async () => {
+          const targetId = button.getAttribute('data-target');
+          const addressElement = document.getElementById(`address-${targetId}`);
+          const confirmation = document.getElementById(`copy-${targetId}`);
+          if (!addressElement || !confirmation) {
+            return;
+          }
+          try {
+            await navigator.clipboard.writeText(addressElement.textContent.trim());
+            confirmation.textContent = payTranslations[currentLang]["copied-label"];
+            confirmation.classList.add('visible');
+            setTimeout(() => {
+              confirmation.textContent = '';
+              confirmation.classList.remove('visible');
+            }, 2200);
+          } catch (error) {
+            console.error('Clipboard copy failed', error);
+          }
+        });
       });
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      determineInitialLanguage();
+      applyTranslations();
+      setupCopyButtons();
+    });
   </script>
 </body>
 </html>
