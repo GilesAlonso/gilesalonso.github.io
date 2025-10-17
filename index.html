@@ -93,7 +93,7 @@
             }
         }
 
-        .message { padding: 1rem; border-radius: 8px; margin-bottom: 1rem; display: none; } .message.success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; } .message.error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; } .about-modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); overflow: hidden; justify-content: center; align-items: center; } .about-modal-content-wrapper { display: flex; justify-content: center; align-items: center; width: 100%; height: 100vh; padding: 20px; box-sizing: border-box; overflow-y: auto; } .about-modal-inner-content { background-color: transparent; border-radius: 10px; position: relative; max-width: 1000px; width: 90%; } #aboutModal section { } .about-modal-close { color: #aaa; position: absolute; top: 10px; right: 15px; font-size: 35px; font-weight: bold; line-height: 1; z-index: 2010; } .about-modal-close:hover, .about-modal-close:focus { color: #333; text-decoration: none; cursor: pointer; }
+        .message { padding: 1rem; border-radius: 8px; margin-bottom: 1rem; display: none; } .message.success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; } .message.error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; } .about-modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); overflow-y: auto; overflow-x: hidden; justify-content: center; align-items: flex-start; padding: 3rem 1.5rem; } .about-modal-content-wrapper { width: 100%; max-width: 1000px; margin: 0 auto; box-sizing: border-box; } .about-modal-inner-content { background-color: transparent; border-radius: 10px; position: relative; max-width: 1000px; width: 100%; } #skillsList { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); } @media (max-width: 640px) { .about-modal { padding: 2rem 1rem; } } #aboutModal section { } .about-modal-close { color: #aaa; position: absolute; top: 10px; right: 15px; font-size: 35px; font-weight: bold; line-height: 1; z-index: 2010; } .about-modal-close:hover, .about-modal-close:focus { color: #333; text-decoration: none; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -512,7 +512,7 @@
             });
         }
 
-        let currentLang = 'en'; let headerHeight = 0; let aboutModal; 
+        let currentLang = 'en'; let headerHeight = 0; let aboutModal; let aboutModalContentWrapper; let aboutModalInnerContent; 
         function applyTranslations() {
             const langButton = document.querySelector('.lang-toggle');
             if (langButton) {
@@ -531,12 +531,13 @@
         function scrollToContact(event) { scrollToSection('#contact', event); };
         function showFormMessage(type, textKeyOrMessage) { const messageDiv = document.getElementById('form-message'); const text = (translations[currentLang] && translations[currentLang][textKeyOrMessage]) || textKeyOrMessage; if (messageDiv) { messageDiv.className = `message ${type}`; messageDiv.textContent = text; messageDiv.style.display = 'block'; setTimeout(() => { messageDiv.style.display = 'none'; }, 7000); } }
         function triggerMailtoFallback(data) { alert("EmailJS failed. Please send your message directly to giles.g.alonso@gmail.com"); };
-        function openAboutModal() { if (aboutModal) { renderSkillsContent(currentLang); document.querySelectorAll('#aboutModal [data-translate]').forEach(el => { const key = el.getAttribute('data-translate'); if (translations[currentLang] && translations[currentLang][key]) { el.innerHTML = translations[currentLang][key]; } }); aboutModal.style.display = 'flex'; document.body.style.overflow = 'hidden'; } }
-        function closeAboutModal() { if (aboutModal) { aboutModal.style.display = 'none'; document.body.style.overflow = 'auto'; } };
+        function resetAboutModalScroll() { if (aboutModal) { aboutModal.scrollTop = 0; } if (aboutModalContentWrapper) { aboutModalContentWrapper.scrollTop = 0; } if (aboutModalInnerContent) { aboutModalInnerContent.scrollTop = 0; } }
+        function openAboutModal() { if (aboutModal) { renderSkillsContent(currentLang); document.querySelectorAll('#aboutModal [data-translate]').forEach(el => { const key = el.getAttribute('data-translate'); if (translations[currentLang] && translations[currentLang][key]) { el.innerHTML = translations[currentLang][key]; } }); resetAboutModalScroll(); aboutModal.style.display = 'flex'; resetAboutModalScroll(); document.body.style.overflow = 'hidden'; } }
+        function closeAboutModal() { if (aboutModal) { resetAboutModalScroll(); aboutModal.style.display = 'none'; document.body.style.overflow = 'auto'; } };
         function closeAboutModalAndScrollToContact(event) { closeAboutModal(); if (event) event.preventDefault(); scrollToSection('#contact'); };
         
         document.addEventListener('DOMContentLoaded', function() {
-            aboutModal = document.getElementById('aboutModal'); 
+            aboutModal = document.getElementById('aboutModal'); if (aboutModal) { aboutModalContentWrapper = aboutModal.querySelector('.about-modal-content-wrapper'); aboutModalInnerContent = aboutModal.querySelector('.about-modal-inner-content'); } 
             const header = document.getElementById('header'); // Changed selector
             if (header && getComputedStyle(header).position === 'fixed') { 
                 headerHeight = header.offsetHeight; 
