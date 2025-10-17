@@ -1,33 +1,11 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
-import {
-  SiVisualstudiocode,
-  SiPostman,
-  SiHeroku,
-  SiVercel,
-  SiPowerbi,
-} from "react-icons/si";
+import SkillCategoryGrid from "./SkillCategoryGrid";
+import { skillCategories } from "../../constants/skills";
 
 function Toolstack() {
-  return (
-    <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiPowerbi />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiVisualstudiocode />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiPostman />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiVercel />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiHeroku />
-      </Col>
-    </Row>
-  );
+  const collaborationCategories = skillCategories.slice(3);
+
+  return <SkillCategoryGrid categories={collaborationCategories} />;
 }
 
 export default Toolstack;
