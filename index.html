@@ -93,6 +93,7 @@
         .contact-note a { color: #28a745; font-weight: 600; text-decoration: none; }
         .contact-note a:hover { text-decoration: underline; }
         .hero-fallback-image { width: 100%; max-width: 420px; border-radius: 50%; display: block; margin: 2rem auto 0; border: 6px solid rgba(255,255,255,0.15); }
+        .hero-fallback-static { display: none; }
         
         @media (max-width: 992px) { .hero-container { grid-template-columns: 1fr; text-align: center; gap: 2rem; } .hero-visual { margin-top: 2rem; grid-row: 1; min-height: 380px; } .hero-content { grid-row: 2; } }
         
@@ -142,6 +143,7 @@
         @media (prefers-reduced-motion: reduce) {
             #heroAnimationCanvas { display: none; }
             #heroAnimationWrapper { box-shadow: none; }
+            .hero-fallback-static { display: block; }
         }
 
         .message { padding: 1rem; border-radius: 8px; margin-bottom: 1rem; display: none; } .message.success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; } .message.error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; } .about-modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); overflow-y: auto; overflow-x: hidden; justify-content: center; align-items: flex-start; padding: 3rem 1.5rem; } .about-modal-content-wrapper { width: 100%; max-width: 1000px; margin: 0 auto; box-sizing: border-box; } .about-modal-inner-content { background-color: transparent; border-radius: 10px; position: relative; max-width: 1000px; width: 100%; } #skillsList { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); } @media (max-width: 640px) { .about-modal { padding: 2rem 1rem; } } #aboutModal section { } .about-modal-close { color: #aaa; position: absolute; top: 10px; right: 15px; font-size: 35px; font-weight: bold; line-height: 1; z-index: 2010; } .about-modal-close:hover, .about-modal-close:focus { color: #333; text-decoration: none; cursor: pointer; }
@@ -251,6 +253,7 @@
                     <canvas id="heroAnimationCanvas"></canvas>
                     <!-- Orbiting tags will be dynamically added here by JS -->
                 </div>
+                <img src="Images/solvethis-hero.webp" class="hero-fallback-image hero-fallback-static" alt="Abstract automation visualization for SolveThis services" loading="lazy">
                 <noscript>
                     <img src="Images/solvethis-hero.webp" class="hero-fallback-image" alt="Abstract automation visualization for SolveThis services">
                 </noscript>
@@ -956,297 +959,365 @@
     
     <!-- Hero animation script -->
     <script>
-// === HERO ANIMATION SCRIPT ===
-(function() {
-    let initialized = false;
+    // === HERO ANIMATION SCRIPT ===
+    (function () {
+        let initialized = false;
 
-    window.initializeHeroAnimation = function initializeHeroAnimation() {
-        if (initialized) {
-            return;
-        }
-        const canvas = document.getElementById('heroAnimationCanvas');
-        const wrapper = document.getElementById('heroAnimationWrapper');
-
-        if (!canvas || !wrapper) {
-            console.error("Hero animation elements (canvas or wrapper) not found!");
-            return;
-        }
-
-        initialized = true;
-        const ctx = canvas.getContext('2d');
-    
-        let animationId;
-    let lastTimestamp = 0;
-    
-    const availableModes = ['flow', 'spiral', 'pulse', 'morph', 'greenSpectrum', 'pixelSwarm'];
-    let currentModeIndex = 0;
-    let currentModeName = availableModes[currentModeIndex];
-    let previousModeName = currentModeName; 
-    
-    let modeSwitchTimestamp = 0;
-    const MODE_DURATION_MS = 12000; 
-    const TRANSITION_DURATION_MS_HALF = 750; 
-
-    let transitionState = 'none'; // 'none', 'fadingOut', 'preparingNewMode', 'fadingIn'
-    let transitionProgress = 0; 
-
-    let baseComplexity = 120; 
-    let params = {
-        speed: 0.5, 
-        complexity: baseComplexity, 
-        scale: 1, 
-        colorIntensity: 1.0,
-        time: 0,
-        phase: Math.random() * 2 * Math.PI // Initial phase
-    };
-
-    let pi = 4 * Math.atan(1);
-    let r_const = 2 * pi / 235; 
-    let t_math = 4 * Math.random(); // Initial t_math
-    
-    let x_val = 0, u_val = 0, v_val = 0; 
-
-    let orange_dot_x_state = Math.random() * 4; 
-    let orange_dot_u_state = 0;                 
-    let orange_dot_v_state = 0;                 
-    const ORANGE_DOT_SIZE = 2.5;                
-    const ORANGE_DOT_COLOR = '#fd7e14';
-    const ORANGE_DOT_PSEUDO_I_FACTOR = 0.42;    
-    const ORANGE_DOT_TIME_SCALE = 0.35;         
-    const ORANGE_DOT_T_MATH_INFLUENCE = 0.25;   
-
-    const FRAME_THICKNESS = 6; 
-
-    function setDimensions() {
-        const heroVisualContainer = wrapper.parentElement; 
-        const container = heroVisualContainer.parentElement; 
-        let idealAnimationSize = Math.min(container.clientWidth * 0.48, heroVisualContainer.clientHeight * 0.90, 460);
-        if (window.innerWidth < 992 && window.innerWidth >= 768) { idealAnimationSize = Math.min(container.clientWidth * 0.80, heroVisualContainer.clientHeight * 0.80, 380); }
-        else if (window.innerWidth < 768) { idealAnimationSize = Math.min(heroVisualContainer.clientWidth * 0.90, heroVisualContainer.clientHeight * 0.80, 320); }
-        idealAnimationSize = Math.max(280, idealAnimationSize);
-        const wrapperSize = Math.floor(idealAnimationSize + 2 * FRAME_THICKNESS);
-        wrapper.style.width = `${wrapperSize}px`;
-        wrapper.style.height = `${wrapperSize}px`;
-        canvas.width = Math.floor(idealAnimationSize);
-        canvas.height = Math.floor(idealAnimationSize);
-        params.scale = canvas.width / 4.2;
-    }
-    setDimensions();
-
-    const tagsData = [
-        { text: "AI", angle: Math.random() * 2 * pi, radiusFactor: 1.08, speed: 0.0008, el: null },
-        { text: "Automation", angle: Math.random() * 2 * pi, radiusFactor: 1.12, speed: -0.0007, el: null },
-        { text: "Scripts", angle: Math.random() * 2 * pi, radiusFactor: 1.06, speed: 0.0009, el: null },
-        { text: "Data", angle: Math.random() * 2 * pi, radiusFactor: 1.14, speed: -0.0006, el: null },
-        { text: "Solve", angle: Math.random() * 2 * pi, radiusFactor: 1.09, speed: 0.00075, el: null }
-    ];
-
-    function createTags() { 
-        tagsData.forEach(tag => {
-            const tagEl = document.createElement('div');
-            tagEl.className = 'orbiting-tag';
-            tagEl.textContent = tag.text;
-            wrapper.appendChild(tagEl); 
-            tag.el = tagEl;
-        });
-    }
-    createTags();
-
-    function updateTagsPosition(deltaTime) { 
-        const centerX = wrapper.offsetWidth / 2;
-        const centerY = wrapper.offsetHeight / 2;
-        const baseRadius = wrapper.offsetWidth / 2;
-        tagsData.forEach(tag => {
-            if (!tag.el) return; 
-            tag.angle += tag.speed * deltaTime;
-            const currentRadius = baseRadius * tag.radiusFactor;
-            const x = centerX + currentRadius * Math.cos(tag.angle) - tag.el.offsetWidth / 2;
-            const y = centerY + currentRadius * Math.sin(tag.angle) - tag.el.offsetHeight / 2;
-            tag.el.style.left = `${x}px`;
-            tag.el.style.top = `${y}px`;
-        });
-    }
-    
-    function hsvToRgb(h, s, v) { 
-        h /= 60; let c = v * s; let x_color = c * (1 - Math.abs((h % 2) - 1));
-        let m = v - c; let r_rgb, g_rgb, b_rgb;
-        if (h < 1) [r_rgb, g_rgb, b_rgb] = [c, x_color, 0]; else if (h < 2) [r_rgb, g_rgb, b_rgb] = [x_color, c, 0];
-        else if (h < 3) [r_rgb, g_rgb, b_rgb] = [0, c, x_color]; else if (h < 4) [r_rgb, g_rgb, b_rgb] = [0, x_color, c];
-        else if (h < 5) [r_rgb, g_rgb, b_rgb] = [x_color, 0, c]; else [r_rgb, g_rgb, b_rgb] = [c, 0, x_color];
-        return { r: Math.floor((r_rgb + m) * 255), g: Math.floor((g_rgb + m) * 255), b: Math.floor((b_rgb + m) * 255) };
-    }
-
-    function switchModeLogic(timestamp) {  
-        if (transitionState === 'none' && timestamp - modeSwitchTimestamp > MODE_DURATION_MS) {
-            previousModeName = currentModeName;
-            transitionState = 'fadingOut';
-            transitionProgress = 0;
-            modeSwitchTimestamp = timestamp; 
-        }
-    }
-
-    function updateOrangeDotState(iterationsCount) { 
-        let pseudo_i_orange = iterationsCount * ORANGE_DOT_PSEUDO_I_FACTOR;
-        orange_dot_u_state = Math.sin(params.time * ORANGE_DOT_TIME_SCALE + orange_dot_v_state + params.phase * 0.5) + 
-                             Math.sin(r_const * pseudo_i_orange + orange_dot_x_state);
-        orange_dot_v_state = Math.cos(params.time * ORANGE_DOT_TIME_SCALE + orange_dot_v_state + params.phase * 0.5) + 
-                             Math.cos(r_const * pseudo_i_orange + orange_dot_x_state);
-        orange_dot_x_state = orange_dot_u_state + t_math * ORANGE_DOT_T_MATH_INFLUENCE; 
-    }
-    
-    function animatePattern(timestamp) {
-        if (!lastTimestamp) lastTimestamp = timestamp;
-        const deltaTime = timestamp - lastTimestamp;
-        lastTimestamp = timestamp;
-
-        if (!modeSwitchTimestamp) modeSwitchTimestamp = timestamp;
-        switchModeLogic(timestamp);
-
-        params.time += (0.016 * params.speed) * (deltaTime / 16.66); 
-        
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        let activeMode = currentModeName;
-        let currentGlobalAlpha = 1;
-
-        if (transitionState === 'fadingOut') {
-            transitionProgress += deltaTime / TRANSITION_DURATION_MS_HALF;
-            currentGlobalAlpha = 1 - Math.min(1, transitionProgress);
-            activeMode = previousModeName; 
-
-            if (transitionProgress >= 1) {
-                currentModeIndex = (currentModeIndex + 1) % availableModes.length;
-                currentModeName = availableModes[currentModeIndex];
-                
-                t_math = 4 * Math.random(); 
-                params.phase = Math.random() * 2 * Math.PI; 
-                params.complexity = (currentModeName === 'pixelSwarm') ? 220 : baseComplexity;
-                
-                orange_dot_x_state = Math.random() * 4;
-                orange_dot_u_state = 0;
-                orange_dot_v_state = 0;
-
-                transitionState = 'fadingIn';
-                transitionProgress = 0;
+        window.initializeHeroAnimation = function initializeHeroAnimation() {
+            if (initialized) {
+                return;
             }
-        } else if (transitionState === 'fadingIn') {
-            activeMode = currentModeName;
-            transitionProgress += deltaTime / TRANSITION_DURATION_MS_HALF;
-            currentGlobalAlpha = Math.min(1, transitionProgress);
 
-            if (transitionProgress >= 1) {
-                transitionState = 'none';
-                currentGlobalAlpha = 1;
+            const canvas = document.getElementById('heroAnimationCanvas');
+            const wrapper = document.getElementById('heroAnimationWrapper');
+
+            if (!canvas || !wrapper) {
+                console.error("Hero animation elements (canvas or wrapper) not found!");
+                return;
             }
-        }
-        
-        let iterations = Math.floor(params.complexity / 5);
-        
-        x_val = t_math * (1 + Math.sin(params.time * 0.1) * 0.1); 
 
-        ctx.globalAlpha = currentGlobalAlpha; 
-        
-        let particleSize = (activeMode === 'pixelSwarm') ? 1.5 : 2;
-        
-        for (let i = 0; i < iterations; i++) {
-            for (let j = 0; j < iterations; j++) {
-                let animatedI = i; let animatedJ = j; let timeOffset = 0;
-                
-                switch (activeMode) {
-                    case 'flow': timeOffset = params.time; break;
-                    case 'spiral': timeOffset = Math.atan2(j - iterations/2, i - iterations/2) + params.time; particleSize = (Math.sin(params.time + (i+j)*0.1) + 1.5); break;
-                    case 'pulse': let dist = Math.sqrt((i - iterations/2)**2 + (j - iterations/2)**2); timeOffset = Math.sin(params.time * 1.5 + dist * 0.05) * 0.5; particleSize = 1 + Math.abs(Math.sin(params.time * 2 + dist * 0.1)) * 2; break;
-                    case 'morph': animatedI = i + Math.sin(params.time + j * 0.1) * 8; animatedJ = j + Math.cos(params.time + i * 0.1) * 8; break;
-                    case 'greenSpectrum': timeOffset = params.time * 1.5; break;
-                    case 'pixelSwarm': timeOffset = params.time * 0.3 + Math.sin(i*0.1 + params.time) * 0.2; particleSize = 1 + Math.random() * 1; break;
+            initialized = true;
+
+            const ctx = canvas.getContext('2d');
+            let animationId;
+            let lastTimestamp = 0;
+
+            const availableModes = ['flow', 'spiral', 'pulse', 'morph', 'greenSpectrum', 'pixelSwarm'];
+            let currentModeIndex = 0;
+            let currentModeName = availableModes[currentModeIndex];
+            let previousModeName = currentModeName;
+
+            let modeSwitchTimestamp = 0;
+            const MODE_DURATION_MS = 12000;
+            const TRANSITION_DURATION_MS_HALF = 750;
+
+            let transitionState = 'none';
+            let transitionProgress = 0;
+
+            let baseComplexity = 120;
+            let params = {
+                speed: 0.5,
+                complexity: baseComplexity,
+                scale: 1,
+                colorIntensity: 1.0,
+                time: 0,
+                phase: Math.random() * 2 * Math.PI
+            };
+
+            const pi = 4 * Math.atan(1);
+            const r_const = 2 * pi / 235;
+            let t_math = 4 * Math.random();
+
+            let x_val = 0;
+            let u_val = 0;
+            let v_val = 0;
+
+            let orange_dot_x_state = Math.random() * 4;
+            let orange_dot_u_state = 0;
+            let orange_dot_v_state = 0;
+            const ORANGE_DOT_SIZE = 2.5;
+            const ORANGE_DOT_COLOR = '#fd7e14';
+            const ORANGE_DOT_PSEUDO_I_FACTOR = 0.42;
+            const ORANGE_DOT_TIME_SCALE = 0.35;
+            const ORANGE_DOT_T_MATH_INFLUENCE = 0.25;
+
+            const FRAME_THICKNESS = 6;
+
+            function setDimensions() {
+                const heroVisualContainer = wrapper.parentElement;
+                const container = heroVisualContainer.parentElement;
+                let idealAnimationSize = Math.min(container.clientWidth * 0.48, heroVisualContainer.clientHeight * 0.90, 460);
+                if (window.innerWidth < 992 && window.innerWidth >= 768) {
+                    idealAnimationSize = Math.min(container.clientWidth * 0.80, heroVisualContainer.clientHeight * 0.80, 380);
+                } else if (window.innerWidth < 768) {
+                    idealAnimationSize = Math.min(heroVisualContainer.clientWidth * 0.90, heroVisualContainer.clientHeight * 0.80, 320);
                 }
-                
-                u_val = Math.sin(animatedI + v_val + timeOffset + params.phase) + Math.sin(r_const * animatedI + x_val);
-                v_val = Math.cos(animatedI + v_val + timeOffset + params.phase) + Math.cos(r_const * animatedI + x_val);
-                x_val = u_val + t_math; 
-                
-                let px = Math.floor(canvas.width/2 + params.scale * u_val);
-                let py = Math.floor(canvas.height/2 + params.scale * v_val);
-                
-                if (px >= 0 && px < canvas.width && py >= 0 && py < canvas.height) {
-                    let R, G, B; let iFactor = animatedI / iterations; let jFactor = animatedJ / iterations;
-                    if (activeMode === 'greenSpectrum') {
-                        let hue = 90 + ((iFactor * 50) + (jFactor * 20) + (params.time * 15)) % 100; 
-                        let sat = 0.6 + Math.sin(params.time * 0.8 + animatedI * 0.05) * 0.4; sat = Math.max(0.5, Math.min(1, sat * params.colorIntensity));
-                        let val = 0.5 + Math.cos(params.time * 0.6 + animatedJ * 0.08) * 0.5; val = Math.max(0.4, Math.min(1, val * params.colorIntensity));
-                        let hsv = hsvToRgb(hue, sat, val); R = hsv.r; G = hsv.g; B = hsv.b;
-                    } else if (activeMode === 'pixelSwarm') {
-                        let intensity = (Math.sin(params.time * 0.5 + (i * 0.05 + j * 0.03)) + 1) / 2; intensity = 0.4 + intensity * 0.6; 
-                        R = Math.floor(intensity * (180 + Math.random()*50) ); G = Math.floor(intensity * (230 + Math.random()*25) ); B = Math.floor(intensity * (200 + Math.random()*50) );
-                    } else {
-                        let rRaw = (animatedI * 1.2 * params.colorIntensity + timeOffset * 15); let gRaw = (animatedJ * 2.0 * params.colorIntensity + timeOffset * 25 + iFactor * 60);
-                        let bRaw = (220 - (animatedI + animatedJ) * 0.7 * params.colorIntensity + timeOffset * 20 + jFactor * 40);
-                        R = Math.floor(rRaw % 80 + 30); G = Math.floor(gRaw % 135 + 120); B = Math.floor(bRaw % 100 + 60);
-                        G = Math.max(G, (R + B) * 0.7); R = Math.min(R, G * 0.8, 150); B = Math.min(B, G * 0.9, 180);
-                    }
-                    
-                    ctx.shadowBlur = 0; 
-                    if (activeMode === 'pulse' || activeMode === 'spiral') {
-                        const boost = Math.max(0, Math.sin(params.time + (i+j) * 0.05)) * 30;
-                        R = Math.min(255, R + boost); G = Math.min(255, G + boost); B = Math.min(255, B + boost);
-                        ctx.shadowColor = `rgba(${R},${G},${B}, 0.7)`; ctx.shadowBlur = Math.random() * 3 + 1;
-                    }
-                    ctx.fillStyle = `rgb(${R}, ${G}, ${B})`;
-                    ctx.fillRect(px, py, particleSize, particleSize);
-                }
+                idealAnimationSize = Math.max(280, idealAnimationSize);
+                const wrapperSize = Math.floor(idealAnimationSize + 2 * FRAME_THICKNESS);
+                wrapper.style.width = `${wrapperSize}px`;
+                wrapper.style.height = `${wrapperSize}px`;
+                canvas.width = Math.floor(idealAnimationSize);
+                canvas.height = Math.floor(idealAnimationSize);
+                params.scale = canvas.width / 4.2;
             }
-        }
-
-        updateOrangeDotState(iterations); 
-
-        let od_px = Math.floor(canvas.width/2 + params.scale * orange_dot_u_state);
-        let od_py = Math.floor(canvas.height/2 + params.scale * orange_dot_v_state);
-
-        if (od_px >= 0 && od_px < canvas.width && od_py >= 0 && od_py < canvas.height) {
-            ctx.fillStyle = ORANGE_DOT_COLOR;
-            ctx.shadowColor = 'rgba(253, 126, 20, 0.7)'; 
-            ctx.shadowBlur = 6;
-            ctx.beginPath();
-            ctx.arc(od_px, od_py, ORANGE_DOT_SIZE, 0, 2 * Math.PI);
-            ctx.fill();
-            ctx.shadowBlur = 0;
-        }
-
-        ctx.globalAlpha = 1; 
-
-        if (wrapper.offsetWidth > 0) { 
-            updateTagsPosition(deltaTime); 
-        }
-        animationId = requestAnimationFrame(animatePattern);
-    }
-    
-    animationId = requestAnimationFrame(animatePattern);
-
-    document.addEventListener("visibilitychange", () => { 
-         if (document.hidden) { cancelAnimationFrame(animationId);
-        } else {
-            lastTimestamp = performance.now(); 
-            modeSwitchTimestamp = performance.now(); 
-            transitionState = 'none'; 
-            transitionProgress = 0;
-            params.time = 0; 
-            if(performance.now() - (modeSwitchTimestamp || 0) > MODE_DURATION_MS * 2) { 
-                t_math = 4 * Math.random(); params.phase = Math.random() * 2 * Math.PI;
-                orange_dot_x_state = Math.random() * 4; 
-            }
-            animationId = requestAnimationFrame(animatePattern);
-        }
-    });
-
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
             setDimensions();
-        }, 250);
-    });
-    };
-})();
-</script>
+
+            const tagsData = [
+                { text: "AI", angle: Math.random() * 2 * pi, radiusFactor: 1.08, speed: 0.0008, el: null },
+                { text: "Automation", angle: Math.random() * 2 * pi, radiusFactor: 1.12, speed: -0.0007, el: null },
+                { text: "Scripts", angle: Math.random() * 2 * pi, radiusFactor: 1.06, speed: 0.0009, el: null },
+                { text: "Data", angle: Math.random() * 2 * pi, radiusFactor: 1.14, speed: -0.0006, el: null },
+                { text: "Solve", angle: Math.random() * 2 * pi, radiusFactor: 1.09, speed: 0.00075, el: null }
+            ];
+
+            function createTags() {
+                tagsData.forEach(tag => {
+                    const tagEl = document.createElement('div');
+                    tagEl.className = 'orbiting-tag';
+                    tagEl.textContent = tag.text;
+                    wrapper.appendChild(tagEl);
+                    tag.el = tagEl;
+                });
+            }
+            createTags();
+
+            function updateTagsPosition(deltaTime) {
+                const centerX = wrapper.offsetWidth / 2;
+                const centerY = wrapper.offsetHeight / 2;
+                const baseRadius = wrapper.offsetWidth / 2;
+                tagsData.forEach(tag => {
+                    if (!tag.el) {
+                        return;
+                    }
+                    tag.angle += tag.speed * deltaTime;
+                    const currentRadius = baseRadius * tag.radiusFactor;
+                    const x = centerX + currentRadius * Math.cos(tag.angle) - tag.el.offsetWidth / 2;
+                    const y = centerY + currentRadius * Math.sin(tag.angle) - tag.el.offsetHeight / 2;
+                    tag.el.style.left = `${x}px`;
+                    tag.el.style.top = `${y}px`;
+                });
+            }
+
+            function hsvToRgb(h, s, v) {
+                h /= 60;
+                const c = v * s;
+                const x_color = c * (1 - Math.abs((h % 2) - 1));
+                const m = v - c;
+                let r_rgb;
+                let g_rgb;
+                let b_rgb;
+                if (h < 1) [r_rgb, g_rgb, b_rgb] = [c, x_color, 0];
+                else if (h < 2) [r_rgb, g_rgb, b_rgb] = [x_color, c, 0];
+                else if (h < 3) [r_rgb, g_rgb, b_rgb] = [0, c, x_color];
+                else if (h < 4) [r_rgb, g_rgb, b_rgb] = [0, x_color, c];
+                else if (h < 5) [r_rgb, g_rgb, b_rgb] = [x_color, 0, c];
+                else [r_rgb, g_rgb, b_rgb] = [c, 0, x_color];
+                return {
+                    r: Math.floor((r_rgb + m) * 255),
+                    g: Math.floor((g_rgb + m) * 255),
+                    b: Math.floor((b_rgb + m) * 255)
+                };
+            }
+
+            function switchModeLogic(timestamp) {
+                if (transitionState === 'none' && timestamp - modeSwitchTimestamp > MODE_DURATION_MS) {
+                    previousModeName = currentModeName;
+                    transitionState = 'fadingOut';
+                    transitionProgress = 0;
+                    modeSwitchTimestamp = timestamp;
+                }
+            }
+
+            function updateOrangeDotState(iterationsCount) {
+                const pseudo_i_orange = iterationsCount * ORANGE_DOT_PSEUDO_I_FACTOR;
+                orange_dot_u_state = Math.sin(params.time * ORANGE_DOT_TIME_SCALE + orange_dot_v_state + params.phase * 0.5) +
+                    Math.sin(r_const * pseudo_i_orange + orange_dot_x_state);
+                orange_dot_v_state = Math.cos(params.time * ORANGE_DOT_TIME_SCALE + orange_dot_v_state + params.phase * 0.5) +
+                    Math.cos(r_const * pseudo_i_orange + orange_dot_x_state);
+                orange_dot_x_state = orange_dot_u_state + t_math * ORANGE_DOT_T_MATH_INFLUENCE;
+            }
+
+            function animatePattern(timestamp) {
+                if (!lastTimestamp) {
+                    lastTimestamp = timestamp;
+                }
+                const deltaTime = timestamp - lastTimestamp;
+                lastTimestamp = timestamp;
+
+                if (!modeSwitchTimestamp) {
+                    modeSwitchTimestamp = timestamp;
+                }
+                switchModeLogic(timestamp);
+
+                params.time += (0.016 * params.speed) * (deltaTime / 16.66);
+
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                let activeMode = currentModeName;
+                let currentGlobalAlpha = 1;
+
+                if (transitionState === 'fadingOut') {
+                    transitionProgress += deltaTime / TRANSITION_DURATION_MS_HALF;
+                    currentGlobalAlpha = 1 - Math.min(1, transitionProgress);
+                    activeMode = previousModeName;
+
+                    if (transitionProgress >= 1) {
+                        currentModeIndex = (currentModeIndex + 1) % availableModes.length;
+                        currentModeName = availableModes[currentModeIndex];
+
+                        t_math = 4 * Math.random();
+                        params.phase = Math.random() * 2 * Math.PI;
+                        params.complexity = (currentModeName === 'pixelSwarm') ? 220 : baseComplexity;
+
+                        orange_dot_x_state = Math.random() * 4;
+                        orange_dot_u_state = 0;
+                        orange_dot_v_state = 0;
+
+                        transitionState = 'fadingIn';
+                        transitionProgress = 0;
+                    }
+                } else if (transitionState === 'fadingIn') {
+                    activeMode = currentModeName;
+                    transitionProgress += deltaTime / TRANSITION_DURATION_MS_HALF;
+                    currentGlobalAlpha = Math.min(1, transitionProgress);
+
+                    if (transitionProgress >= 1) {
+                        transitionState = 'none';
+                        currentGlobalAlpha = 1;
+                    }
+                }
+
+                const iterations = Math.floor(params.complexity / 5);
+
+                x_val = t_math * (1 + Math.sin(params.time * 0.1) * 0.1);
+
+                ctx.globalAlpha = currentGlobalAlpha;
+
+                let particleSize = (activeMode === 'pixelSwarm') ? 1.5 : 2;
+
+                for (let i = 0; i < iterations; i++) {
+                    for (let j = 0; j < iterations; j++) {
+                        let animatedI = i;
+                        let animatedJ = j;
+                        let timeOffset = 0;
+
+                        switch (activeMode) {
+                            case 'flow':
+                                timeOffset = params.time;
+                                break;
+                            case 'spiral':
+                                timeOffset = Math.atan2(j - iterations / 2, i - iterations / 2) + params.time;
+                                particleSize = (Math.sin(params.time + (i + j) * 0.1) + 1.5);
+                                break;
+                            case 'pulse': {
+                                const dist = Math.sqrt((i - iterations / 2) ** 2 + (j - iterations / 2) ** 2);
+                                timeOffset = Math.sin(params.time * 1.5 + dist * 0.05) * 0.5;
+                                particleSize = 1 + Math.abs(Math.sin(params.time * 2 + dist * 0.1)) * 2;
+                                break;
+                            }
+                            case 'morph':
+                                animatedI = i + Math.sin(params.time + j * 0.1) * 8;
+                                animatedJ = j + Math.cos(params.time + i * 0.1) * 8;
+                                break;
+                            case 'greenSpectrum':
+                                timeOffset = params.time * 1.5;
+                                break;
+                            case 'pixelSwarm':
+                                timeOffset = params.time * 0.3 + Math.sin(i * 0.1 + params.time) * 0.2;
+                                particleSize = 1 + Math.random() * 1;
+                                break;
+                        }
+
+                        u_val = Math.sin(animatedI + v_val + timeOffset + params.phase) + Math.sin(r_const * animatedI + x_val);
+                        v_val = Math.cos(animatedI + v_val + timeOffset + params.phase) + Math.cos(r_const * animatedI + x_val);
+                        x_val = u_val + t_math;
+
+                        const px = Math.floor(canvas.width / 2 + params.scale * u_val);
+                        const py = Math.floor(canvas.height / 2 + params.scale * v_val);
+
+                        if (px >= 0 && px < canvas.width && py >= 0 && py < canvas.height) {
+                            let R;
+                            let G;
+                            let B;
+                            const iFactor = animatedI / iterations;
+                            const jFactor = animatedJ / iterations;
+
+                            if (activeMode === 'greenSpectrum') {
+                                const hue = 90 + ((iFactor * 50) + (jFactor * 20) + (params.time * 15)) % 100;
+                                let sat = 0.6 + Math.sin(params.time * 0.8 + animatedI * 0.05) * 0.4;
+                                sat = Math.max(0.5, Math.min(1, sat * params.colorIntensity));
+                                let val = 0.5 + Math.cos(params.time * 0.6 + animatedJ * 0.08) * 0.5;
+                                val = Math.max(0.4, Math.min(1, val * params.colorIntensity));
+                                const hsv = hsvToRgb(hue, sat, val);
+                                R = hsv.r;
+                                G = hsv.g;
+                                B = hsv.b;
+                            } else if (activeMode === 'pixelSwarm') {
+                                let intensity = (Math.sin(params.time * 0.5 + (i * 0.05 + j * 0.03)) + 1) / 2;
+                                intensity = 0.4 + intensity * 0.6;
+                                R = Math.floor(intensity * (180 + Math.random() * 50));
+                                G = Math.floor(intensity * (230 + Math.random() * 25));
+                                B = Math.floor(intensity * (200 + Math.random() * 50));
+                            } else {
+                                const rRaw = (animatedI * 1.2 * params.colorIntensity + timeOffset * 15);
+                                const gRaw = (animatedJ * 2.0 * params.colorIntensity + timeOffset * 25 + iFactor * 60);
+                                const bRaw = (220 - (animatedI + animatedJ) * 0.7 * params.colorIntensity + timeOffset * 20 + jFactor * 40);
+                                R = Math.floor(rRaw % 80 + 30);
+                                G = Math.floor(gRaw % 135 + 120);
+                                B = Math.floor(bRaw % 100 + 60);
+                                G = Math.max(G, (R + B) * 0.7);
+                                R = Math.min(R, G * 0.8, 150);
+                                B = Math.min(B, G * 0.9, 180);
+                            }
+
+                            ctx.shadowBlur = 0;
+                            if (activeMode === 'pulse' || activeMode === 'spiral') {
+                                const boost = Math.max(0, Math.sin(params.time + (i + j) * 0.05)) * 30;
+                                R = Math.min(255, R + boost);
+                                G = Math.min(255, G + boost);
+                                B = Math.min(255, B + boost);
+                                ctx.shadowColor = `rgba(${R},${G},${B}, 0.7)`;
+                                ctx.shadowBlur = Math.random() * 3 + 1;
+                            }
+                            ctx.fillStyle = `rgb(${R}, ${G}, ${B})`;
+                            ctx.fillRect(px, py, particleSize, particleSize);
+                        }
+                    }
+                }
+
+                updateOrangeDotState(iterations);
+
+                const od_px = Math.floor(canvas.width / 2 + params.scale * orange_dot_u_state);
+                const od_py = Math.floor(canvas.height / 2 + params.scale * orange_dot_v_state);
+
+                if (od_px >= 0 && od_px < canvas.width && od_py >= 0 && od_py < canvas.height) {
+                    ctx.fillStyle = ORANGE_DOT_COLOR;
+                    ctx.shadowColor = 'rgba(253, 126, 20, 0.7)';
+                    ctx.shadowBlur = 6;
+                    ctx.beginPath();
+                    ctx.arc(od_px, od_py, ORANGE_DOT_SIZE, 0, 2 * Math.PI);
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                }
+
+                ctx.globalAlpha = 1;
+
+                if (wrapper.offsetWidth > 0) {
+                    updateTagsPosition(deltaTime);
+                }
+                animationId = requestAnimationFrame(animatePattern);
+            }
+
+            animationId = requestAnimationFrame(animatePattern);
+
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    cancelAnimationFrame(animationId);
+                } else {
+                    lastTimestamp = performance.now();
+                    modeSwitchTimestamp = performance.now();
+                    transitionState = 'none';
+                    transitionProgress = 0;
+                    params.time = 0;
+                    if (performance.now() - (modeSwitchTimestamp || 0) > MODE_DURATION_MS * 2) {
+                        t_math = 4 * Math.random();
+                        params.phase = Math.random() * 2 * Math.PI;
+                        orange_dot_x_state = Math.random() * 4;
+                    }
+                    animationId = requestAnimationFrame(animatePattern);
+                }
+            });
+
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    setDimensions();
+                }, 250);
+            });
+        };
+    })();
+    </script>
+
 </body>
 </html>
