@@ -31,7 +31,7 @@
   - Automated PDF reporting and email distribution for every reallocation cycle.
 - **Impact:** Elevates transparency, enforces equity in statewide healthcare allocation, and strengthens interfederative collaboration across Espírito Santo.
 
-#### PPI · [Visit](https://PPI.pythonanywhere.com)
+#### Tabela de procedimentos · [Visit](https://PPI.pythonanywhere.com)
 - Reliable SIGTAP reference that keeps critical Brazilian healthcare procedure data available even when official portals fail.
 - Built to support clinicians, administrators, and analysts who need quick, accurate procedure intelligence.
 
