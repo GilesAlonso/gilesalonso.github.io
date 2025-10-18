@@ -14,6 +14,7 @@
 I'm a strategic, self-taught developer who bridges healthcare operations with automation, analytics, and AI. After years in dentistry and public health, I built my own toolkit to keep vital data accessible even when official systems are offline. Today I lead <strong>SolveThis</strong>, delivering high-leverage automation for teams that need reliable, bilingual solutions.
 
 - 🏥 Healthcare data advocate keeping SIGTAP insights available to clinicians, managers, and analysts.
+- 🧭 Sole developer embedded inside the Núcleo Especial de Programação de Serviços de Saúde (NEPSS) at SESA/ES, building the digital backbone our six-person nucleus relies on for statewide planning decisions.
 - ⚙️ Ownership mentality: I architect, automate, and deploy end-to-end solutions with measurable outcomes.
 - 🌍 Collaborative and bilingual, partnering with clients worldwide in English and Portuguese.
 
@@ -23,8 +24,8 @@ I'm a strategic, self-taught developer who bridges healthcare operations with au
   Keeps Brazil’s public healthcare procedure catalogue searchable, fast, and resilient when official infrastructure is down.  
   [`Live`](https://PPI.pythonanywhere.com)
 
-- **Nova PPI Capixaba**  
-  A comprehensive, self-updating library of Espírito Santo healthcare procedures, built solo to support regional planning teams.  
+- **Nova PPI Capixaba (SESA · NEPSS)**  
+  As the sole developer, I architected the ingestion, reconciliation, and publishing workflows behind the Espírito Santo procedure intelligence layer. Our six-person nucleus now plans services with reliable updates even when federal portals slow down.  
   [`Site`](https://sites.google.com/view/novappicapixaba/)
 
 - **SolveThis Commercial Site**  
@@ -78,6 +79,6 @@ I'm a strategic, self-taught developer who bridges healthcare operations with au
 
 ## 🎯 Currently Focusing On
 
-- Evolving SIGTAP data pipelines to support predictive resourcing for public healthcare teams.
+- Evolving NEPSS SIGTAP data pipelines to support predictive resourcing for Espírito Santo's public healthcare teams.
 - Expanding AI-assisted prototypes within IAdventures to accelerate client onboarding and discovery.
 - Sharpening bilingual technical documentation to make complex automations intuitive for non-technical stakeholders.
