@@ -55,14 +55,6 @@
 - Strengthening advanced SQL and Python pipelines to support statewide healthcare analytics.
 - Evaluating practical AI copilots to accelerate decision support and reduce manual reconciliation work.
 
-### 📊 GitHub by the numbers
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=GilesAlonso&show_icons=true&hide_title=true&hide_border=true&theme=radical" alt="Giles' GitHub stats" />
-  <img src="https://streak-stats.demolab.com?user=GilesAlonso&theme=radical&hide_border=true" alt="Giles' GitHub streak" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=GilesAlonso&layout=compact&hide_border=true&theme=radical" alt="Top languages" />
-</p>
-
 ### 🤝 Let's connect
 
 - 💼 LinkedIn: [linkedin.com/in/gilesalonso](https://www.linkedin.com/in/gilesalonso/)
