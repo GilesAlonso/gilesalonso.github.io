@@ -24,10 +24,31 @@ export const skillCategories = [
     ],
   },
   {
-    key: "development-automation",
-    title: "Development & Automation",
+    key: "development-web-interfaces",
+    title: "Development — Web & Interfaces",
     summary:
-      "Automation-first development across scripts, web apps, and integrations.",
+      "Frontend frameworks, app builders, and tooling used to deliver polished interfaces.",
+    items: [
+      { name: "HTML5 & CSS3", note: "Advanced" },
+      { name: "JavaScript", note: "Advanced" },
+      { name: "React", note: "Intermediate" },
+      { name: "Next.js", note: "Intermediate" },
+      {
+        name: "AppSheet",
+        note: "Experienced — delivers automation-ready business apps",
+      },
+      { name: "Firebase", note: "Intermediate" },
+      { name: "Git & GitHub", note: "Moderate" },
+      { name: "Markdown", note: "Experienced" },
+      { name: "Visual Studio Code", note: "Primary IDE" },
+      { name: "Postman", note: "API testing and contract validation" },
+    ],
+  },
+  {
+    key: "development-automation-platforms",
+    title: "Development — Automation & Platforms",
+    summary:
+      "Automation-centric scripting, backend services, and deployment platforms.",
     items: [
       {
         name: "Google Apps Script & Webhooks",
@@ -37,7 +58,6 @@ export const skillCategories = [
         name: "Python",
         note: "Intermediate — automation assistants and data pipelines",
       },
-      { name: "Git & GitHub", note: "Moderate" },
       {
         name: "Selenium",
         note: "Intermediate — used to navigate and download Excel files automatically",
@@ -51,33 +71,10 @@ export const skillCategories = [
         name: "Batch scripting",
         note: "Proficient — used to orchestrate PowerShell execution and R sequences",
       },
-      { name: "Markdown", note: "Experienced" },
-      { name: "JavaScript", note: "Advanced" },
       { name: "Node.js", note: "Intermediate" },
-      { name: "React", note: "Intermediate" },
-      { name: "Next.js", note: "Intermediate" },
       { name: "MongoDB", note: "Intermediate" },
-      { name: "Firebase", note: "Intermediate" },
-      {
-        name: "AppSheet",
-        note: "Experienced — delivers automation-ready business apps",
-      },
-      { name: "HTML5 & CSS3", note: "Advanced" },
-      { name: "Visual Studio Code", note: "Primary IDE" },
-      { name: "Postman", note: "API testing and contract validation" },
       { name: "Vercel", note: "Production deployments" },
       { name: "Heroku", note: "Legacy deployments" },
-    ],
-  },
-  {
-    key: "operating-systems-infrastructure",
-    title: "Operating Systems & Infrastructure",
-    summary:
-      "Maintaining reliable environments across Linux and Windows ecosystems.",
-    items: [
-      { name: "Xubuntu / Linux Mint", note: "Competent" },
-      { name: "HPLIP (HP Linux Imaging and Printing)", note: "Experienced" },
-      { name: "Windows Task Scheduler", note: "Experienced" },
     ],
   },
   {
