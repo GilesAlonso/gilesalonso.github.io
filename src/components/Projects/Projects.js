@@ -28,7 +28,6 @@ function Projects() {
               title="THE EDGEFINDER"
               description="Revolutionary Product by Nick Syiek and Frank Cabibi: Discover the incredible solution that has taken the market by storm! Combining the innovative ideas and goals of two brilliant minds, this solid product has become one of the flagship offerings of Nick's company, A1Trading.com. Don't miss out on the cutting-edge technology that is changing the game. Check it out now!"
               ghLink="https://a1trading.com/edgefinder-story/"
-              //demoLink="https://blogs.soumya-jit.tech/"
             />
           </Col>
 
@@ -38,8 +37,6 @@ function Projects() {
               isBlog={true}
               title="Auction schedule & planner"
               description="Revamped Auction Management: Simplify your Auction schedule and location management with an Appsheet built on Google sheets! This nifty app features advanced functions like residence mapping and categorization, plus a .kml file showcasing how the 2014 flood impacted the area's house pricing. Say goodbye to manual organization and hello to seamless auction coordination!"
-             // ghLink="https://github.com/soumyajit4419/Bits-0f-C0de"
-             // demoLink="https://blogs.soumya-jit.tech/"
             />
           </Col>
 
@@ -50,7 +47,6 @@ function Projects() {
               title="BEES VIDEO DASHBOARD"
               description="Elevate Your Studio Production with a Consolidated Dashboard: No more juggling spreadsheets and struggling to keep track of data! Paulo's company has found the ultimate solution to monitor production and release across all their global studios. Thanks to advanced data organization and easy-to-use Google Sheets integration, this dashboard presents all the information in a single place. Plus, the sleek appearance has been expertly adjusted by Paulo and his team for maximum visual impact. Say goodbye to clutter and hello to streamlined productivity!"
               ghLink=""
-             // demoLink="https://editor.soumya-jit.tech/"              
             />
           </Col>
 
@@ -72,7 +68,6 @@ function Projects() {
               title=""
               description=""
               ghLink=""
-              // demoLink="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" <--------Please include a demo link here
             />
           </Col>
 
@@ -83,7 +78,6 @@ function Projects() {
               title=""
               description=""
               ghLink=""
-              // demoLink="https://blogs.soumya-jit.tech/"      <--------Please include a demo link here 
             />
           </Col>
         </Row>
