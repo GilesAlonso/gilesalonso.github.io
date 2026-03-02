@@ -52,7 +52,7 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={landing}
+              imgPath={paulaS}
               isBlog={false}
               title="interactive network visualizations"
               description="This project hosts interactive network visualizations that map how Brazilian journalist Paula Schmitt interconnects her opinion pieces. Each article is represented as a node and edges highlight references and thematic relationships between the texts."
@@ -63,7 +63,7 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={leaf}
+              imgPath={petAI}
               isBlog={false}
               title="AI experiments"
               description="A collection of AI experimental projects I built to help me on daily tasks, improved and increased whenever necessary"
