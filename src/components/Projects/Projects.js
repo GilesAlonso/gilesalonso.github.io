@@ -53,7 +53,7 @@ function Projects() {
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={paulaS}
-              isBlog={true}
+              isBlog={false}
               title="interactive network visualizations"
               description="This project hosts interactive network visualizations that map how Brazilian journalist Paula Schmitt interconnects her opinion pieces. Each article is represented as a node and edges highlight references and thematic relationships between the texts."
               ghLink="https://github.com/GilesAlonso/paulaSchmittChart"
