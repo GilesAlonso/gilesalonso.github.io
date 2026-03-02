@@ -26,7 +26,7 @@ function Projects() {
               imgPath={edgeFinderEURUSD}
               isBlog={true}
               title="THE EDGEFINDER"
-              description="Revolutionary Product by Nick Syiek and Frank Cabibi: Discover the incredible solution that has taken the market by storm! Combining the innovative ideas and goals of two brilliant minds, this solid product has become one of the flagship offerings of Nick's company, A1Trading.com. Don't miss out on the cutting-edge technology that is changing the game. Check it out now!"
+              description="Revolutionary Product by Nick Syiek (TraderNick): Discover the incredible solution that has taken the market by storm! Combining the innovative ideas and goals of two brilliant minds, this solid product has become one of the flagship offerings of Nick's company, A1Trading.com. Don't miss out on the cutting-edge technology that is changing the game. Check it out now!"
               ghLink="https://a1trading.com/edgefinder-story/"
             />
           </Col>
@@ -54,10 +54,10 @@ function Projects() {
             <ProjectCard
               imgPath={landing}
               isBlog={false}
-              title="Landing Page Sample"
-              description="GamaAcademy course project, landing page with email registration in LocalStorage, Original template obtained from https://www.digitaldesignjournal.com/, modified to meet the requirements. Random images fetched from the internet to complete the template."
-              ghLink="https://github.com/GilesAlonso/PaginaSegunda"
-              demoLink="https://random-aleatory-black-friday-site.netlify.app/"
+              title="interactive network visualizations"
+              description="This project hosts interactive network visualizations that map how Brazilian journalist Paula Schmitt interconnects her opinion pieces. Each article is represented as a node and edges highlight references and thematic relationships between the texts."
+              ghLink="https://github.com/GilesAlonso/paulaSchmittChart"
+              demoLink="https://solvethis.qzz.io/paulaSchmittChart/"
             />
           </Col>
 
@@ -65,19 +65,20 @@ function Projects() {
             <ProjectCard
               imgPath={leaf}
               isBlog={false}
-              title=""
-              description=""
-              ghLink=""
+              title="AI experiments"
+              description="A collection of AI experimental projects I built to help me on daily tasks, improved and increased whenever necessary"
+              ghLink="https://solvethis.qzz.io/IAdventures/"
             />
           </Col>
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={editor}
+              imgPath={landing}
               isBlog={false}
-              title=""
-              description=""
-              ghLink=""
+              title="Landing Page Sample"
+              description="GamaAcademy course project, landing page with email registration in LocalStorage, Original template obtained from https://www.digitaldesignjournal.com/, modified to meet the requirements. Random images fetched from the internet to complete the template."
+              ghLink="https://github.com/GilesAlonso/PaginaSegunda"
+              demoLink="https://random-aleatory-black-friday-site.netlify.app/"
             />
           </Col>
         </Row>
