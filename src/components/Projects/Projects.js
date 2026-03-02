@@ -6,7 +6,8 @@ import landing from "../../Assets/Projects/landing.png";
 import editor from "../../Assets/Projects/codeEditor.png";
 import beesDashboard from "../../Assets/Projects/beesDashboard.png";
 import edgeFinderEURUSD from "../../Assets/Projects/edgeFinderEURUSD.png";
-import leaf from "../../Assets/Projects/leaf.png";
+import petAI from "../../Assets/Projects/petAI.png";
+import paulaS from "../../Assets/Projects/paulaS.png";
 import ledwellAuctions from "../../Assets/Projects/ledwellAuctions.png";
 
 function Projects() {
