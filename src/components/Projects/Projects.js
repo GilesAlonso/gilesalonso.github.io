@@ -26,9 +26,8 @@ function Projects() {
               imgPath={edgeFinderEURUSD}
               isBlog={true}
               title="THE EDGEFINDER"
-              description="Revolutionary Product by Nick Syiek and Frank Cabibi: Discover the incredible solution that has taken the market by storm! Combining the innovative ideas and goals of two brilliant minds, this solid product has become one of the flagship offerings of Nick's company, A1Trading.com. Don't miss out on the cutting-edge technology that is changing the game. Check it out now!"
+              description="Revolutionary Product by Nick Syiek (TraderNick): Discover the incredible solution that has taken the market by storm! Combining the innovative ideas and goals of two brilliant minds, this solid product has become one of the flagship offerings of Nick's company, A1Trading.com. Don't miss out on the cutting-edge technology that is changing the game. Check it out now!"
               ghLink="https://a1trading.com/edgefinder-story/"
-              //demoLink="https://blogs.soumya-jit.tech/"
             />
           </Col>
 
@@ -38,8 +37,6 @@ function Projects() {
               isBlog={true}
               title="Auction schedule & planner"
               description="Revamped Auction Management: Simplify your Auction schedule and location management with an Appsheet built on Google sheets! This nifty app features advanced functions like residence mapping and categorization, plus a .kml file showcasing how the 2014 flood impacted the area's house pricing. Say goodbye to manual organization and hello to seamless auction coordination!"
-             // ghLink="https://github.com/soumyajit4419/Bits-0f-C0de"
-             // demoLink="https://blogs.soumya-jit.tech/"
             />
           </Col>
 
@@ -50,7 +47,27 @@ function Projects() {
               title="BEES VIDEO DASHBOARD"
               description="Elevate Your Studio Production with a Consolidated Dashboard: No more juggling spreadsheets and struggling to keep track of data! Paulo's company has found the ultimate solution to monitor production and release across all their global studios. Thanks to advanced data organization and easy-to-use Google Sheets integration, this dashboard presents all the information in a single place. Plus, the sleek appearance has been expertly adjusted by Paulo and his team for maximum visual impact. Say goodbye to clutter and hello to streamlined productivity!"
               ghLink=""
-             // demoLink="https://editor.soumya-jit.tech/"              
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={landing}
+              isBlog={false}
+              title="interactive network visualizations"
+              description="This project hosts interactive network visualizations that map how Brazilian journalist Paula Schmitt interconnects her opinion pieces. Each article is represented as a node and edges highlight references and thematic relationships between the texts."
+              ghLink="https://github.com/GilesAlonso/paulaSchmittChart"
+              demoLink="https://solvethis.qzz.io/paulaSchmittChart/"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={leaf}
+              isBlog={false}
+              title="AI experiments"
+              description="A collection of AI experimental projects I built to help me on daily tasks, improved and increased whenever necessary"
+              ghLink="https://solvethis.qzz.io/IAdventures/"
             />
           </Col>
 
@@ -62,28 +79,6 @@ function Projects() {
               description="GamaAcademy course project, landing page with email registration in LocalStorage, Original template obtained from https://www.digitaldesignjournal.com/, modified to meet the requirements. Random images fetched from the internet to complete the template."
               ghLink="https://github.com/GilesAlonso/PaginaSegunda"
               demoLink="https://random-aleatory-black-friday-site.netlify.app/"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={leaf}
-              isBlog={false}
-              title=""
-              description=""
-              ghLink=""
-              // demoLink="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" <--------Please include a demo link here
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={editor}
-              isBlog={false}
-              title=""
-              description=""
-              ghLink=""
-              // demoLink="https://blogs.soumya-jit.tech/"      <--------Please include a demo link here 
             />
           </Col>
         </Row>

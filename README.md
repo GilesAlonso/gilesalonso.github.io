@@ -1,84 +1,63 @@
-<h1 align="center">Hi, I'm Giles Alonso</h1>
-<p align="center">INTJ-A · Self-taught automation &amp; data developer turning healthcare complexity into dependable systems.</p>
-<p align="center">
-  <a href="https://solvethis.qzz.io">Website</a> ·
-  <a href="https://github.com/GilesAlonso">GitHub</a> ·
-  <a href="https://www.linkedin.com/in/gilesalonso/">LinkedIn</a> ·
-  <a href="mailto:giles.g.alonso@gmail.com">Email</a>
-</p>
+<div align="center">
+  <h1>Giles Alonso — Self-Taught Healthtech Developer</h1>
+  <h3>Strategic INTJ-A mind building data-driven systems for public health impact</h3>
+  <p>
+    <img src="https://img.shields.io/badge/Focus-Healthcare%20Innovation-5a189a?style=flat-square" alt="Healthcare Innovation Badge" />
+    <img src="https://img.shields.io/badge/Path-Self%20Taught-0b7285?style=flat-square" alt="Self Taught Badge" />
+    <img src="https://img.shields.io/badge/Personality-INTJ--A-343a40?style=flat-square" alt="INTJ-A Badge" />
+  </p>
+</div>
 
 ---
 
-## 👋 About
+### 👋 About me
 
-I'm a strategic, self-taught developer who bridges healthcare operations with automation, analytics, and AI. After years in dentistry and public health, I built my own toolkit to keep vital data accessible even when official systems are offline. Today I lead <strong>SolveThis</strong>, delivering high-leverage automation for teams that need reliable, bilingual solutions.
+- Self-taught developer who transitioned from clinical dentistry into architecting digital healthcare operations for the public sector in Brazil.
+- I combine data analytics, automation, and policy awareness to design transparent systems that stand up to stakeholder scrutiny.
+- Strategic INTJ-A: I map constraints, align stakeholders, and deliver measurable results at pace.
+- Advocating for equitable healthcare resource allocation through purposeful technology and clear communication.
 
-- 🏥 Healthcare data advocate keeping SIGTAP insights available to clinicians, managers, and analysts.
-- 🧭 Sole developer embedded inside the Núcleo Especial de Programação de Serviços de Saúde (NEPSS) at SESA/ES, building the digital backbone our six-person nucleus relies on for statewide planning decisions.
-- ⚙️ Ownership mentality: I architect, automate, and deploy end-to-end solutions with measurable outcomes.
-- 🌍 Collaborative and bilingual, partnering with clients worldwide in English and Portuguese.
+### 🚀 Featured projects
 
-## 🚀 Featured Impact Projects
+#### Nova PPI Capixaba (RemanejaSUS) · [Visit](https://sites.google.com/view/novappicapixaba/)
+- **Role:** Sole developer delivering the state-wide RemanejaSUS platform for the State Health Secretariat of Espírito Santo (SESA).
+- **Mission:** Manage the physical and financial reallocation of SUS resources across all municipalities with full transparency.
+- **Tech stack:** Google AppSheet · Google Sheets · Google Apps Script (automation, triggers, reporting).
+- **Key features:**
+  - Automated monthly cycles orchestrated with time-based triggers.
+  - Real-time “Living PPI” views that keep programming data accurate and auditable.
+  - Financial validation rules that prevent negative balances before approvals.
+  - Structured negotiation workflow guiding municipal managers end-to-end.
+  - Automated PDF reporting and email distribution for every reallocation cycle.
+- **Impact:** Elevates transparency, enforces equity in statewide healthcare allocation, and strengthens interfederative collaboration across Espírito Santo.
 
-- **PPI — SIGTAP Healthcare Procedure Explorer**  
-  Keeps Brazil’s public healthcare procedure catalogue searchable, fast, and resilient when official infrastructure is down.  
-  [`Live`](https://PPI.pythonanywhere.com)
+#### Tabela de procedimentos · [Visit](https://PPI.pythonanywhere.com)
+- Reliable SIGTAP reference that keeps critical Brazilian healthcare procedure data available even when official portals fail.
+- Built to support clinicians, administrators, and analysts who need quick, accurate procedure intelligence.
 
-- **Nova PPI Capixaba (SESA · NEPSS)**  
-  As the sole developer, I architected the ingestion, reconciliation, and publishing workflows behind the Espírito Santo procedure intelligence layer. Our six-person nucleus now plans services with reliable updates even when federal portals slow down.  
-  [`Site`](https://sites.google.com/view/novappicapixaba/)
+#### Portfolio Sites
+- [solvethis.qzz.io](https://solvethis.qzz.io) — Commercial bilingual landing site for automation and AI services.
+- [React portfolio (Vercel deployment & source)](https://github.com/GilesAlonso/portfolio) — React-based showcase of projects, skills, and career narrative.
+- [IAdventures](https://gilesalonso.github.io/IAdventures) — Collection of AI experiments and tooling explorations.
 
-- **SolveThis Commercial Site**  
-  Client-facing automation studio showcasing solutions across AI, scripting, and systems integration.  
-  [`solvethis.qzz.io`](https://solvethis.qzz.io)
+### 🛠️ Skills at a glance
 
-- **React Portfolio (Vercel)**  
-  Personal knowledge base and case-study hub built with React; deployed via Vercel for rapid iteration and mirrored on GitHub Pages for guaranteed uptime.  
-  [`Live`](https://gilesalonso.github.io) · [`Code`](https://github.com/GilesAlonso/gilesalonso.github.io)
+- **Data & Analytics:** Tableau _(Experienced)_ • Looker Studio _(Proficient)_ • Excel _(Highly experienced)_ • Sheets _(Experienced)_ • SQL _(Proficient)_ • Python _(Intermediate)_ • Jupyter/Colab _(Intermediate)_ • Power BI _(Familiar)_ • R _(Advanced)_ • RStudio _(Advanced)_
+- **Development — Web & Interfaces:** HTML5 & CSS3 _(Advanced)_ • JavaScript _(Advanced)_ • React _(Intermediate)_ • Next.js _(Intermediate)_ • AppSheet _(Experienced — automation-ready business apps)_ • Firebase _(Intermediate)_ • Git & GitHub _(Moderate)_ • Markdown _(Experienced)_ • Visual Studio Code _(Primary IDE)_ • Postman _(API testing & validation)_
+- **Development — Automation & Platforms:** Google Apps Script/Webhooks _(Advanced — webhook endpoints for dataset distribution)_ • Python _(Intermediate — automation assistants & pipelines)_ • Selenium _(Intermediate — automated Excel workflows)_ • Bash/Shell _(Proficient)_ • PowerShell _(Proficient)_ • Batch scripting _(Proficient)_ • Node.js _(Intermediate)_ • MongoDB _(Intermediate)_ • Vercel _(Production deployments)_ • Heroku _(Legacy deployments)_
+- **Collaboration & Productivity:** Google Workspace _(Experienced)_ • Notion _(Familiar)_ • Trello _(Familiar)_ • Asana _(Basic)_ • Miro _(Familiar)_ • LibreOffice _(Experienced)_
+- **AI & Emerging Tech:** ChatGPT _(Experienced)_ • Google AI Studio • Qwen • Manus • Kimi • Perplexity • Claude • cto.new
+- **Project Management & Strategic Frameworks:** 5W2H _(Experienced)_ • RACI _(Proficient)_ • SWOT _(Experienced)_ • Kanban _(Experienced)_ • PDCA _(Experienced)_ • SMART _(Experienced)_ • Process Mapping _(Experienced)_ • Gantt _(Familiar)_ • Stakeholder Grid _(Experienced)_ • Risk Matrix _(Familiar)_ • OKRs _(Familiar)_ • Balanced Scorecard _(Familiar)_ • Mind Mapping _(Experienced)_ • Business Model Canvas _(Familiar)_ • BPM Canvas _(Familiar)_ • Ishikawa _(Familiar)_ • Logic Model _(Familiar)_ • Value Stream Mapping _(Basic)_
 
-- **IAdventures — AI Experiments Portfolio**  
-  Living lab of AI assistants, prototypes, and workflow tools documenting experiments, prompts, and real-world outcomes.  
-  [`Live`](https://gilesalonso.github.io/IAdventures)
+### 🎯 Current focus
 
-## 🛠️ Skills Matrix
+- Scaling RemanejaSUS automations with deeper scenario modeling and proactive alerting.
+- Strengthening advanced SQL and Python pipelines to support statewide healthcare analytics.
+- Evaluating practical AI copilots to accelerate decision support and reduce manual reconciliation work.
 
-### 📊 Data & Analytics
-`Tableau` · `Looker Studio` · `Microsoft Excel` · `Google Sheets` · `SQL` · `Python` · `Jupyter / Colab` · `Power BI` · `R` · `RStudio`
+### 🤝 Let's connect
 
-### ⚙️ Development & Automation
-`Google Apps Script` · `Python` · `GitHub` · `Selenium` · `Bash` · `PowerShell` · `Batch` · `Markdown`
-
-### 🖥️ Operating Systems & Infrastructure
-`Xubuntu / Linux Mint` · `HPLIP` · `Windows Task Scheduler`
-
-### 🤝 Collaboration & Productivity
-`Google Workspace` · `Notion` · `Trello` · `Asana` · `Miro` · `LibreOffice`
-
-### 🤖 AI & Emerging Tech
-`ChatGPT` · `Google AI Studio` · `Qwen` · `Manus` · `Kimi` · `Perplexity` · `Claude` · `cto.new`
-
-### 🧭 Project Management & Strategic Frameworks
-`5W2H` · `RACI` · `SWOT` · `Kanban` · `PDCA` · `Gantt` · `SMART` · `Process Mapping` · `Risk Matrix` · `OKRs` · `Balanced Scorecard` · `Mind Mapping` · `Business Model Canvas` · `BPM Canvas` · `Ishikawa` · `Stakeholder Grid` · `Logic Model` · `Value Stream Mapping`
-
-## 📈 GitHub at a Glance
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=GilesAlonso&amp;custom_title=Contribution%20Graph&amp;hide_border=true&amp;bg_color=ffffff&amp;color=0f172a&amp;line=16a34a&amp;point=0f172a" alt="Giles Alonso contribution graph" />
-</p>
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=GilesAlonso&amp;layout=compact&amp;hide_border=true&amp;title_color=0f172a&amp;text_color=0f172a" alt="Most used languages" />
-</p>
-
-## 🤝 Let's Connect
-
-- [LinkedIn](https://www.linkedin.com/in/gilesalonso/) — professional updates and collaboration.
-- [Email](mailto:giles.g.alonso@gmail.com) — direct contact for projects and partnerships.
-- [Fiverr](https://www.fiverr.com/gilesgrollaalon?public_mode=true) — vetted freelance engagements.
-- [Upwork](https://www.upwork.com/freelancers/~013c8c29302f14f74b) — long-term automation and data initiatives.
-- [Discord](https://discord.com/users/882432288925814865) — async collaboration when a shared workspace makes more sense.
-
-## 🎯 Currently Focusing On
-
-- Evolving NEPSS SIGTAP data pipelines to support predictive resourcing for Espírito Santo's public healthcare teams.
-- Expanding AI-assisted prototypes within IAdventures to accelerate client onboarding and discovery.
-- Sharpening bilingual technical documentation to make complex automations intuitive for non-technical stakeholders.
+- 💼 LinkedIn: [linkedin.com/in/gilesalonso](https://www.linkedin.com/in/gilesalonso/)
+- 📧 Email: [giles.g.alonso@gmail.com](mailto:giles.g.alonso@gmail.com)
+- 💬 Live chat: [tawk.to/solve-this](https://tawk.to/chat/640884f031ebfa0fe7f16040/1gr0keive)
+- 🌐 Portfolio hub: [solvethis.qzz.io](https://solvethis.qzz.io) · [IAdventures](https://gilesalonso.github.io/IAdventures)
