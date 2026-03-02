@@ -3,7 +3,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
 import landing from "../../Assets/Projects/landing.png";
-import editor from "../../Assets/Projects/codeEditor.png";
 import beesDashboard from "../../Assets/Projects/beesDashboard.png";
 import edgeFinderEURUSD from "../../Assets/Projects/edgeFinderEURUSD.png";
 import petAI from "../../Assets/Projects/petAI.png";
