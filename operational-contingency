@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Operational Contingency Case Study | SolveThis</title>
+    <meta name="description" content="Read how SolveThis engineered a high-availability fallback system to ensure zero downtime during federal platform outages.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="SolveThis">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Operational Contingency Case Study | SolveThis">
+    <meta property="og:description" content="Ensuring zero downtime for state health departments during federal system outages.">
+    <meta property="og:site_name" content="SolveThis">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="pt_BR">
+    
+    <meta name="theme-color" content="#2d5a27">
+    <link rel="icon" href="/Images/solvethis-logo.png" type="image/png">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    
+    <!-- Note: For ultimate production performance, replace this CDN with a locally compiled static Tailwind CSS file -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; line-height: 1.6; color: #333; background-color: #f8f9fa; }
+        
+        /* Shared Header Styles */
+        .header { background: white; padding: 1rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+        .brand { display: flex; align-items: center; }
+        .brand-link { display: inline-flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit; }
+        .brand-mark img { width: 48px; height: 48px; border-radius: 12px; object-fit: cover; }
+        .brand-copy { display: flex; flex-direction: column; line-height: 1.15; }
+        .brand-name { font-size: 1.5rem; font-weight: 700; color: #2d5a27; }
+        .brand-tagline { font-size: 0.85rem; font-weight: 500; color: #4d7a45; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: #666; font-weight: 500; transition: color 0.3s; cursor: pointer; }
+        .nav-links a.active, .nav-links a[aria-current="page"] { color: #28a745; font-weight: 600; }
+        .lang-toggle { background: #28a745; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
+        .lang-toggle:hover { background: #218838; }
+        .header-controls { display: flex; align-items: center; gap: 1rem; }
+        .hamburger-menu { display: none; background: none; border: none; cursor: pointer; padding: 0.25rem; color: #333; }
+        
+        /* Shared Footer Styles */
+        .footer { background: #1e293b; color: white; padding: 2rem 0; } 
+        .footer-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 2rem; padding: 0 2rem; } 
+        .footer-nav { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; } 
+        .footer-nav a { color: #cbd5e1; text-decoration: none; font-size: 0.95rem; transition: color 0.3s; } 
+        .footer-nav a:hover { color: white; } 
+        .copyright { font-size: 0.9rem; color: #94a3b8; }
+        
+        /* Case Study Specific Overrides */
+        .cs-hero { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
+        .cs-content h2 { color: #1e293b; font-size: 1.75rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem;}
+        .cs-content p { margin-bottom: 1.5rem; color: #475569; font-size: 1.125rem; line-height: 1.75; }
+        .cs-content ul { margin-bottom: 1.5rem; padding-left: 1.5rem; color: #475569; font-size: 1.125rem; }
+        .cs-content li { margin-bottom: 0.75rem; }
+        .cs-content li strong { color: #1e293b; }
+        .back-link { display: inline-flex; align-items: center; color: #28a745; font-weight: 600; text-decoration: none; margin-bottom: 2rem; transition: color 0.2s;}
+        .back-link:hover { color: #1e7e34; text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .brand-link { gap: 0.5rem; }
+            .brand-name { font-size: 1.3rem; }
+            .brand-tagline { display: none; }
+            .footer-container { flex-direction: column; gap: 1rem; text-align: center; }
+            .footer-nav { justify-content: center; }
+            .copyright { text-align: center; }
+            .hamburger-menu { display: block; }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background-color: white; flex-direction: column; align-items: center; gap: 0; padding: 1rem 0; box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+            .nav-links li { width: 100%; }
+            .nav-links a { display: block; width: 100%; text-align: center; padding: 0.75rem 1rem; }
+            .header.mobile-menu-open .nav-links { display: flex; }
+        }
+    </style>
+</head>
+<body class="pt-20">
+    <header class="header" id="header">
+        <div class="nav-container">
+            <div class="brand">
+                <a href="/" class="brand-link" aria-label="SolveThis home">
+                    <picture class="brand-mark">
+                        <source srcset="/Images/solvethis-logo.webp" type="image/webp">
+                        <img src="/Images/solvethis-logo.png" width="48" height="48" alt="SolveThis logo" loading="lazy">
+                    </picture>
+                    <span class="brand-copy">
+                        <span class="brand-name">SolveThis</span>
+                        <span class="brand-tagline" data-translate="brand-tagline">Operational Systems Design</span>
+                    </span>
+                </a>
+            </div>
+            <nav aria-label="Primary">
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="/" data-translate="nav-home">Home</a></li>
+                    <li><a href="/#services" data-translate="nav-services">Services</a></li>
+                    <li><a href="/#portfolio" aria-current="page" data-translate="nav-portfolio">Case Studies</a></li>
+                    <li><a href="/#about" data-translate="nav-about">How I Work</a></li>
+                    <li><a href="/pay.html" data-translate="nav-pay">Payments</a></li>
+                    <li><a href="/#contact" data-translate="nav-contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-controls">
+                <button class="lang-toggle" type="button" onclick="toggleLanguage()">EN</button>
+                <button id="hamburger-menu" class="hamburger-menu" type="button" aria-label="Toggle navigation menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="cs-hero text-white pt-24 pb-20 px-6">
+            <div class="max-w-4xl mx-auto">
+                <a href="/#portfolio" class="back-link">&larr; <span data-translate="back-to-portfolio">Back to Case Studies</span></a>
+                <div class="mb-4 text-green-400 font-bold tracking-widest uppercase text-xs" data-translate="cs-label">Case Study</div>
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-6" data-translate="cs-hero-title">High-Availability Operational Contingency</h1>
+                <p class="text-xl md:text-2xl text-slate-300 font-light" data-translate="cs-hero-subtitle">Ensuring zero downtime for state health departments during external federal system outages.</p>
+            </div>
+        </section>
+
+        <!-- Main Content Section -->
+        <section class="py-16 px-6 bg-white">
+            <div class="max-w-3xl mx-auto cs-content">
+                
+                <h2 data-translate="cs-context-title">The Context</h2>
+                <p data-translate="cs-context-text">At the State Health Department of Espírito Santo (SESA), daily administrative operations rely heavily on the federal SIGTAP platform (Sistema de Gerenciamento da Tabela de Procedimentos). This unified database contains critical codes, rules, and financial parameters for processing billing, quotas, and health procedures.</p>
+                
+                <h2 data-translate="cs-problem-title">The Operational Bottleneck</h2>
+                <p data-translate="cs-problem-text">Because SIGTAP is a centralized federal system accessed nationwide, it frequently experiences unpredictable instability, severe lag, and complete server outages. When the official site goes offline, the internal SESA teams are essentially paralyzed. Without access to procedure codes and validation rules, regional health administration workflows halt entirely, creating massive administrative backlogs and delaying critical operations.</p>
+                
+                <h2 data-translate="cs-approach-title">The Systems Engineering Approach</h2>
+                <p data-translate="cs-approach-text1">To insulate the state department from upstream federal failures, we designed a Business Continuity Plan (BCP) centered around a resilient shadow-system.</p>
+                <ul class="list-disc">
+                    <li data-translate="cs-approach-list1"><strong>High-Availability Mirror:</strong> Engineered a lightweight, independent mirror application using Python and Flask, hosted securely on a separate server environment.</li>
+                    <li data-translate="cs-approach-list2"><strong>Data Synchronization:</strong> The system caches and serves the exact unified table data required by the SESA teams, structured for faster querying than the legacy federal interface.</li>
+                    <li data-translate="cs-approach-list3"><strong>Frictionless Fallback:</strong> Designed an intuitive, instantly accessible interface that the administrative team can switch to the moment the federal system experiences downtime, requiring zero retraining.</li>
+                </ul>
+
+                <h2 data-translate="cs-outcome-title">The Outcome</h2>
+                <p data-translate="cs-outcome-text">The implementation guaranteed 100% operational continuity for the SESA team. By treating external dependencies as a known risk and engineering a reliable fallback system, we completely eliminated the hours of idle time and workflow paralysis previously caused by federal server failures. The team now operates with complete autonomy and resilience.</p>
+
+                <div class="mt-16 text-center border-t border-slate-200 pt-10">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4" data-translate="cta-heading">Ready to scale your operations?</h3>
+                    <a href="/#contact" class="inline-block bg-orange-500 text-white font-semibold py-3 px-8 rounded-lg hover:bg-orange-600 transition shadow-lg hover:-translate-y-0.5" data-translate="cta-button">Discuss your workflow</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <nav class="footer-nav" aria-label="Secondary">
+                <a href="/" data-translate="footer-home">Home</a>
+                <a href="/#services" data-translate="footer-services">Services</a>
+                <a href="/#portfolio" data-translate="footer-portfolio">Case Studies</a>
+                <a href="/pay.html" data-translate="footer-payments">Payments</a>
+                <a href="/#contact" data-translate="footer-contact">Contact</a>
+            </nav>
+            <div class="copyright" data-translate="copyright">© 2026 SolveThis. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                "nav-home": "Home", "nav-services": "Services", "nav-portfolio": "Case Studies", "nav-pay": "Payments", "nav-about": "How I Work", "nav-contact": "Contact",
+                "brand-tagline": "Operational Systems Design",
+                
+                "back-to-portfolio": "Back to Case Studies",
+                "cs-label": "Case Study",
+                "cs-hero-title": "High-Availability Operational Contingency",
+                "cs-hero-subtitle": "Ensuring zero downtime for state health departments during external federal system outages.",
+                
+                "cs-context-title": "The Context",
+                "cs-context-text": "At the State Health Department of Espírito Santo (SESA), daily administrative operations rely heavily on the federal SIGTAP platform (Sistema de Gerenciamento da Tabela de Procedimentos). This unified database contains critical codes, rules, and financial parameters for processing billing, quotas, and health procedures.",
+                
+                "cs-problem-title": "The Operational Bottleneck",
+                "cs-problem-text": "Because SIGTAP is a centralized federal system accessed nationwide, it frequently experiences unpredictable instability, severe lag, and complete server outages. When the official site goes offline, the internal SESA teams are essentially paralyzed. Without access to procedure codes and validation rules, regional health administration workflows halt entirely, creating massive administrative backlogs and delaying critical operations.",
+                
+                "cs-approach-title": "The Systems Engineering Approach",
+                "cs-approach-text1": "To insulate the state department from upstream federal failures, we designed a Business Continuity Plan (BCP) centered around a resilient shadow-system.",
+                "cs-approach-list1": "<strong>High-Availability Mirror:</strong> Engineered a lightweight, independent mirror application using Python and Flask, hosted securely on a separate server environment.",
+                "cs-approach-list2": "<strong>Data Synchronization:</strong> The system caches and serves the exact unified table data required by the SESA teams, structured for faster querying than the legacy federal interface.",
+                "cs-approach-list3": "<strong>Frictionless Fallback:</strong> Designed an intuitive, instantly accessible interface that the administrative team can switch to the moment the federal system experiences downtime, requiring zero retraining.",
+                
+                "cs-outcome-title": "The Outcome",
+                "cs-outcome-text": "The implementation guaranteed 100% operational continuity for the SESA team. By treating external dependencies as a known risk and engineering a reliable fallback system, we completely eliminated the hours of idle time and workflow paralysis previously caused by federal server failures. The team now operates with complete autonomy and resilience.",
+                
+                "cta-heading": "Ready to protect your operations from downtime?",
+                "cta-button": "Discuss your workflow",
+                
+                "footer-home": "Home", "footer-services": "Services", "footer-portfolio": "Case Studies", "footer-payments": "Payments", "footer-contact": "Contact",
+                "copyright": "© 2026 SolveThis. All rights reserved."
+            },
+            pt: {
+                "nav-home": "Início", "nav-services": "Serviços", "nav-portfolio": "Casos de Estudo", "nav-pay": "Pagamentos", "nav-about": "Como Trabalho", "nav-contact": "Contato",
+                "brand-tagline": "Design de Sistemas Operacionais",
+                
+                "back-to-portfolio": "Voltar para Casos de Estudo",
+                "cs-label": "Caso de Estudo",
+                "cs-hero-title": "Contingência Operacional de Alta Disponibilidade",
+                "cs-hero-subtitle": "Garantindo zero tempo de inatividade para secretarias de saúde durante falhas em sistemas federais externos.",
+                
+                "cs-context-title": "O Contexto",
+                "cs-context-text": "Na Secretaria de Estado da Saúde do Espírito Santo (SESA), as operações administrativas diárias dependem fortemente da plataforma federal SIGTAP (Sistema de Gerenciamento da Tabela de Procedimentos). Este banco de dados unificado contém códigos críticos, regras e parâmetros financeiros para processamento de faturamento, cotas e procedimentos de saúde.",
+                
+                "cs-problem-title": "O Gargalo Operacional",
+                "cs-problem-text": "Por ser um sistema federal centralizado acessado nacionalmente, o SIGTAP sofre frequentemente com instabilidade imprevisível, lentidão severa e quedas completas de servidor. Quando o site oficial sai do ar, as equipes internas da SESA ficam essencialmente paralisadas. Sem acesso a códigos de procedimentos e regras de validação, os fluxos de trabalho da administração regional de saúde são interrompidos, criando grandes acúmulos administrativos e atrasando operações críticas.",
+                
+                "cs-approach-title": "A Abordagem de Engenharia de Sistemas",
+                "cs-approach-text1": "Para isolar o departamento estadual de falhas federais, projetamos um Plano de Continuidade de Negócios (BCP) centrado em um sistema espelho resiliente.",
+                "cs-approach-list1": "<strong>Espelho de Alta Disponibilidade:</strong> Desenvolvemos um aplicativo espelho independente e leve usando Python e Flask, hospedado de forma segura em um ambiente de servidor separado.",
+                "cs-approach-list2": "<strong>Sincronização de Dados:</strong> O sistema armazena e disponibiliza exatamente os dados da tabela unificada exigidos pelas equipes da SESA, estruturados para consultas mais rápidas do que a interface federal legada.",
+                "cs-approach-list3": "<strong>Transição Sem Atritos:</strong> Projetamos uma interface intuitiva e instantaneamente acessível para a qual a equipe administrativa pode migrar no momento em que o sistema federal sofre inatividade, exigindo zero retreinamento.",
+                
+                "cs-outcome-title": "O Resultado",
+                "cs-outcome-text": "A implementação garantiu 100% de continuidade operacional para a equipe da SESA. Ao tratar as dependências externas como um risco conhecido e projetar um sistema de fallback confiável, eliminamos completamente as horas de tempo ocioso e a paralisia do fluxo de trabalho causadas anteriormente por falhas no servidor federal. A equipe agora opera com total autonomia e resiliência.",
+                
+                "cta-heading": "Pronto para proteger sua operação contra quedas?",
+                "cta-button": "Discuta seu fluxo de trabalho",
+                
+                "footer-home": "Início", "footer-services": "Serviços", "footer-portfolio": "Casos de Estudo", "footer-payments": "Pagamentos", "footer-contact": "Contato",
+                "copyright": "© 2026 SolveThis. Todos os direitos reservados."
+            }
+        };
+
+        const LANGUAGE_STORAGE_KEY = 'solvethis-lang';
+        const LANGUAGE_PARAM = 'lang';
+        let currentLang = 'en';
+
+        function setDocumentLanguageAttributes() {
+            document.documentElement.setAttribute('lang', currentLang === 'pt' ? 'pt-BR' : 'en');
+        }
+
+        function updateUrlLanguageParam() {
+            const url = new URL(window.location.href);
+            if (currentLang === 'en') {
+                url.searchParams.delete(LANGUAGE_PARAM);
+            } else {
+                url.searchParams.set(LANGUAGE_PARAM, currentLang);
+            }
+            const serializedSearch = url.searchParams.toString();
+            const newUrl = url.pathname + (serializedSearch ? `?${serializedSearch}` : '') + url.hash;
+            window.history.replaceState({}, '', newUrl);
+        }
+
+        function determineInitialLanguage() {
+            const searchParams = new URLSearchParams(window.location.search);
+            const urlLang = searchParams.get(LANGUAGE_PARAM);
+            if (urlLang && ['en', 'pt'].includes(urlLang.toLowerCase())) {
+                currentLang = urlLang.toLowerCase();
+                return;
+            }
+            try {
+                const storedLang = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+                if (storedLang && ['en', 'pt'].includes(storedLang)) {
+                    currentLang = storedLang;
+                    return;
+                }
+            } catch (error) {
+                console.warn('Language persistence unavailable', error);
+            }
+            const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            if (browserLang.startsWith('pt')) {
+                currentLang = 'pt';
+            }
+        }
+
+        function applyTranslations() {
+            const langButton = document.querySelector('.lang-toggle');
+            if (langButton) {
+                langButton.textContent = currentLang.toUpperCase();
+                langButton.setAttribute('aria-label', currentLang === 'en' ? 'Switch language to Portuguese' : 'Mudar idioma para inglês');
+            }
+            setDocumentLanguageAttributes();
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+            try {
+                localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLang);
+            } catch (error) {
+                console.warn('Language persistence unavailable', error);
+            }
+            updateUrlLanguageParam();
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'pt' : 'en';
+            applyTranslations();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.getElementById('header');
+            const hamburgerBtn = document.getElementById('hamburger-menu');
+            const navLinks = document.getElementById('nav-links');
+
+            if (hamburgerBtn && navLinks && header) {
+                hamburgerBtn.addEventListener('click', () => {
+                    header.classList.toggle('mobile-menu-open');
+                });
+
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (header.classList.contains('mobile-menu-open')) {
+                            header.classList.remove('mobile-menu-open');
+                        }
+                    });
+                });
+            }
+
+            determineInitialLanguage();
+            applyTranslations();
+        });
+    </script>
+</body>
+</html>
