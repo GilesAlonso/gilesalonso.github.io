@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RemanejaSUS Case Study | SolveThis</title>
+    <meta name="description" content="Read how SolveThis eliminated operational friction and engineered a real-time allocation system for public healthcare resources.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="SolveThis">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="RemanejaSUS Case Study | SolveThis">
+    <meta property="og:description" content="Architecting real-time allocation of public healthcare resources for millions of citizens.">
+    <meta property="og:site_name" content="SolveThis">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="pt_BR">
+    
+    <meta name="theme-color" content="#2d5a27">
+    <link rel="icon" href="/Images/solvethis-logo.png" type="image/png">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    
+    <!-- Note: For ultimate production performance, replace this CDN with a locally compiled static Tailwind CSS file -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; line-height: 1.6; color: #333; background-color: #f8f9fa; }
+        
+        /* Shared Header Styles */
+        .header { background: white; padding: 1rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+        .brand { display: flex; align-items: center; }
+        .brand-link { display: inline-flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit; }
+        .brand-mark img { width: 48px; height: 48px; border-radius: 12px; object-fit: cover; }
+        .brand-copy { display: flex; flex-direction: column; line-height: 1.15; }
+        .brand-name { font-size: 1.5rem; font-weight: 700; color: #2d5a27; }
+        .brand-tagline { font-size: 0.85rem; font-weight: 500; color: #4d7a45; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: #666; font-weight: 500; transition: color 0.3s; cursor: pointer; }
+        .nav-links a.active, .nav-links a[aria-current="page"] { color: #28a745; font-weight: 600; }
+        .lang-toggle { background: #28a745; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
+        .lang-toggle:hover { background: #218838; }
+        .header-controls { display: flex; align-items: center; gap: 1rem; }
+        .hamburger-menu { display: none; background: none; border: none; cursor: pointer; padding: 0.25rem; color: #333; }
+        
+        /* Shared Footer Styles */
+        .footer { background: #1e293b; color: white; padding: 2rem 0; } 
+        .footer-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 2rem; padding: 0 2rem; } 
+        .footer-nav { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; } 
+        .footer-nav a { color: #cbd5e1; text-decoration: none; font-size: 0.95rem; transition: color 0.3s; } 
+        .footer-nav a:hover { color: white; } 
+        .copyright { font-size: 0.9rem; color: #94a3b8; }
+        
+        /* Case Study Specific Overrides */
+        .cs-hero { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
+        .cs-content h2 { color: #1e293b; font-size: 1.75rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem;}
+        .cs-content p { margin-bottom: 1.5rem; color: #475569; font-size: 1.125rem; line-height: 1.75; }
+        .cs-content ul { margin-bottom: 1.5rem; padding-left: 1.5rem; color: #475569; font-size: 1.125rem; }
+        .cs-content li { margin-bottom: 0.75rem; }
+        .cs-content li strong { color: #1e293b; }
+        .back-link { display: inline-flex; align-items: center; color: #28a745; font-weight: 600; text-decoration: none; margin-bottom: 2rem; transition: color 0.2s;}
+        .back-link:hover { color: #1e7e34; text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .brand-link { gap: 0.5rem; }
+            .brand-name { font-size: 1.3rem; }
+            .brand-tagline { display: none; }
+            .footer-container { flex-direction: column; gap: 1rem; text-align: center; }
+            .footer-nav { justify-content: center; }
+            .copyright { text-align: center; }
+            .hamburger-menu { display: block; }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background-color: white; flex-direction: column; align-items: center; gap: 0; padding: 1rem 0; box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+            .nav-links li { width: 100%; }
+            .nav-links a { display: block; width: 100%; text-align: center; padding: 0.75rem 1rem; }
+            .header.mobile-menu-open .nav-links { display: flex; }
+        }
+    </style>
+</head>
+<body class="pt-20"> <!-- Added pt-20 to account for fixed header -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <div class="brand">
+                <a href="/" class="brand-link" aria-label="SolveThis home">
+                    <picture class="brand-mark">
+                        <!-- Ensure path points to root if this is in a subfolder -->
+                        <source srcset="/Images/solvethis-logo.webp" type="image/webp">
+                        <img src="/Images/solvethis-logo.png" width="48" height="48" alt="SolveThis logo" loading="lazy">
+                    </picture>
+                    <span class="brand-copy">
+                        <span class="brand-name">SolveThis</span>
+                        <span class="brand-tagline" data-translate="brand-tagline">Operational Systems Design</span>
+                    </span>
+                </a>
+            </div>
+            <nav aria-label="Primary">
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="/" data-translate="nav-home">Home</a></li>
+                    <li><a href="/#services" data-translate="nav-services">Services</a></li>
+                    <li><a href="/#portfolio" aria-current="page" data-translate="nav-portfolio">Case Studies</a></li>
+                    <li><a href="/#about" data-translate="nav-about">How I Work</a></li>
+                    <li><a href="/pay.html" data-translate="nav-pay">Payments</a></li>
+                    <li><a href="/#contact" data-translate="nav-contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-controls">
+                <button class="lang-toggle" type="button" onclick="toggleLanguage()">EN</button>
+                <button id="hamburger-menu" class="hamburger-menu" type="button" aria-label="Toggle navigation menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="cs-hero text-white pt-24 pb-20 px-6">
+            <div class="max-w-4xl mx-auto">
+                <a href="/#portfolio" class="back-link">&larr; <span data-translate="back-to-portfolio">Back to Case Studies</span></a>
+                <div class="mb-4 text-green-400 font-bold tracking-widest uppercase text-xs" data-translate="cs-label">Case Study</div>
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-6" data-translate="cs-hero-title">RemanejaSUS & Nova PPI Capixaba</h1>
+                <p class="text-xl md:text-2xl text-slate-300 font-light" data-translate="cs-hero-subtitle">Architecting real-time allocation of public healthcare resources for millions of citizens.</p>
+            </div>
+        </section>
+
+        <!-- Main Content Section -->
+        <section class="py-16 px-6 bg-white">
+            <div class="max-w-3xl mx-auto cs-content">
+                
+                <h2 data-translate="cs-context-title">The Context</h2>
+                <p data-translate="cs-context-text">The State Health Department of Espírito Santo (SESA) manages a complex network of public healthcare services. To ensure equitable access, physical service quotas (consultations, surgeries) and financial resources must be continuously planned and reallocated among 78 municipalities—a process known as the Programação Pactuada e Integrada (PPI).</p>
+                
+                <h2 data-translate="cs-problem-title">The Operational Bottleneck</h2>
+                <p data-translate="cs-problem-text">Historically, this reallocation process was highly fragmented. It relied on a labyrinth of spreadsheets, manual data entry, and slow administrative workflows. When regional demands shifted, adjusting the financial ceilings and service flows took too long. The data was isolated, making it difficult for regional governance bodies to make fast, evidence-based decisions.</p>
+                
+                <h2 data-translate="cs-approach-title">The Systems Engineering Approach</h2>
+                <p data-translate="cs-approach-text1">To eliminate this friction, we designed a unified operational architecture that transitioned the state to a "Living PPI" (PPI Viva) model.</p>
+                <ul class="list-disc">
+                    <li data-translate="cs-approach-list1"><strong>Data Architecture & ETL:</strong> Developed robust ETL (Extract, Transform, Load) pipelines using R to process, clean, and standardize complex public health datasets from multiple legacy sources.</li>
+                    <li data-translate="cs-approach-list2"><strong>Workflow Application:</strong> Engineered the "Nova PPI Capixaba" application. This tool digitizes the workflow, allowing municipal and state managers to securely propose, negotiate, and register quota reallocations in a centralized environment.</li>
+                    <li data-translate="cs-approach-list3"><strong>Decision Support Systems:</strong> Built real-time analytical dashboards directly connected to the data pipelines. These dashboards provide immediate visibility into financial ceilings ("Teto Financeiro"), patient flows, and regional service gaps ("vazios assistenciais").</li>
+                </ul>
+
+                <h2 data-translate="cs-outcome-title">The Outcome</h2>
+                <p data-translate="cs-outcome-text">The system completely eliminated the need for manual data reconciliation. By providing a single source of truth updated in real-time, it empowered regional governance bodies (COSEMS, CIR, CIB) to allocate resources with unprecedented transparency and speed. The result is significantly greater allocative efficiency of public funds and, most importantly, improved responsiveness in healthcare delivery for the state's citizens.</p>
+
+                <div class="mt-16 text-center border-t border-slate-200 pt-10">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4" data-translate="cta-heading">Ready to scale your operations?</h3>
+                    <a href="/#contact" class="inline-block bg-orange-500 text-white font-semibold py-3 px-8 rounded-lg hover:bg-orange-600 transition shadow-lg hover:-translate-y-0.5" data-translate="cta-button">Discuss your workflow</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <nav class="footer-nav" aria-label="Secondary">
+                <a href="/" data-translate="footer-home">Home</a>
+                <a href="/#services" data-translate="footer-services">Services</a>
+                <a href="/#portfolio" data-translate="footer-portfolio">Case Studies</a>
+                <a href="/pay.html" data-translate="footer-payments">Payments</a>
+                <a href="/#contact" data-translate="footer-contact">Contact</a>
+            </nav>
+            <div class="copyright" data-translate="copyright">© 2026 SolveThis. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                "nav-home": "Home", "nav-services": "Services", "nav-portfolio": "Case Studies", "nav-pay": "Payments", "nav-about": "How I Work", "nav-contact": "Contact",
+                "brand-tagline": "Operational Systems Design",
+                
+                "back-to-portfolio": "Back to Case Studies",
+                "cs-label": "Case Study",
+                "cs-hero-title": "RemanejaSUS & Nova PPI Capixaba",
+                "cs-hero-subtitle": "Architecting real-time allocation of public healthcare resources for millions of citizens.",
+                
+                "cs-context-title": "The Context",
+                "cs-context-text": "The State Health Department of Espírito Santo (SESA) manages a complex network of public healthcare services. To ensure equitable access, physical service quotas (consultations, surgeries) and financial resources must be continuously planned and reallocated among 78 municipalities—a process known as the Programação Pactuada e Integrada (PPI).",
+                
+                "cs-problem-title": "The Operational Bottleneck",
+                "cs-problem-text": "Historically, this reallocation process was highly fragmented. It relied on a labyrinth of spreadsheets, manual data entry, and slow administrative workflows. When regional demands shifted, adjusting the financial ceilings and service flows took too long. The data was isolated, making it difficult for regional governance bodies to make fast, evidence-based decisions.",
+                
+                "cs-approach-title": "The Systems Engineering Approach",
+                "cs-approach-text1": "To eliminate this friction, we designed a unified operational architecture that transitioned the state to a \"Living PPI\" (PPI Viva) model.",
+                "cs-approach-list1": "<strong>Data Architecture & ETL:</strong> Developed robust ETL (Extract, Transform, Load) pipelines using R to process, clean, and standardize complex public health datasets from multiple legacy sources.",
+                "cs-approach-list2": "<strong>Workflow Application:</strong> Engineered the \"Nova PPI Capixaba\" application. This tool digitizes the workflow, allowing municipal and state managers to securely propose, negotiate, and register quota reallocations in a centralized environment.",
+                "cs-approach-list3": "<strong>Decision Support Systems:</strong> Built real-time analytical dashboards directly connected to the data pipelines. These dashboards provide immediate visibility into financial ceilings (\"Teto Financeiro\"), patient flows, and regional service gaps (\"vazios assistenciais\").",
+                
+                "cs-outcome-title": "The Outcome",
+                "cs-outcome-text": "The system completely eliminated the need for manual data reconciliation. By providing a single source of truth updated in real-time, it empowered regional governance bodies (COSEMS, CIR, CIB) to allocate resources with unprecedented transparency and speed. The result is significantly greater allocative efficiency of public funds and, most importantly, improved responsiveness in healthcare delivery for the state's citizens.",
+                
+                "cta-heading": "Ready to scale your operations?",
+                "cta-button": "Discuss your workflow",
+                
+                "footer-home": "Home", "footer-services": "Services", "footer-portfolio": "Case Studies", "footer-payments": "Payments", "footer-contact": "Contact",
+                "copyright": "© 2026 SolveThis. All rights reserved."
+            },
+            pt: {
+                "nav-home": "Início", "nav-services": "Serviços", "nav-portfolio": "Casos de Estudo", "nav-pay": "Pagamentos", "nav-about": "Como Trabalho", "nav-contact": "Contato",
+                "brand-tagline": "Design de Sistemas Operacionais",
+                
+                "back-to-portfolio": "Voltar para Casos de Estudo",
+                "cs-label": "Caso de Estudo",
+                "cs-hero-title": "RemanejaSUS & Nova PPI Capixaba",
+                "cs-hero-subtitle": "Arquitetando a alocação em tempo real de recursos públicos de saúde para milhões de cidadãos.",
+                
+                "cs-context-title": "O Contexto",
+                "cs-context-text": "A Secretaria de Estado da Saúde do Espírito Santo (SESA) gerencia uma rede complexa de serviços públicos de saúde. Para garantir o acesso equitativo, cotas físicas de serviços (consultas, cirurgias) e recursos financeiros devem ser continuamente planejados e remanejados entre 78 municípios — um processo conhecido como Programação Pactuada e Integrada (PPI).",
+                
+                "cs-problem-title": "O Gargalo Operacional",
+                "cs-problem-text": "Historicamente, esse processo de remanejamento era altamente fragmentado. Dependia de um labirinto de planilhas, inserção manual de dados e fluxos administrativos lentos. Quando as demandas regionais mudavam, ajustar os tetos financeiros e os fluxos de serviços demorava muito. Os dados eram isolados, dificultando a tomada de decisões rápidas e baseadas em evidências pelas instâncias de governança regional.",
+                
+                "cs-approach-title": "A Abordagem de Engenharia de Sistemas",
+                "cs-approach-text1": "Para eliminar esse atrito, projetamos uma arquitetura operacional unificada que fez a transição do estado para um modelo de \"PPI Viva\".",
+                "cs-approach-list1": "<strong>Arquitetura de Dados e ETL:</strong> Desenvolvemos pipelines robustos de ETL usando R para processar, limpar e padronizar bases de dados complexas de saúde pública provenientes de várias fontes legadas.",
+                "cs-approach-list2": "<strong>Aplicativo de Workflow:</strong> Desenvolvemos o aplicativo \"Nova PPI Capixaba\". Esta ferramenta digitaliza o fluxo de trabalho, permitindo que gestores municipais e estaduais proponham, negociem e registrem remanejamentos de cotas de forma segura em um ambiente centralizado.",
+                "cs-approach-list3": "<strong>Sistemas de Suporte à Decisão:</strong> Construímos painéis analíticos em tempo real diretamente conectados aos pipelines de dados. Estes painéis oferecem visibilidade imediata dos tetos financeiros, fluxos de pacientes e vazios assistenciais regionais.",
+                
+                "cs-outcome-title": "O Resultado",
+                "cs-outcome-text": "O sistema eliminou completamente a necessidade de reconciliação manual de dados. Ao fornecer uma fonte única da verdade atualizada em tempo real, capacitou os órgãos de governança regional (COSEMS, CIR, CIB) a alocar recursos com transparência e velocidade sem precedentes. O resultado é uma eficiência alocativa significativamente maior dos fundos públicos e, mais importante, uma melhor capacidade de resposta na prestação de cuidados de saúde para os cidadãos do estado.",
+                
+                "cta-heading": "Pronto para escalar suas operações?",
+                "cta-button": "Discuta seu fluxo de trabalho",
+                
+                "footer-home": "Início", "footer-services": "Serviços", "footer-portfolio": "Casos de Estudo", "footer-payments": "Pagamentos", "footer-contact": "Contato",
+                "copyright": "© 2026 SolveThis. Todos os direitos reservados."
+            }
+        };
+
+        const LANGUAGE_STORAGE_KEY = 'solvethis-lang';
+        const LANGUAGE_PARAM = 'lang';
+        let currentLang = 'en';
+
+        function setDocumentLanguageAttributes() {
+            document.documentElement.setAttribute('lang', currentLang === 'pt' ? 'pt-BR' : 'en');
+        }
+
+        function updateUrlLanguageParam() {
+            const url = new URL(window.location.href);
+            if (currentLang === 'en') {
+                url.searchParams.delete(LANGUAGE_PARAM);
+            } else {
+                url.searchParams.set(LANGUAGE_PARAM, currentLang);
+            }
+            const serializedSearch = url.searchParams.toString();
+            const newUrl = url.pathname + (serializedSearch ? `?${serializedSearch}` : '') + url.hash;
+            window.history.replaceState({}, '', newUrl);
+        }
+
+        function determineInitialLanguage() {
+            const searchParams = new URLSearchParams(window.location.search);
+            const urlLang = searchParams.get(LANGUAGE_PARAM);
+            if (urlLang && ['en', 'pt'].includes(urlLang.toLowerCase())) {
+                currentLang = urlLang.toLowerCase();
+                return;
+            }
+            try {
+                const storedLang = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+                if (storedLang && ['en', 'pt'].includes(storedLang)) {
+                    currentLang = storedLang;
+                    return;
+                }
+            } catch (error) {
+                console.warn('Language persistence unavailable', error);
+            }
+            const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            if (browserLang.startsWith('pt')) {
+                currentLang = 'pt';
+            }
+        }
+
+        function applyTranslations() {
+            const langButton = document.querySelector('.lang-toggle');
+            if (langButton) {
+                langButton.textContent = currentLang.toUpperCase();
+                langButton.setAttribute('aria-label', currentLang === 'en' ? 'Switch language to Portuguese' : 'Mudar idioma para inglês');
+            }
+            setDocumentLanguageAttributes();
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+            try {
+                localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLang);
+            } catch (error) {
+                console.warn('Language persistence unavailable', error);
+            }
+            updateUrlLanguageParam();
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'pt' : 'en';
+            applyTranslations();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.getElementById('header');
+            const hamburgerBtn = document.getElementById('hamburger-menu');
+            const navLinks = document.getElementById('nav-links');
+
+            if (hamburgerBtn && navLinks && header) {
+                hamburgerBtn.addEventListener('click', () => {
+                    header.classList.toggle('mobile-menu-open');
+                });
+
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (header.classList.contains('mobile-menu-open')) {
+                            header.classList.remove('mobile-menu-open');
+                        }
+                    });
+                });
+            }
+
+            determineInitialLanguage();
+            applyTranslations();
+        });
+    </script>
+</body>
+</html>
