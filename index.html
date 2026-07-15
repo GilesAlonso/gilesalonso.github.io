@@ -384,24 +384,26 @@
                         <strong data-translate="cs-outcome-label">Outcome</strong>
                         <p data-translate="cs1-outcome">Centralized decision support, drastically reducing manual analysis time and improving public health responsiveness.</p>
                     </div>
-                    <a href="/remanejasus" class="read-more" data-translate="read-more">Read full case study &rarr;</a>
+                    <!-- LINK UPDATED TO ROOT DIRECTORY -->
+                    <a href="/remanejasus.html" class="read-more" data-translate="read-more">Read full case study &rarr;</a>
                 </div>
                 <!-- Case Study 2 -->
                 <div class="case-study-card">
-                    <h3 data-translate="cs2-title">Operational Data Integration</h3>
+                    <h3 data-translate="cs2-title">High-Availability Operational Contingency</h3>
                     <div class="case-study-section">
                         <strong data-translate="cs-problem-label">Problem</strong>
-                        <p data-translate="cs2-problem">Critical business data was trapped across disconnected SaaS platforms, requiring hours of manual weekly reporting.</p>
+                        <p data-translate="cs2-problem">Unpredictable federal system outages paralyzed state health administration, causing massive workflow backlogs.</p>
                     </div>
                     <div class="case-study-section">
                         <strong data-translate="cs-approach-label">Approach</strong>
-                        <p data-translate="cs2-approach">Engineered custom webhook endpoints, process mapping, and automated sync pipelines to unify information flow.</p>
+                        <p data-translate="cs2-approach">Engineered a resilient, independent mirror application with automated data synchronization to serve as a frictionless fallback.</p>
                     </div>
                     <div class="case-study-section">
                         <strong data-translate="cs-outcome-label">Outcome</strong>
-                        <p data-translate="cs2-outcome">Real-time operational visibility across the organization and the complete elimination of manual data reconciliation.</p>
+                        <p data-translate="cs2-outcome">Guaranteed 100% operational continuity, completely eliminating idle time during external server failures.</p>
                     </div>
-                    <a href="/case-studies/operational-integration" class="read-more" data-translate="read-more">Read full case study &rarr;</a>
+                    <!-- LINK UPDATED TO ROOT DIRECTORY -->
+                    <a href="/operational-contingency.html" class="read-more" data-translate="read-more">Read full case study &rarr;</a>
                 </div>
             </div>
 
@@ -500,14 +502,17 @@
                 "service4-title": "Connect Existing Systems", "service4-desc": "Unifying disparate platforms and databases to provide clear, real-time operational visibility.",
                 "case-studies-title": "Selected Projects",
                 "cs-problem-label": "Problem", "cs-approach-label": "Approach", "cs-outcome-label": "Outcome",
+                
                 "cs1-title": "RemanejaSUS",
                 "cs1-problem": "Inefficient allocation of public healthcare resources hindered by highly fragmented and isolated data.",
                 "cs1-approach": "Designed a unified ETL pipeline and an automated data architecture connected to streamlined analytical dashboards.",
                 "cs1-outcome": "Centralized decision support, drastically reducing manual analysis time and improving public health responsiveness.",
-                "cs2-title": "Operational Data Integration",
-                "cs2-problem": "Critical business data was trapped across disconnected SaaS platforms, requiring hours of manual weekly reporting.",
-                "cs2-approach": "Engineered custom webhook endpoints, process mapping, and automated sync pipelines to unify information flow.",
-                "cs2-outcome": "Real-time operational visibility across the organization and the complete elimination of manual data reconciliation.",
+                
+                "cs2-title": "High-Availability Operational Contingency",
+                "cs2-problem": "Unpredictable federal system outages paralyzed state health administration, causing massive workflow backlogs.",
+                "cs2-approach": "Engineered a resilient, independent mirror application with automated data synchronization to serve as a frictionless fallback.",
+                "cs2-outcome": "Guaranteed 100% operational continuity, completely eliminating idle time during external server failures.",
+                
                 "read-more": "Read full case study &rarr;",
                 "marketplaces-text": "Looking to engage through a freelance marketplace? Find me on:",
                 "about-title": "How I Work",
@@ -544,14 +549,17 @@
                 "service4-title": "Conectar Sistemas Existentes", "service4-desc": "Unificação de plataformas e bancos de dados distintos para fornecer visibilidade operacional clara e em tempo real.",
                 "case-studies-title": "Projetos Selecionados",
                 "cs-problem-label": "Problema", "cs-approach-label": "Abordagem", "cs-outcome-label": "Resultado",
+                
                 "cs1-title": "RemanejaSUS",
                 "cs1-problem": "Alocação ineficiente de recursos públicos de saúde dificultada por dados altamente fragmentados e isolados.",
                 "cs1-approach": "Projeto de um pipeline ETL unificado e uma arquitetura de dados automatizada conectada a painéis analíticos simplificados.",
                 "cs1-outcome": "Suporte à decisão centralizado, reduzindo drasticamente o tempo de análise manual e melhorando a capacidade de resposta na saúde pública.",
-                "cs2-title": "Integração de Dados Operacionais",
-                "cs2-problem": "Dados críticos de negócios presos em plataformas SaaS desconectadas, exigindo horas de relatórios manuais semanais.",
-                "cs2-approach": "Engenharia de endpoints de webhook customizados, mapeamento de processos e pipelines de sincronização automatizados.",
-                "cs2-outcome": "Visibilidade operacional em tempo real e a eliminação completa da reconciliação manual de dados.",
+                
+                "cs2-title": "Contingência Operacional de Alta Disponibilidade",
+                "cs2-problem": "Quedas imprevisíveis em sistemas federais paralisavam a administração estadual de saúde, causando enormes acúmulos de trabalho.",
+                "cs2-approach": "Desenvolvimento de um aplicativo espelho independente, com sincronização automatizada de dados como fallback imediato.",
+                "cs2-outcome": "Garantia de 100% de continuidade operacional, eliminando completamente o tempo ocioso durante falhas externas.",
+                
                 "read-more": "Ler caso de estudo completo &rarr;",
                 "marketplaces-text": "Procurando contratar através de plataformas freelance? Encontre-me no:",
                 "about-title": "Como Eu Trabalho",
@@ -743,7 +751,7 @@
                             }
                         }
                     });
-                }, { rootMargin: '100px 0px', threshold: 0.1 }); /* Lowered to 10% because added trust-strip made the section taller */
+                }, { rootMargin: '100px 0px', threshold: 0.1 }); 
                 observer.observe(heroSection);
             } else {
                 window.addEventListener('load', () => {
