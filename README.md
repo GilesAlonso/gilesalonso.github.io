@@ -210,18 +210,6 @@ I believe good systems should be:
 
 ---
 
-## GitHub Statistics
-
-<p align="center">
-
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=gilesAlonso&show_icons=true&hide_border=true">
-
-<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=gilesAlonso&layout=compact&hide_border=true">
-
-</p>
-
----
-
 ## Contact
 
 🌐 Portfolio
