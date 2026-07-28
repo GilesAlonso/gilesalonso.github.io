@@ -1,63 +1,245 @@
 <div align="center">
-  <h1>Giles Alonso — Self-Taught Healthtech Developer</h1>
-  <h3>Strategic INTJ-A mind building data-driven systems for public health impact</h3>
-  <p>
-    <img src="https://img.shields.io/badge/Focus-Healthcare%20Innovation-5a189a?style=flat-square" alt="Healthcare Innovation Badge" />
-    <img src="https://img.shields.io/badge/Path-Self%20Taught-0b7285?style=flat-square" alt="Self Taught Badge" />
-    <img src="https://img.shields.io/badge/Personality-INTJ--A-343a40?style=flat-square" alt="INTJ-A Badge" />
-  </p>
+
+# Giles Alonso
+
+### Designing Intelligent Systems for Modern Operations
+
+Systems thinking • Automation • Data Engineering • Decision Support
+
+[Portfolio](https://solvethis.qzz.io) • [LinkedIn](https://www.linkedin.com/in/gilesalonso)
+
 </div>
 
 ---
 
-### 👋 About me
+## About
 
-- Self-taught developer who transitioned from clinical dentistry into architecting digital healthcare operations for the public sector in Brazil.
-- I combine data analytics, automation, and policy awareness to design transparent systems that stand up to stakeholder scrutiny.
-- Strategic INTJ-A: I map constraints, align stakeholders, and deliver measurable results at pace.
-- Advocating for equitable healthcare resource allocation through purposeful technology and clear communication.
+I design systems that make organizations work better.
 
-### 🚀 Featured projects
+Most operational problems are not software problems.
 
-#### Nova PPI Capixaba (RemanejaSUS) · [Visit](https://sites.google.com/view/novappicapixaba/)
-- **Role:** Sole developer delivering the state-wide RemanejaSUS platform for the State Health Secretariat of Espírito Santo (SESA).
-- **Mission:** Manage the physical and financial reallocation of SUS resources across all municipalities with full transparency.
-- **Tech stack:** Google AppSheet · Google Sheets · Google Apps Script (automation, triggers, reporting).
-- **Key features:**
-  - Automated monthly cycles orchestrated with time-based triggers.
-  - Real-time “Living PPI” views that keep programming data accurate and auditable.
-  - Financial validation rules that prevent negative balances before approvals.
-  - Structured negotiation workflow guiding municipal managers end-to-end.
-  - Automated PDF reporting and email distribution for every reallocation cycle.
-- **Impact:** Elevates transparency, enforces equity in statewide healthcare allocation, and strengthens interfederative collaboration across Espírito Santo.
+They're information problems.
 
-#### Tabela de procedimentos · [Visit](https://PPI.pythonanywhere.com)
-- Reliable SIGTAP reference that keeps critical Brazilian healthcare procedure data available even when official portals fail.
-- Built to support clinicians, administrators, and analysts who need quick, accurate procedure intelligence.
+Disconnected workflows.
+Duplicated work.
+Manual reconciliation.
+Poor visibility.
+Processes that evolved without being intentionally designed.
 
-#### Portfolio Sites
-- [solvethis.qzz.io](https://solvethis.qzz.io) — Commercial bilingual landing site for automation and AI services.
-- [React portfolio (Vercel deployment & source)](http://giles.vercel.app/) — React-based showcase of projects, skills, and career narrative.
-- [IAdventures](https://gilesalonso.github.io/IAdventures) — Collection of AI experiments and tooling explorations.
+My work starts there.
 
-### 🛠️ Skills at a glance
+I study how information flows through an organization, identify operational bottlenecks, and engineer systems that simplify work while improving reliability, transparency and decision-making.
 
-- **Data & Analytics:** Tableau _(Experienced)_ • Looker Studio _(Proficient)_ • Excel _(Highly experienced)_ • Sheets _(Experienced)_ • SQL _(Proficient)_ • Python _(Intermediate)_ • Jupyter/Colab _(Intermediate)_ • Power BI _(Familiar)_ • R _(Advanced)_ • RStudio _(Advanced)_
-- **Development — Web & Interfaces:** HTML5 & CSS3 _(Advanced)_ • JavaScript _(Advanced)_ • React _(Intermediate)_ • Next.js _(Intermediate)_ • AppSheet _(Experienced — automation-ready business apps)_ • Firebase _(Intermediate)_ • Git & GitHub _(Moderate)_ • Markdown _(Experienced)_ • Visual Studio Code _(Primary IDE)_ • Postman _(API testing & validation)_
-- **Development — Automation & Platforms:** Google Apps Script/Webhooks _(Advanced — webhook endpoints for dataset distribution)_ • Python _(Intermediate — automation assistants & pipelines)_ • Selenium _(Intermediate — automated Excel workflows)_ • Bash/Shell _(Proficient)_ • PowerShell _(Proficient)_ • Batch scripting _(Proficient)_ • Node.js _(Intermediate)_ • MongoDB _(Intermediate)_ • Vercel _(Production deployments)_ • Heroku _(Legacy deployments)_
-- **Collaboration & Productivity:** Google Workspace _(Experienced)_ • Notion _(Familiar)_ • Trello _(Familiar)_ • Asana _(Basic)_ • Miro _(Familiar)_ • LibreOffice _(Experienced)_
-- **AI & Emerging Tech:** ChatGPT _(Experienced)_ • Google AI Studio • Qwen • Manus • Kimi • Perplexity • Claude • cto.new
-- **Project Management & Strategic Frameworks:** 5W2H _(Experienced)_ • RACI _(Proficient)_ • SWOT _(Experienced)_ • Kanban _(Experienced)_ • PDCA _(Experienced)_ • SMART _(Experienced)_ • Process Mapping _(Experienced)_ • Gantt _(Familiar)_ • Stakeholder Grid _(Experienced)_ • Risk Matrix _(Familiar)_ • OKRs _(Familiar)_ • Balanced Scorecard _(Familiar)_ • Mind Mapping _(Experienced)_ • Business Model Canvas _(Familiar)_ • BPM Canvas _(Familiar)_ • Ishikawa _(Familiar)_ • Logic Model _(Familiar)_ • Value Stream Mapping _(Basic)_
+I don't enjoy writing software for its own sake.
 
-### 🎯 Current focus
+I enjoy designing systems that people stop noticing because they simply work.
 
-- Scaling RemanejaSUS automations with deeper scenario modeling and proactive alerting.
-- Strengthening advanced SQL and Python pipelines to support statewide healthcare analytics.
-- Evaluating practical AI copilots to accelerate decision support and reduce manual reconciliation work.
+---
 
-### 🤝 Let's connect
+## What I Build
 
-- 💼 LinkedIn: [linkedin.com/in/gilesalonso](https://www.linkedin.com/in/gilesalonso/)
-- 📧 Email: [giles.g.alonso@gmail.com](mailto:giles.g.alonso@gmail.com)
-- 💬 Live chat: [tawk.to/solve-this](https://tawk.to/chat/640884f031ebfa0fe7f16040/1gr0keive)
-- 🌐 Portfolio hub: [solvethis.qzz.io](https://solvethis.qzz.io) · [IAdventures](https://gilesalonso.github.io/IAdventures)
+- Operational platforms
+- Workflow automation
+- Decision-support systems
+- Data pipelines
+- Internal tools
+- Dashboards
+- API integrations
+- Process redesign
+
+---
+
+# Selected Projects
+
+---
+
+## 🏥 RemanejaSUS
+
+Statewide healthcare resource allocation platform developed for the Health Secretariat of Espírito Santo, Brazil.
+
+The platform coordinates the redistribution of SUS healthcare resources across municipalities while maintaining complete operational transparency.
+
+### Responsibilities
+
+- System architecture
+- Workflow design
+- Data modeling
+- Automation
+- Business rules
+- Reporting
+- Platform maintenance
+
+### Highlights
+
+- Automated monthly processing cycles
+- Financial validation engine
+- Dynamic operational dashboards
+- Automated PDF generation
+- Email notification workflows
+- Living datasets
+- Negotiation support between municipalities
+
+### Impact
+
+- Reduced operational workload
+- Improved allocation transparency
+- Faster decision making
+- Greater statewide coordination
+
+🔗 https://sites.google.com/view/novappicapixaba/
+
+---
+
+## ⚙️ SolveThis
+
+Independent consultancy focused on designing intelligent operational systems.
+
+Services include
+
+- Workflow Engineering
+- Business Process Automation
+- Custom Google Workspace Solutions
+- Internal Platforms
+- Dashboard Development
+- Systems Integration
+- API Development
+
+🔗 https://solvethis.qzz.io
+
+---
+
+## 📊 SIGTAP Reference Platform
+
+Independent healthcare procedure reference designed to remain available whenever official government systems become unavailable.
+
+🔗 https://ppi.pythonanywhere.com
+
+---
+
+## 🧪 IAdventures
+
+Collection of technical experiments exploring software engineering, automation, web technologies and emerging tools.
+
+🔗 https://gilesalonso.github.io/IAdventures
+
+---
+
+# Engineering Approach
+
+I prefer solving operational problems instead of technical ones.
+
+Technology is simply the material used to build the solution.
+
+That usually means combining process analysis, software engineering, automation, analytics and good system design rather than relying on any single framework or language.
+
+My objective is always the same:
+
+> Reduce friction.
+>
+> Increase clarity.
+>
+> Build systems that continue working long after they're deployed.
+
+---
+
+# Technical Toolbox
+
+### Languages
+
+- JavaScript
+- Python
+- SQL
+- R
+- HTML
+- CSS
+
+### Platforms
+
+- Google Apps Script
+- Google Workspace
+- AppSheet
+- Firebase
+- Node.js
+- MongoDB
+
+### Data
+
+- Google Sheets
+- Excel
+- Looker Studio
+- Tableau
+- Power BI
+
+### Web
+
+- React
+- Next.js
+- REST APIs
+- Webhooks
+- Git
+- GitHub
+- Vercel
+
+---
+
+# Principles
+
+Good software isn't measured by the amount of code it contains.
+
+It's measured by the amount of complexity it removes.
+
+I believe good systems should be:
+
+- Understandable
+- Reliable
+- Maintainable
+- Observable
+- Scalable
+- Built around people instead of technology
+
+---
+
+# Current Interests
+
+- Operational system architecture
+- Workflow engineering
+- Data engineering
+- Public sector digital transformation
+- Decision-support systems
+- Modern web applications
+
+---
+
+## GitHub Statistics
+
+<p align="center">
+
+<img height="170" src="https://github-readme-stats.vercel.app/api?username=gilesAlonso&show_icons=true&hide_border=true">
+
+<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=gilesAlonso&layout=compact&hide_border=true">
+
+</p>
+
+---
+
+## Contact
+
+🌐 Portfolio
+
+https://solvethis.qzz.io
+
+💼 LinkedIn
+
+https://linkedin.com/in/gilesalonso
+
+📧 Email
+
+giles.g.alonso@gmail.com
+
+---
+
+<div align="center">
+
+*"Technology should absorb complexity, not create it."*
+
+</div>
