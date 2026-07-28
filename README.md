@@ -2,7 +2,7 @@
 
 # Giles Alonso
 
-### Designing Intelligent Systems for Modern Operations
+### Designing Reliable Systems for Modern Operations
 
 Systems thinking • Automation • Data Engineering • Decision Support
 
