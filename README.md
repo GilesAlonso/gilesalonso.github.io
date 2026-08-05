@@ -166,7 +166,7 @@ My objective is always the same:
 
 - Google Sheets
 - Excel
-- Looker Studio
+- Google Data Studio
 - Tableau
 - Power BI
 
